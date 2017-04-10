@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &171710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 491350}
+  - 114: {fileID: 11429674}
+  m_Layer: 0
+  m_Name: NamedEnemy_04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &491350
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11429674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: fd61c649acd039f4d93ee54437a54ecf, type: 2}
+  mSprites:
+  - name: attack_Mrpenguin_01
+    x: 195
+    y: 1022
+    width: 194
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 84
+    paddingRight: 318
+    paddingTop: 46
+    paddingBottom: 40
+  - name: attack_Mrpenguin_02
+    x: 0
+    y: 771
+    width: 180
+    height: 250
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 86
+    paddingRight: 330
+    paddingTop: 43
+    paddingBottom: 40
+  - name: attack_Mrpenguin_03
+    x: 0
+    y: 522
+    width: 162
+    height: 248
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 85
+    paddingRight: 349
+    paddingTop: 45
+    paddingBottom: 40
+  - name: attack_Mrpenguin_04
+    x: 767
+    y: 1796
+    width: 251
+    height: 252
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 68
+    paddingRight: 277
+    paddingTop: 45
+    paddingBottom: 36
+  - name: attack_Mrpenguin_05
+    x: 0
+    y: 1270
+    width: 348
+    height: 258
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 63
+    paddingRight: 185
+    paddingTop: 43
+    paddingBottom: 32
+  - name: attack_Mrpenguin_06
+    x: 0
+    y: 1784
+    width: 385
+    height: 264
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 98
+    paddingRight: 113
+    paddingTop: 49
+    paddingBottom: 20
+  - name: attack_Mrpenguin_07
+    x: 386
+    y: 1797
+    width: 380
+    height: 251
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 96
+    paddingRight: 120
+    paddingTop: 48
+    paddingBottom: 34
+  - name: attack_Mrpenguin_08
+    x: 355
+    y: 1530
+    width: 353
+    height: 253
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 94
+    paddingRight: 149
+    paddingTop: 48
+    paddingBottom: 32
+  - name: attack_Mrpenguin_09
+    x: 0
+    y: 1529
+    width: 354
+    height: 254
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 93
+    paddingRight: 149
+    paddingTop: 47
+    paddingBottom: 32
+  - name: attack_Mrpenguin_10
+    x: 0
+    y: 1022
+    width: 194
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 84
+    paddingRight: 318
+    paddingTop: 46
+    paddingBottom: 40
+  - name: Mrpenguin_01
+    x: 349
+    y: 1277
+    width: 196
+    height: 251
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 56
+    paddingRight: 61
+    paddingTop: 33
+    paddingBottom: 18
+  - name: Mrpenguin_02
+    x: 546
+    y: 1275
+    width: 192
+    height: 253
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 54
+    paddingRight: 67
+    paddingTop: 33
+    paddingBottom: 16
+  - name: Mrpenguin_03
+    x: 709
+    y: 1532
+    width: 199
+    height: 251
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 53
+    paddingRight: 61
+    paddingTop: 33
+    paddingBottom: 18
+  - name: Mrpenguin_04
+    x: 739
+    y: 1275
+    width: 192
+    height: 253
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 54
+    paddingRight: 67
+    paddingTop: 33
+    paddingBottom: 16
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 171710}
+  m_IsPrefabParent: 1

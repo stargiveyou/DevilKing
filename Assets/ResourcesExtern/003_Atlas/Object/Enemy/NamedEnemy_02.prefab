@@ -1,0 +1,540 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &127072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 443066}
+  - 114: {fileID: 11422038}
+  m_Layer: 0
+  m_Name: NamedEnemy_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &443066
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11422038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: be655382dc94cad46a8f3b29f8988464, type: 2}
+  mSprites:
+  - name: attack_Darkflame_01
+    x: 1727
+    y: 1210
+    width: 174
+    height: 241
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 21
+    paddingRight: 444
+    paddingTop: 26
+    paddingBottom: 22
+  - name: attack_Darkflame_02
+    x: 912
+    y: 968
+    width: 164
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 26
+    paddingRight: 449
+    paddingTop: 27
+    paddingBottom: 22
+  - name: attack_Darkflame_03
+    x: 279
+    y: 637
+    width: 195
+    height: 238
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 426
+    paddingTop: 31
+    paddingBottom: 20
+  - name: attack_Darkflame_04
+    x: 0
+    y: 632
+    width: 278
+    height: 243
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 343
+    paddingTop: 30
+    paddingBottom: 16
+  - name: attack_Darkflame_05
+    x: 494
+    y: 1209
+    width: 528
+    height: 242
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 93
+    paddingTop: 31
+    paddingBottom: 16
+  - name: attack_Darkflame_06
+    x: 1256
+    y: 1506
+    width: 595
+    height: 246
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 20
+    paddingRight: 24
+    paddingTop: 30
+    paddingBottom: 13
+  - name: attack_Darkflame_07
+    x: 650
+    y: 1507
+    width: 605
+    height: 245
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 16
+    paddingTop: 31
+    paddingBottom: 13
+  - name: attack_Darkflame_08
+    x: 1023
+    y: 1211
+    width: 528
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 93
+    paddingTop: 31
+    paddingBottom: 18
+  - name: attack_Darkflame_09
+    x: 1567
+    y: 1805
+    width: 358
+    height: 243
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 24
+    paddingRight: 257
+    paddingTop: 30
+    paddingBottom: 16
+  - name: attack_Darkflame_10
+    x: 1552
+    y: 1210
+    width: 174
+    height: 241
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 21
+    paddingRight: 444
+    paddingTop: 26
+    paddingBottom: 22
+  - name: attack_Ishark_01
+    x: 912
+    y: 471
+    width: 157
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 124
+    paddingTop: 53
+    paddingBottom: 16
+  - name: attack_Ishark_02
+    x: 912
+    y: 719
+    width: 157
+    height: 248
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 133
+    paddingTop: 50
+    paddingBottom: 18
+  - name: attack_Ishark_03
+    x: 1077
+    y: 960
+    width: 156
+    height: 248
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 137
+    paddingTop: 49
+    paddingBottom: 19
+  - name: attack_Ishark_04
+    x: 0
+    y: 876
+    width: 232
+    height: 299
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 28
+    paddingTop: 0
+    paddingBottom: 17
+  - name: attack_Ishark_05
+    x: 494
+    y: 157
+    width: 211
+    height: 245
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 42
+    paddingTop: 54
+    paddingBottom: 17
+  - name: attack_Ishark_06
+    x: 1852
+    y: 1505
+    width: 193
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 15
+    paddingRight: 85
+    paddingTop: 53
+    paddingBottom: 16
+  - name: attack_Ishark_07
+    x: 912
+    y: 223
+    width: 157
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 124
+    paddingTop: 53
+    paddingBottom: 16
+  - name: attack_Rebelika_01
+    x: 233
+    y: 907
+    width: 240
+    height: 268
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 565
+    paddingTop: 38
+    paddingBottom: 41
+  - name: attack_Rebelika_02
+    x: 0
+    y: 96
+    width: 231
+    height: 266
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 577
+    paddingTop: 40
+    paddingBottom: 41
+  - name: attack_Rebelika_03
+    x: 0
+    y: 1176
+    width: 493
+    height: 275
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 320
+    paddingTop: 44
+    paddingBottom: 28
+  - name: attack_Rebelika_04
+    x: 0
+    y: 1452
+    width: 649
+    height: 300
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 165
+    paddingTop: 45
+    paddingBottom: 2
+  - name: attack_Rebelika_05
+    x: 0
+    y: 1753
+    width: 807
+    height: 295
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 6
+    paddingTop: 44
+    paddingBottom: 8
+  - name: attack_Rebelika_06
+    x: 808
+    y: 1757
+    width: 758
+    height: 291
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 50
+    paddingTop: 40
+    paddingBottom: 16
+  - name: attack_Rebelika_07
+    x: 241
+    y: 363
+    width: 237
+    height: 268
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 568
+    paddingTop: 38
+    paddingBottom: 41
+  - name: attack_Rebelika_08
+    x: 0
+    y: 363
+    width: 240
+    height: 268
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 565
+    paddingTop: 38
+    paddingBottom: 41
+  - name: Darkflame_01
+    x: 1716
+    y: 967
+    width: 157
+    height: 241
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 86
+    paddingRight: 55
+    paddingTop: 29
+    paddingBottom: 18
+  - name: Darkflame_02
+    x: 1398
+    y: 966
+    width: 158
+    height: 242
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 89
+    paddingRight: 51
+    paddingTop: 30
+    paddingBottom: 16
+  - name: Darkflame_03
+    x: 1234
+    y: 973
+    width: 163
+    height: 235
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 86
+    paddingRight: 49
+    paddingTop: 29
+    paddingBottom: 24
+  - name: Darkflame_04
+    x: 1557
+    y: 966
+    width: 158
+    height: 242
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 89
+    paddingRight: 51
+    paddingTop: 30
+    paddingBottom: 16
+  - name: Ishark_01
+    x: 723
+    y: 961
+    width: 188
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 71
+    paddingRight: 39
+    paddingTop: 23
+    paddingBottom: 18
+  - name: Ishark_02
+    x: 723
+    y: 713
+    width: 182
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 68
+    paddingRight: 48
+    paddingTop: 23
+    paddingBottom: 18
+  - name: Ishark_03
+    x: 723
+    y: 224
+    width: 173
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 71
+    paddingRight: 54
+    paddingTop: 23
+    paddingBottom: 25
+  - name: Ishark_04
+    x: 723
+    y: 465
+    width: 182
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 68
+    paddingRight: 48
+    paddingTop: 23
+    paddingBottom: 18
+  - name: Rebelika_01
+    x: 494
+    y: 941
+    width: 228
+    height: 267
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 37
+    paddingTop: 3
+    paddingBottom: 18
+  - name: Rebelika_02
+    x: 494
+    y: 672
+    width: 227
+    height: 268
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 30
+    paddingRight: 41
+    paddingTop: 4
+    paddingBottom: 16
+  - name: Rebelika_03
+    x: 232
+    y: 95
+    width: 230
+    height: 267
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 34
+    paddingRight: 34
+    paddingTop: 3
+    paddingBottom: 18
+  - name: Rebelika_04
+    x: 494
+    y: 403
+    width: 227
+    height: 268
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 30
+    paddingRight: 41
+    paddingTop: 4
+    paddingBottom: 16
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 127072}
+  m_IsPrefabParent: 1

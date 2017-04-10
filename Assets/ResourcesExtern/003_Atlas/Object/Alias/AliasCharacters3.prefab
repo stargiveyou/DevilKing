@@ -1,0 +1,514 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &161426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 455860}
+  - 114: {fileID: 11489138}
+  m_Layer: 0
+  m_Name: AliasCharacters3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &455860
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11489138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: a13ed9e4e207ad24583e2f1bfed1631c, type: 2}
+  mSprites:
+  - name: AdamantiumGolem
+    x: 508
+    y: 913
+    width: 297
+    height: 287
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 272
+    paddingRight: 17
+    paddingTop: 51
+    paddingBottom: 41
+  - name: attack_AdamantiumGolem_01
+    x: 1579
+    y: 1443
+    width: 297
+    height: 287
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 272
+    paddingRight: 17
+    paddingTop: 51
+    paddingBottom: 41
+  - name: attack_AdamantiumGolem_02
+    x: 508
+    y: 340
+    width: 270
+    height: 284
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 298
+    paddingRight: 18
+    paddingTop: 54
+    paddingBottom: 41
+  - name: attack_AdamantiumGolem_03
+    x: 0
+    y: 587
+    width: 286
+    height: 299
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 292
+    paddingRight: 8
+    paddingTop: 39
+    paddingBottom: 41
+  - name: attack_AdamantiumGolem_04
+    x: 0
+    y: 287
+    width: 286
+    height: 299
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 292
+    paddingRight: 8
+    paddingTop: 39
+    paddingBottom: 41
+  - name: attack_AdamantiumGolem_05
+    x: 508
+    y: 1410
+    width: 536
+    height: 320
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 23
+    paddingRight: 27
+    paddingTop: 37
+    paddingBottom: 22
+  - name: attack_AdamantiumGolem_06
+    x: 0
+    y: 1731
+    width: 559
+    height: 317
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 27
+    paddingTop: 40
+    paddingBottom: 22
+  - name: attack_AdamantiumGolem_07
+    x: 0
+    y: 1096
+    width: 374
+    height: 290
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 185
+    paddingRight: 27
+    paddingTop: 64
+    paddingBottom: 25
+  - name: attack_AdamantiumGolem_08
+    x: 508
+    y: 625
+    width: 297
+    height: 287
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 272
+    paddingRight: 17
+    paddingTop: 51
+    paddingBottom: 41
+  - name: attack_IronGolem_01
+    x: 508
+    y: 78
+    width: 284
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 273
+    paddingRight: 33
+    paddingTop: 29
+    paddingBottom: 13
+  - name: attack_IronGolem_02
+    x: 1091
+    y: 945
+    width: 265
+    height: 255
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 295
+    paddingRight: 30
+    paddingTop: 35
+    paddingBottom: 13
+  - name: attack_IronGolem_03
+    x: 806
+    y: 386
+    width: 250
+    height: 290
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 316
+    paddingRight: 24
+    paddingTop: 0
+    paddingBottom: 13
+  - name: attack_IronGolem_04
+    x: 806
+    y: 95
+    width: 250
+    height: 290
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 316
+    paddingRight: 24
+    paddingTop: 0
+    paddingBottom: 13
+  - name: attack_IronGolem_05
+    x: 1045
+    y: 1463
+    width: 533
+    height: 267
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 39
+    paddingTop: 28
+    paddingBottom: 8
+  - name: attack_IronGolem_06
+    x: 1181
+    y: 1777
+    width: 533
+    height: 271
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 39
+    paddingTop: 24
+    paddingBottom: 8
+  - name: attack_IronGolem_07
+    x: 1715
+    y: 1785
+    width: 328
+    height: 263
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 220
+    paddingRight: 42
+    paddingTop: 27
+    paddingBottom: 13
+  - name: attack_IronGolem_08
+    x: 806
+    y: 939
+    width: 284
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 273
+    paddingRight: 33
+    paddingTop: 29
+    paddingBottom: 13
+  - name: attack_MudGolem_01
+    x: 1788
+    y: 481
+    width: 229
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 318
+    paddingRight: 18
+    paddingTop: 36
+    paddingBottom: 5
+  - name: attack_MudGolem_02
+    x: 1558
+    y: 257
+    width: 226
+    height: 223
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 326
+    paddingRight: 13
+    paddingTop: 45
+    paddingBottom: 3
+  - name: attack_MudGolem_03
+    x: 1336
+    y: 464
+    width: 221
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 340
+    paddingRight: 4
+    paddingTop: 22
+    paddingBottom: 2
+  - name: attack_MudGolem_04
+    x: 1336
+    y: 216
+    width: 221
+    height: 247
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 340
+    paddingRight: 4
+    paddingTop: 22
+    paddingBottom: 2
+  - name: attack_MudGolem_05
+    x: 0
+    y: 887
+    width: 470
+    height: 208
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 81
+    paddingRight: 14
+    paddingTop: 53
+    paddingBottom: 10
+  - name: attack_MudGolem_06
+    x: 508
+    y: 1201
+    width: 518
+    height: 208
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 14
+    paddingTop: 53
+    paddingBottom: 10
+  - name: attack_MudGolem_07
+    x: 1336
+    y: 712
+    width: 256
+    height: 232
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 294
+    paddingRight: 15
+    paddingTop: 36
+    paddingBottom: 3
+  - name: attack_MudGolem_08
+    x: 1593
+    y: 714
+    width: 229
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 318
+    paddingRight: 18
+    paddingTop: 36
+    paddingBottom: 5
+  - name: attack_StoneGolem_01
+    x: 1357
+    y: 948
+    width: 243
+    height: 252
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 435
+    paddingRight: 48
+    paddingTop: 80
+    paddingBottom: 45
+  - name: attack_StoneGolem_02
+    x: 1091
+    y: 175
+    width: 237
+    height: 253
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 447
+    paddingRight: 42
+    paddingTop: 79
+    paddingBottom: 45
+  - name: attack_StoneGolem_03
+    x: 1091
+    y: 682
+    width: 244
+    height: 262
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 447
+    paddingRight: 35
+    paddingTop: 70
+    paddingBottom: 45
+  - name: attack_StoneGolem_04
+    x: 0
+    y: 1387
+    width: 507
+    height: 343
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 172
+    paddingRight: 47
+    paddingTop: 20
+    paddingBottom: 14
+  - name: attack_StoneGolem_05
+    x: 560
+    y: 1769
+    width: 620
+    height: 279
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 59
+    paddingRight: 47
+    paddingTop: 73
+    paddingBottom: 25
+  - name: attack_StoneGolem_06
+    x: 0
+    y: 23
+    width: 310
+    height: 263
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 371
+    paddingRight: 45
+    paddingTop: 83
+    paddingBottom: 31
+  - name: attack_StoneGolem_07
+    x: 1601
+    y: 948
+    width: 243
+    height: 252
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 435
+    paddingRight: 48
+    paddingTop: 80
+    paddingBottom: 45
+  - name: IronGolem
+    x: 806
+    y: 677
+    width: 284
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 273
+    paddingRight: 33
+    paddingTop: 29
+    paddingBottom: 13
+  - name: MudGolem
+    x: 1558
+    y: 481
+    width: 229
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 318
+    paddingRight: 18
+    paddingTop: 36
+    paddingBottom: 5
+  - name: StoneGolem
+    x: 1091
+    y: 429
+    width: 243
+    height: 252
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 435
+    paddingRight: 48
+    paddingTop: 80
+    paddingBottom: 45
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 161426}
+  m_IsPrefabParent: 1

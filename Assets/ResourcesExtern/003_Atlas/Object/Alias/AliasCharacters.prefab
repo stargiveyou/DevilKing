@@ -1,0 +1,1216 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &121584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 460354}
+  - 114: {fileID: 11400870}
+  m_Layer: 0
+  m_Name: AliasCharacters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &460354
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: fa58c5cf535106d4b92acc4153084a0d, type: 2}
+  mSprites:
+  - name: attack_DeathKnight_01
+    x: 842
+    y: 1081
+    width: 173
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 145
+    paddingRight: 25
+    paddingTop: 33
+    paddingBottom: 23
+  - name: attack_DeathKnight_02
+    x: 994
+    y: 846
+    width: 158
+    height: 234
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 158
+    paddingRight: 27
+    paddingTop: 29
+    paddingBottom: 23
+  - name: attack_DeathKnight_03
+    x: 994
+    y: 610
+    width: 156
+    height: 235
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 162
+    paddingRight: 25
+    paddingTop: 27
+    paddingBottom: 24
+  - name: attack_DeathKnight_04
+    x: 1303
+    y: 845
+    width: 147
+    height: 235
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 171
+    paddingRight: 25
+    paddingTop: 28
+    paddingBottom: 23
+  - name: attack_DeathKnight_05
+    x: 1451
+    y: 845
+    width: 147
+    height: 235
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 171
+    paddingRight: 25
+    paddingTop: 28
+    paddingBottom: 23
+  - name: attack_DeathKnight_06
+    x: 491
+    y: 1601
+    width: 241
+    height: 226
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 79
+    paddingRight: 23
+    paddingTop: 37
+    paddingBottom: 23
+  - name: attack_DeathKnight_07
+    x: 733
+    y: 1600
+    width: 235
+    height: 227
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 83
+    paddingRight: 25
+    paddingTop: 36
+    paddingBottom: 23
+  - name: attack_DeathKnight_08
+    x: 1195
+    y: 1599
+    width: 229
+    height: 228
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 92
+    paddingRight: 22
+    paddingTop: 35
+    paddingBottom: 23
+  - name: attack_DeathKnight_09
+    x: 1016
+    y: 1081
+    width: 173
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 145
+    paddingRight: 25
+    paddingTop: 33
+    paddingBottom: 23
+  - name: attack_DeathRich_01
+    x: 453
+    y: 1061
+    width: 215
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 70
+    paddingRight: 40
+    paddingTop: 37
+    paddingBottom: 43
+  - name: attack_DeathRich_02
+    x: 453
+    y: 801
+    width: 214
+    height: 259
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 77
+    paddingRight: 34
+    paddingTop: 39
+    paddingBottom: 43
+  - name: attack_DeathRich_03
+    x: 244
+    y: 794
+    width: 203
+    height: 259
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 97
+    paddingRight: 25
+    paddingTop: 39
+    paddingBottom: 43
+  - name: attack_DeathRich_04
+    x: 244
+    y: 1054
+    width: 203
+    height: 259
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 97
+    paddingRight: 25
+    paddingTop: 39
+    paddingBottom: 43
+  - name: attack_DeathRich_05
+    x: 0
+    y: 1784
+    width: 243
+    height: 264
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 46
+    paddingRight: 36
+    paddingTop: 34
+    paddingBottom: 43
+  - name: attack_DeathRich_06
+    x: 0
+    y: 998
+    width: 231
+    height: 262
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 58
+    paddingRight: 36
+    paddingTop: 36
+    paddingBottom: 43
+  - name: attack_King_01
+    x: 1433
+    y: 387
+    width: 133
+    height: 228
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 208
+    paddingRight: 16
+    paddingTop: 21
+    paddingBottom: 29
+  - name: attack_King_02
+    x: 1599
+    y: 856
+    width: 147
+    height: 224
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 181
+    paddingRight: 29
+    paddingTop: 25
+    paddingBottom: 29
+  - name: attack_King_03
+    x: 1153
+    y: 117
+    width: 142
+    height: 225
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 164
+    paddingRight: 51
+    paddingTop: 26
+    paddingBottom: 27
+  - name: attack_King_04
+    x: 244
+    y: 1828
+    width: 280
+    height: 220
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 77
+    paddingTop: 30
+    paddingBottom: 28
+  - name: attack_King_05
+    x: 0
+    y: 4
+    width: 224
+    height: 215
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 121
+    paddingTop: 35
+    paddingBottom: 28
+  - name: attack_King_06
+    x: 525
+    y: 1831
+    width: 211
+    height: 217
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 24
+    paddingRight: 122
+    paddingTop: 32
+    paddingBottom: 29
+  - name: attack_King_07
+    x: 1364
+    y: 1086
+    width: 163
+    height: 225
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 143
+    paddingRight: 51
+    paddingTop: 26
+    paddingBottom: 27
+  - name: attack_King_08
+    x: 1747
+    y: 856
+    width: 147
+    height: 224
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 181
+    paddingRight: 29
+    paddingTop: 25
+    paddingBottom: 29
+  - name: attack_King_09
+    x: 1296
+    y: 161
+    width: 133
+    height: 228
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 208
+    paddingRight: 16
+    paddingTop: 21
+    paddingBottom: 29
+  - name: attack_Queen_01
+    x: 1244
+    y: 1354
+    width: 188
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 114
+    paddingRight: 29
+    paddingTop: 39
+    paddingBottom: 35
+  - name: attack_Queen_02
+    x: 1425
+    y: 1595
+    width: 212
+    height: 232
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 100
+    paddingRight: 19
+    paddingTop: 37
+    paddingBottom: 35
+  - name: attack_Queen_03
+    x: 969
+    y: 1594
+    width: 225
+    height: 233
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 106
+    paddingRight: 0
+    paddingTop: 37
+    paddingBottom: 34
+  - name: attack_Queen_04
+    x: 1031
+    y: 1355
+    width: 212
+    height: 229
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 119
+    paddingRight: 0
+    paddingTop: 41
+    paddingBottom: 34
+  - name: attack_Queen_05
+    x: 669
+    y: 351
+    width: 171
+    height: 233
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 159
+    paddingRight: 1
+    paddingTop: 36
+    paddingBottom: 35
+  - name: attack_Queen_06
+    x: 669
+    y: 118
+    width: 171
+    height: 232
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 156
+    paddingRight: 4
+    paddingTop: 41
+    paddingBottom: 31
+  - name: attack_Queen_07
+    x: 244
+    y: 1585
+    width: 246
+    height: 242
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 71
+    paddingRight: 14
+    paddingTop: 26
+    paddingBottom: 36
+  - name: attack_Queen_08
+    x: 0
+    y: 1523
+    width: 243
+    height: 260
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 36
+    paddingRight: 52
+    paddingTop: 12
+    paddingBottom: 32
+  - name: attack_Queen_09
+    x: 0
+    y: 1261
+    width: 232
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 46
+    paddingRight: 53
+    paddingTop: 9
+    paddingBottom: 34
+  - name: attack_Queen_10
+    x: 1638
+    y: 1593
+    width: 209
+    height: 234
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 77
+    paddingRight: 45
+    paddingTop: 39
+    paddingBottom: 31
+  - name: attack_Queen_11
+    x: 1433
+    y: 1354
+    width: 188
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 114
+    paddingRight: 29
+    paddingTop: 39
+    paddingBottom: 35
+  - name: attack_Rich_01
+    x: 1811
+    y: 1342
+    width: 172
+    height: 242
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 117
+    paddingRight: 28
+    paddingTop: 28
+    paddingBottom: 43
+  - name: attack_Rich_02
+    x: 669
+    y: 585
+    width: 167
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 122
+    paddingRight: 28
+    paddingTop: 30
+    paddingBottom: 43
+  - name: attack_Rich_03
+    x: 1153
+    y: 841
+    width: 149
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 140
+    paddingRight: 28
+    paddingTop: 31
+    paddingBottom: 43
+  - name: attack_Rich_04
+    x: 244
+    y: 10
+    width: 190
+    height: 236
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 99
+    paddingRight: 28
+    paddingTop: 34
+    paddingBottom: 43
+  - name: attack_Rich_05
+    x: 1848
+    y: 1591
+    width: 191
+    height: 236
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 98
+    paddingRight: 28
+    paddingTop: 34
+    paddingBottom: 43
+  - name: attack_Rich_06
+    x: 669
+    y: 826
+    width: 172
+    height: 242
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 117
+    paddingRight: 28
+    paddingTop: 28
+    paddingBottom: 43
+  - name: attack_Skeleton_01
+    x: 1368
+    y: 1832
+    width: 148
+    height: 216
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 5
+    paddingTop: 15
+    paddingBottom: 13
+  - name: attack_Skeleton_02
+    x: 1065
+    y: 1829
+    width: 152
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 2
+    paddingTop: 12
+    paddingBottom: 13
+  - name: attack_Skeleton_03
+    x: 1588
+    y: 619
+    width: 127
+    height: 221
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 36
+    paddingRight: 4
+    paddingTop: 10
+    paddingBottom: 13
+  - name: attack_Skeleton_04
+    x: 737
+    y: 1830
+    width: 165
+    height: 218
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 2
+    paddingTop: 13
+    paddingBottom: 13
+  - name: attack_Skeleton_05
+    x: 903
+    y: 1829
+    width: 161
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 2
+    paddingTop: 12
+    paddingBottom: 13
+  - name: attack_Skeleton_06
+    x: 1517
+    y: 1832
+    width: 148
+    height: 216
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 5
+    paddingTop: 15
+    paddingBottom: 13
+  - name: attack_SkeletonKnight_01
+    x: 842
+    y: 53
+    width: 138
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 189
+    paddingRight: 38
+    paddingTop: 30
+    paddingBottom: 42
+  - name: attack_SkeletonKnight_02
+    x: 842
+    y: 571
+    width: 146
+    height: 255
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 177
+    paddingRight: 42
+    paddingTop: 35
+    paddingBottom: 43
+  - name: attack_SkeletonKnight_03
+    x: 842
+    y: 827
+    width: 151
+    height: 253
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 167
+    paddingRight: 47
+    paddingTop: 38
+    paddingBottom: 42
+  - name: attack_SkeletonKnight_04
+    x: 1153
+    y: 343
+    width: 142
+    height: 248
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 175
+    paddingRight: 48
+    paddingTop: 44
+    paddingBottom: 41
+  - name: attack_SkeletonKnight_05
+    x: 0
+    y: 491
+    width: 225
+    height: 252
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 97
+    paddingRight: 43
+    paddingTop: 40
+    paddingBottom: 41
+  - name: attack_SkeletonKnight_06
+    x: 0
+    y: 744
+    width: 229
+    height: 253
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 95
+    paddingRight: 41
+    paddingTop: 39
+    paddingBottom: 41
+  - name: attack_SkeletonKnight_07
+    x: 453
+    y: 548
+    width: 199
+    height: 252
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 123
+    paddingRight: 43
+    paddingTop: 40
+    paddingBottom: 41
+  - name: attack_SkeletonKnight_08
+    x: 1153
+    y: 592
+    width: 142
+    height: 248
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 175
+    paddingRight: 48
+    paddingTop: 44
+    paddingBottom: 41
+  - name: attack_SkeletonKnight_09
+    x: 842
+    y: 315
+    width: 146
+    height: 255
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 177
+    paddingRight: 42
+    paddingTop: 35
+    paddingBottom: 43
+  - name: attack_SkeletonKnight_10
+    x: 994
+    y: 86
+    width: 138
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 189
+    paddingRight: 38
+    paddingTop: 30
+    paddingBottom: 42
+  - name: attack_SkeletonMage_01
+    x: 1842
+    y: 623
+    width: 124
+    height: 217
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 72
+    paddingRight: 80
+    paddingTop: 34
+    paddingBottom: 38
+  - name: attack_SkeletonMage_02
+    x: 1716
+    y: 623
+    width: 125
+    height: 217
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 74
+    paddingRight: 77
+    paddingTop: 34
+    paddingBottom: 38
+  - name: attack_SkeletonMage_03
+    x: 1692
+    y: 399
+    width: 122
+    height: 216
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 81
+    paddingRight: 73
+    paddingTop: 35
+    paddingBottom: 38
+  - name: attack_SkeletonMage_04
+    x: 1442
+    y: 624
+    width: 145
+    height: 216
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 50
+    paddingRight: 81
+    paddingTop: 35
+    paddingBottom: 38
+  - name: attack_SkeletonMage_05
+    x: 1815
+    y: 1832
+    width: 146
+    height: 216
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 49
+    paddingRight: 81
+    paddingTop: 35
+    paddingBottom: 38
+  - name: attack_SkeletonWarrior_01
+    x: 1895
+    y: 856
+    width: 145
+    height: 224
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 146
+    paddingRight: 39
+    paddingTop: 67
+    paddingBottom: 63
+  - name: attack_SkeletonWarrior_02
+    x: 1844
+    y: 1087
+    width: 148
+    height: 224
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 145
+    paddingRight: 37
+    paddingTop: 67
+    paddingBottom: 63
+  - name: attack_SkeletonWarrior_03
+    x: 1296
+    y: 390
+    width: 136
+    height: 225
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 157
+    paddingRight: 37
+    paddingTop: 66
+    paddingBottom: 63
+  - name: attack_SkeletonWarrior_04
+    x: 1686
+    y: 1088
+    width: 157
+    height: 223
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 130
+    paddingRight: 43
+    paddingTop: 69
+    paddingBottom: 62
+  - name: attack_SkeletonWarrior_05
+    x: 1528
+    y: 1088
+    width: 157
+    height: 223
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 130
+    paddingRight: 43
+    paddingTop: 69
+    paddingBottom: 62
+  - name: attack_SkeletonWarrior_06
+    x: 1218
+    y: 1830
+    width: 149
+    height: 218
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 142
+    paddingRight: 39
+    paddingTop: 74
+    paddingBottom: 62
+  - name: attack_SkeletonWizzard_01
+    x: 453
+    y: 1
+    width: 180
+    height: 272
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 122
+    paddingRight: 51
+    paddingTop: 51
+    paddingBottom: 34
+  - name: attack_SkeletonWizzard_02
+    x: 453
+    y: 274
+    width: 182
+    height: 273
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 127
+    paddingRight: 44
+    paddingTop: 50
+    paddingBottom: 34
+  - name: attack_SkeletonWizzard_03
+    x: 244
+    y: 247
+    width: 184
+    height: 273
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 132
+    paddingRight: 37
+    paddingTop: 50
+    paddingBottom: 34
+  - name: attack_SkeletonWizzard_04
+    x: 0
+    y: 220
+    width: 209
+    height: 270
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 100
+    paddingRight: 44
+    paddingTop: 53
+    paddingBottom: 34
+  - name: attack_SkeletonWizzard_05
+    x: 244
+    y: 1314
+    width: 208
+    height: 270
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 103
+    paddingRight: 42
+    paddingTop: 53
+    paddingBottom: 34
+  - name: attack_SkeletonWizzard_06
+    x: 244
+    y: 521
+    width: 192
+    height: 272
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 122
+    paddingRight: 39
+    paddingTop: 51
+    paddingBottom: 34
+  - name: attack_SkeletonWizzard_07
+    x: 669
+    y: 1312
+    width: 180
+    height: 272
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 122
+    paddingRight: 51
+    paddingTop: 51
+    paddingBottom: 34
+  - name: DeathKnight
+    x: 1190
+    y: 1081
+    width: 173
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 145
+    paddingRight: 25
+    paddingTop: 33
+    paddingBottom: 23
+  - name: DeathRich
+    x: 453
+    y: 1323
+    width: 215
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 70
+    paddingRight: 40
+    paddingTop: 37
+    paddingBottom: 43
+  - name: King
+    x: 1433
+    y: 158
+    width: 133
+    height: 228
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 208
+    paddingRight: 16
+    paddingTop: 21
+    paddingBottom: 29
+  - name: Mage_attack_big
+    x: 1962
+    y: 1967
+    width: 66
+    height: 81
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 29
+    paddingRight: 28
+    paddingTop: 24
+    paddingBottom: 21
+  - name: Mage_attack_small
+    x: 1962
+    y: 1829
+    width: 52
+    height: 63
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 37
+    paddingRight: 34
+    paddingTop: 32
+    paddingBottom: 31
+  - name: Queen
+    x: 1622
+    y: 1354
+    width: 188
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 114
+    paddingRight: 29
+    paddingTop: 39
+    paddingBottom: 35
+  - name: Rich
+    x: 669
+    y: 1069
+    width: 172
+    height: 242
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 117
+    paddingRight: 28
+    paddingTop: 28
+    paddingBottom: 43
+  - name: Rich_attack_big
+    x: 669
+    y: 24
+    width: 94
+    height: 93
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 15
+    paddingRight: 14
+    paddingTop: 18
+    paddingBottom: 15
+  - name: Rich_attack_small
+    x: 1962
+    y: 1893
+    width: 73
+    height: 73
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 25
+    paddingRight: 25
+    paddingTop: 27
+    paddingBottom: 26
+  - name: Skeleton
+    x: 1666
+    y: 1832
+    width: 148
+    height: 216
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 5
+    paddingTop: 15
+    paddingBottom: 13
+  - name: SkeletonKnight
+    x: 994
+    y: 348
+    width: 138
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 189
+    paddingRight: 38
+    paddingTop: 30
+    paddingBottom: 42
+  - name: SkeletonMage
+    x: 1567
+    y: 398
+    width: 124
+    height: 217
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 72
+    paddingRight: 80
+    paddingTop: 34
+    paddingBottom: 38
+  - name: SkeletonWarrior
+    x: 1296
+    y: 616
+    width: 145
+    height: 224
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 146
+    paddingRight: 39
+    paddingTop: 67
+    paddingBottom: 63
+  - name: SkeletonWizzard
+    x: 850
+    y: 1312
+    width: 180
+    height: 272
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 122
+    paddingRight: 51
+    paddingTop: 51
+    paddingBottom: 34
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 121584}
+  m_IsPrefabParent: 1

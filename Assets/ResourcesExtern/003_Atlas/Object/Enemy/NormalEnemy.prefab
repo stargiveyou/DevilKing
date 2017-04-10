@@ -1,0 +1,813 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &193418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 484034}
+  - 114: {fileID: 11493806}
+  m_Layer: 0
+  m_Name: NormalEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484034
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11493806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f78942325d35f054d869e5abc3833abe, type: 2}
+  mSprites:
+  - name: attack_Bastard_01
+    x: 772
+    y: 368
+    width: 140
+    height: 238
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 92
+    paddingRight: 182
+    paddingTop: 38
+    paddingBottom: 15
+  - name: attack_Bastard_02
+    x: 1027
+    y: 1355
+    width: 206
+    height: 211
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 22
+    paddingRight: 186
+    paddingTop: 65
+    paddingBottom: 15
+  - name: attack_Bastard_03
+    x: 804
+    y: 1355
+    width: 222
+    height: 211
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 190
+    paddingTop: 65
+    paddingBottom: 15
+  - name: attack_Bastard_04
+    x: 0
+    y: 1534
+    width: 397
+    height: 273
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 17
+    paddingTop: 5
+    paddingBottom: 13
+  - name: attack_Bastard_05
+    x: 0
+    y: 832
+    width: 273
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 117
+    paddingRight: 24
+    paddingTop: 59
+    paddingBottom: 13
+  - name: attack_Bastard_06
+    x: 236
+    y: 359
+    width: 156
+    height: 234
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 125
+    paddingRight: 133
+    paddingTop: 43
+    paddingBottom: 14
+  - name: attack_Bastard_07
+    x: 772
+    y: 607
+    width: 140
+    height: 238
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 92
+    paddingRight: 182
+    paddingTop: 38
+    paddingBottom: 15
+  - name: attack_Hat_01
+    x: 0
+    y: 1052
+    width: 258
+    height: 241
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 83
+    paddingTop: 32
+    paddingBottom: 19
+  - name: attack_Hat_02
+    x: 0
+    y: 594
+    width: 241
+    height: 237
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 95
+    paddingTop: 35
+    paddingBottom: 20
+  - name: attack_Hat_03
+    x: 1069
+    y: 1568
+    width: 208
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 20
+    paddingRight: 119
+    paddingTop: 33
+    paddingBottom: 20
+  - name: attack_Hat_04
+    x: 1545
+    y: 1809
+    width: 295
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 52
+    paddingTop: 32
+    paddingBottom: 21
+  - name: attack_Hat_05
+    x: 0
+    y: 1294
+    width: 281
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 29
+    paddingRight: 37
+    paddingTop: 32
+    paddingBottom: 21
+  - name: attack_Magician_01
+    x: 1841
+    y: 1808
+    width: 206
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 325
+    paddingTop: 18
+    paddingBottom: 16
+  - name: attack_Magician_02
+    x: 606
+    y: 1326
+    width: 197
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 333
+    paddingTop: 18
+    paddingBottom: 16
+  - name: attack_Magician_03
+    x: 1712
+    y: 1568
+    width: 202
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 326
+    paddingTop: 19
+    paddingBottom: 16
+  - name: attack_Magician_04
+    x: 1034
+    y: 1808
+    width: 510
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 20
+    paddingTop: 19
+    paddingBottom: 15
+  - name: attack_Magician_05
+    x: 0
+    y: 1808
+    width: 521
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 9
+    paddingTop: 19
+    paddingBottom: 15
+  - name: attack_Magician_06
+    x: 522
+    y: 1808
+    width: 511
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 19
+    paddingTop: 19
+    paddingBottom: 15
+  - name: attack_Magician_07
+    x: 398
+    y: 107
+    width: 202
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 326
+    paddingTop: 19
+    paddingBottom: 16
+  - name: attack_Magician_08
+    x: 1278
+    y: 1567
+    width: 206
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 325
+    paddingTop: 18
+    paddingBottom: 16
+  - name: attack_Sheilder_01
+    x: 772
+    y: 157
+    width: 145
+    height: 210
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 44
+    paddingRight: 80
+    paddingTop: 6
+    paddingBottom: 15
+  - name: attack_Sheilder_02
+    x: 919
+    y: 48
+    width: 139
+    height: 211
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 43
+    paddingRight: 87
+    paddingTop: 5
+    paddingBottom: 15
+  - name: attack_Sheilder_03
+    x: 1351
+    y: 907
+    width: 140
+    height: 209
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 41
+    paddingRight: 88
+    paddingTop: 7
+    paddingBottom: 15
+  - name: attack_Sheilder_04
+    x: 1210
+    y: 907
+    width: 140
+    height: 209
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 32
+    paddingRight: 97
+    paddingTop: 7
+    paddingBottom: 15
+  - name: attack_Sheilder_05
+    x: 919
+    y: 1117
+    width: 148
+    height: 208
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 58
+    paddingRight: 63
+    paddingTop: 9
+    paddingBottom: 14
+  - name: attack_Sheilder_06
+    x: 1068
+    y: 1117
+    width: 146
+    height: 208
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 59
+    paddingRight: 64
+    paddingTop: 9
+    paddingBottom: 14
+  - name: attack_Sheilder_07
+    x: 919
+    y: 905
+    width: 144
+    height: 211
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 47
+    paddingRight: 78
+    paddingTop: 5
+    paddingBottom: 15
+  - name: attack_SwordKnight_01
+    x: 1590
+    y: 1347
+    width: 165
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 47
+    paddingRight: 128
+    paddingTop: 46
+    paddingBottom: 26
+  - name: attack_SwordKnight_02
+    x: 259
+    y: 1074
+    width: 138
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 44
+    paddingRight: 158
+    paddingTop: 45
+    paddingBottom: 27
+  - name: attack_SwordKnight_03
+    x: 919
+    y: 684
+    width: 137
+    height: 220
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 163
+    paddingTop: 44
+    paddingBottom: 27
+  - name: attack_SwordKnight_04
+    x: 1485
+    y: 1593
+    width: 226
+    height: 214
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 22
+    paddingRight: 92
+    paddingTop: 50
+    paddingBottom: 27
+  - name: attack_SwordKnight_05
+    x: 1234
+    y: 1349
+    width: 191
+    height: 217
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 57
+    paddingRight: 92
+    paddingTop: 47
+    paddingBottom: 27
+  - name: attack_SwordKnight_06
+    x: 1756
+    y: 1347
+    width: 165
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 47
+    paddingRight: 128
+    paddingTop: 46
+    paddingBottom: 26
+  - name: Bastard
+    x: 242
+    y: 596
+    width: 153
+    height: 235
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 49
+    paddingRight: 48
+    paddingTop: 21
+    paddingBottom: 18
+  - name: Bastard_01
+    x: 606
+    y: 870
+    width: 153
+    height: 235
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 49
+    paddingRight: 48
+    paddingTop: 21
+    paddingBottom: 18
+  - name: Bastard_02
+    x: 606
+    y: 182
+    width: 146
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 60
+    paddingRight: 44
+    paddingTop: 16
+    paddingBottom: 19
+  - name: Bastard_03
+    x: 772
+    y: 846
+    width: 140
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 62
+    paddingRight: 48
+    paddingTop: 12
+    paddingBottom: 23
+  - name: Bastard_04
+    x: 772
+    y: 1086
+    width: 146
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 60
+    paddingRight: 44
+    paddingTop: 16
+    paddingBottom: 19
+  - name: Hat
+    x: 846
+    y: 1569
+    width: 222
+    height: 238
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 33
+    paddingTop: 31
+    paddingBottom: 23
+  - name: Hat_01
+    x: 623
+    y: 1569
+    width: 222
+    height: 238
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 33
+    paddingTop: 31
+    paddingBottom: 23
+  - name: Hat_02
+    x: 398
+    y: 1567
+    width: 224
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 43
+    paddingRight: 28
+    paddingTop: 32
+    paddingBottom: 20
+  - name: Hat_03
+    x: 0
+    y: 357
+    width: 235
+    height: 236
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 20
+    paddingTop: 31
+    paddingBottom: 25
+  - name: Hat_04
+    x: 0
+    y: 116
+    width: 224
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 43
+    paddingRight: 28
+    paddingTop: 32
+    paddingBottom: 20
+  - name: Magician
+    x: 398
+    y: 1321
+    width: 207
+    height: 245
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 44
+    paddingRight: 29
+    paddingTop: 14
+    paddingBottom: 15
+  - name: Magician_01
+    x: 398
+    y: 1075
+    width: 207
+    height: 245
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 38
+    paddingRight: 35
+    paddingTop: 14
+    paddingBottom: 15
+  - name: Magician_02
+    x: 398
+    y: 589
+    width: 206
+    height: 241
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 36
+    paddingRight: 38
+    paddingTop: 15
+    paddingBottom: 18
+  - name: Magician_03
+    x: 398
+    y: 831
+    width: 207
+    height: 243
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 36
+    paddingRight: 37
+    paddingTop: 15
+    paddingBottom: 16
+  - name: Magician_04
+    x: 398
+    y: 347
+    width: 206
+    height: 241
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 36
+    paddingRight: 38
+    paddingTop: 15
+    paddingBottom: 18
+  - name: Sheilder
+    x: 1064
+    y: 694
+    width: 138
+    height: 212
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 41
+    paddingRight: 26
+    paddingTop: 11
+    paddingBottom: 11
+  - name: Sheilder_01
+    x: 1064
+    y: 481
+    width: 138
+    height: 212
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 41
+    paddingRight: 26
+    paddingTop: 11
+    paddingBottom: 11
+  - name: Sheilder_02
+    x: 919
+    y: 260
+    width: 141
+    height: 211
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 24
+    paddingTop: 10
+    paddingBottom: 13
+  - name: Sheilder_03
+    x: 1064
+    y: 907
+    width: 145
+    height: 209
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 20
+    paddingTop: 10
+    paddingBottom: 15
+  - name: Sheilder_04
+    x: 919
+    y: 472
+    width: 141
+    height: 211
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 24
+    paddingTop: 10
+    paddingBottom: 13
+  - name: SwordKnight
+    x: 606
+    y: 646
+    width: 158
+    height: 223
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 82
+    paddingRight: 44
+    paddingTop: 33
+    paddingBottom: 18
+  - name: SwordKnight_01
+    x: 606
+    y: 422
+    width: 158
+    height: 223
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 82
+    paddingRight: 44
+    paddingTop: 33
+    paddingBottom: 18
+  - name: SwordKnight_02
+    x: 1426
+    y: 1342
+    width: 163
+    height: 224
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 80
+    paddingRight: 41
+    paddingTop: 32
+    paddingBottom: 18
+  - name: SwordKnight_03
+    x: 606
+    y: 1106
+    width: 165
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 81
+    paddingRight: 38
+    paddingTop: 32
+    paddingBottom: 23
+  - name: SwordKnight_04
+    x: 225
+    y: 132
+    width: 163
+    height: 224
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 80
+    paddingRight: 41
+    paddingTop: 32
+    paddingBottom: 18
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 193418}
+  m_IsPrefabParent: 1

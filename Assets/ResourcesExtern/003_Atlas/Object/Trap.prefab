@@ -1,0 +1,527 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &124122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 428224}
+  - 114: {fileID: 11443134}
+  m_Layer: 0
+  m_Name: Trap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &428224
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11443134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 02c171b16754bed4e99d62fca6341ab6, type: 2}
+  mSprites:
+  - name: 2-0_SpitFire1~2Hole
+    x: 725
+    y: 572
+    width: 132
+    height: 18
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 4
+    paddingTop: 14
+    paddingBottom: 7
+  - name: 2-1_SpitFire_1
+    x: 416
+    y: 124
+    width: 114
+    height: 141
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 8
+    paddingTop: 4
+    paddingBottom: 5
+  - name: 2-1_SpitFire_2
+    x: 416
+    y: 266
+    width: 119
+    height: 144
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 12
+    paddingTop: 1
+    paddingBottom: 5
+  - name: 2-2_FireBall_1
+    x: 746
+    y: 709
+    width: 129
+    height: 148
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 17
+    paddingTop: 0
+    paddingBottom: 15
+  - name: 2-2_FireBall_2
+    x: 540
+    y: 417
+    width: 127
+    height: 145
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 31
+    paddingTop: 15
+    paddingBottom: 10
+  - name: 2-3_FireWall_1
+    x: 304
+    y: 673
+    width: 132
+    height: 351
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 19
+    paddingRight: 25
+    paddingTop: 37
+    paddingBottom: 37
+  - name: 2-3_FireWall_2
+    x: 153
+    y: 213
+    width: 135
+    height: 348
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 19
+    paddingRight: 22
+    paddingTop: 38
+    paddingBottom: 39
+  - name: 2-3-0FireWallHole
+    x: 859
+    y: 654
+    width: 132
+    height: 18
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 13
+    paddingTop: 14
+    paddingBottom: 11
+  - name: 2-4_FlameSword_1
+    x: 0
+    y: 95
+    width: 152
+    height: 464
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 11
+    paddingTop: 68
+    paddingBottom: 35
+  - name: 2-4_FlameSword_2
+    x: 153
+    y: 562
+    width: 150
+    height: 462
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 15
+    paddingRight: 11
+    paddingTop: 70
+    paddingBottom: 35
+  - name: 2-4-0FlameSwordHole
+    x: 0
+    y: 2
+    width: 133
+    height: 18
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 12
+    paddingTop: 10
+    paddingBottom: 9
+  - name: 3-0StonFallHole
+    x: 153
+    y: 27
+    width: 132
+    height: 185
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 26
+    paddingTop: 42
+    paddingBottom: 21
+  - name: 3-1_StonFall_Attack
+    x: 0
+    y: 21
+    width: 135
+    height: 73
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 4
+    paddingTop: 16
+    paddingBottom: 8
+  - name: 3-1_StonFall_Ready
+    x: 918
+    y: 860
+    width: 79
+    height: 76
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 2
+    paddingTop: 6
+    paddingBottom: 6
+  - name: 3-2_SquareSton_Attack
+    x: 416
+    y: 563
+    width: 175
+    height: 109
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 5
+    paddingBottom: 3
+  - name: 3-2_SquareSton_Ready
+    x: 918
+    y: 937
+    width: 90
+    height: 87
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 19
+    paddingTop: 14
+    paddingBottom: 16
+  - name: 3-3_SoneLance_Attack
+    x: 746
+    y: 858
+    width: 171
+    height: 166
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 8
+    paddingBottom: 2
+  - name: 3-3_SoneLance_Ready
+    x: 304
+    y: 453
+    width: 111
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 3
+    paddingTop: 4
+    paddingBottom: 1
+  - name: 3-4_StonePist_Attack
+    x: 570
+    y: 831
+    width: 175
+    height: 193
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 19
+  - name: 3-4_StonePist_Ready
+    x: 416
+    y: 411
+    width: 123
+    height: 151
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 3
+    paddingTop: 1
+    paddingBottom: 3
+  - name: Fire_0
+    x: 668
+    y: 421
+    width: 114
+    height: 141
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 8
+    paddingTop: 4
+    paddingBottom: 5
+  - name: Fire_1
+    x: 570
+    y: 682
+    width: 129
+    height: 148
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 17
+    paddingTop: 0
+    paddingBottom: 15
+  - name: Fire_2
+    x: 437
+    y: 673
+    width: 132
+    height: 351
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 19
+    paddingRight: 25
+    paddingTop: 37
+    paddingBottom: 37
+  - name: Fire_3
+    x: 0
+    y: 560
+    width: 152
+    height: 464
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 11
+    paddingTop: 68
+    paddingBottom: 35
+  - name: Spike_0
+    x: 153
+    y: 4
+    width: 132
+    height: 22
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 26
+    paddingTop: 23
+    paddingBottom: 27
+  - name: spike_1
+    x: 592
+    y: 566
+    width: 132
+    height: 22
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 26
+    paddingTop: 23
+    paddingBottom: 27
+  - name: Spike_1
+    x: 876
+    y: 678
+    width: 133
+    height: 27
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 25
+    paddingTop: 18
+    paddingBottom: 27
+  - name: spike_2
+    x: 725
+    y: 645
+    width: 133
+    height: 27
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 25
+    paddingTop: 18
+    paddingBottom: 27
+  - name: Spike_2
+    x: 725
+    y: 591
+    width: 133
+    height: 26
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 25
+    paddingTop: 19
+    paddingBottom: 27
+  - name: spike_3
+    x: 725
+    y: 618
+    width: 133
+    height: 26
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 25
+    paddingTop: 19
+    paddingBottom: 27
+  - name: Spike_3
+    x: 592
+    y: 631
+    width: 132
+    height: 41
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 26
+    paddingTop: 5
+    paddingBottom: 26
+  - name: spike_4
+    x: 592
+    y: 589
+    width: 132
+    height: 41
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 26
+    paddingTop: 5
+    paddingBottom: 26
+  - name: Stone_0
+    x: 304
+    y: 68
+    width: 79
+    height: 76
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 2
+    paddingTop: 6
+    paddingBottom: 6
+  - name: Stone_1
+    x: 304
+    y: 145
+    width: 90
+    height: 87
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 8
+    paddingTop: 11
+    paddingBottom: 11
+  - name: Stone_2
+    x: 304
+    y: 233
+    width: 111
+    height: 219
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 3
+    paddingTop: 4
+    paddingBottom: 1
+  - name: Stone_3
+    x: 876
+    y: 706
+    width: 123
+    height: 151
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 3
+    paddingTop: 1
+    paddingBottom: 3
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 124122}
+  m_IsPrefabParent: 1

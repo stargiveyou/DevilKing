@@ -1,0 +1,670 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &133446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 439948}
+  - 114: {fileID: 11475908}
+  m_Layer: 0
+  m_Name: CharacterHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439948
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11475908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: b706911e80df2674dbc7fee847627011, type: 2}
+  mSprites:
+  - name: AdamantiumGolem_head
+    x: 793
+    y: 700
+    width: 144
+    height: 133
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 12
+    paddingTop: 12
+    paddingBottom: 9
+  - name: Ainhert_head
+    x: 195
+    y: 348
+    width: 128
+    height: 148
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 0
+    paddingTop: 3
+    paddingBottom: 3
+  - name: Archdemon_head
+    x: 741
+    y: 329
+    width: 130
+    height: 111
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 3
+    paddingTop: 7
+    paddingBottom: 3
+  - name: Basilisk_head
+    x: 609
+    y: 329
+    width: 131
+    height: 111
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 12
+    paddingTop: 2
+    paddingBottom: 14
+  - name: Bastard_head
+    x: 872
+    y: 579
+    width: 137
+    height: 116
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 7
+    paddingTop: 6
+    paddingBottom: 3
+  - name: circle_back
+    x: 593
+    y: 845
+    width: 179
+    height: 179
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Cyclopse_head
+    x: 328
+    y: 14
+    width: 147
+    height: 91
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 19
+    paddingTop: 9
+    paddingBottom: 14
+  - name: DandySlime_head
+    x: 195
+    y: 83
+    width: 127
+    height: 129
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Darkflame_head
+    x: 479
+    y: 564
+    width: 133
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 1
+    paddingTop: 2
+    paddingBottom: 3
+  - name: Death_head
+    x: 479
+    y: 4
+    width: 118
+    height: 95
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 10
+    paddingTop: 28
+    paddingBottom: 18
+  - name: DeathKnight_head
+    x: 610
+    y: 446
+    width: 133
+    height: 117
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 9
+    paddingTop: 15
+    paddingBottom: 13
+  - name: DeathRich_head
+    x: 0
+    y: 524
+    width: 155
+    height: 170
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 29
+    paddingRight: 21
+    paddingTop: 3
+    paddingBottom: 5
+  - name: Demon_head
+    x: 0
+    y: 10
+    width: 157
+    height: 155
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 12
+    paddingTop: 4
+    paddingBottom: 7
+  - name: Dragon_head
+    x: 328
+    y: 545
+    width: 150
+    height: 150
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 32
+    paddingRight: 50
+    paddingTop: 31
+    paddingBottom: 58
+  - name: Gripon_head
+    x: 872
+    y: 330
+    width: 119
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 0
+    paddingTop: 6
+    paddingBottom: 4
+  - name: Gunt_head
+    x: 609
+    y: 117
+    width: 117
+    height: 105
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 5
+    paddingTop: 9
+    paddingBottom: 15
+  - name: Hat_head
+    x: 0
+    y: 695
+    width: 194
+    height: 138
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 6
+    paddingTop: 20
+    paddingBottom: 19
+  - name: HighDemon_head
+    x: 0
+    y: 166
+    width: 155
+    height: 168
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 5
+    paddingTop: 10
+    paddingBottom: 0
+  - name: Illene_head
+    x: 195
+    y: 651
+    width: 132
+    height: 182
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 0
+    paddingTop: 8
+    paddingBottom: 2
+  - name: Imp_head
+    x: 728
+    y: 132
+    width: 116
+    height: 87
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 2
+    paddingTop: 16
+    paddingBottom: 13
+  - name: IronGolem_head
+    x: 479
+    y: 100
+    width: 124
+    height: 109
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 9
+    paddingTop: 12
+    paddingBottom: 15
+  - name: Ishark_head
+    x: 494
+    y: 696
+    width: 148
+    height: 137
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 7
+    paddingTop: 1
+    paddingBottom: 8
+  - name: JigRinde_head
+    x: 747
+    y: 564
+    width: 124
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 8
+    paddingTop: 6
+    paddingBottom: 14
+  - name: Kastral_head
+    x: 643
+    y: 699
+    width: 149
+    height: 134
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 0
+    paddingTop: 15
+    paddingBottom: 10
+  - name: Kerberos_head
+    x: 609
+    y: 223
+    width: 118
+    height: 105
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 6
+    paddingTop: 9
+    paddingBottom: 6
+  - name: Kimera_head
+    x: 414
+    y: 838
+    width: 178
+    height: 186
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 28
+    paddingRight: 5
+    paddingTop: 9
+    paddingBottom: 7
+  - name: King_head
+    x: 613
+    y: 570
+    width: 133
+    height: 125
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 5
+    paddingTop: 7
+    paddingBottom: 8
+  - name: KingSlime_head
+    x: 0
+    y: 335
+    width: 140
+    height: 188
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Leonheart_head
+    x: 880
+    y: 446
+    width: 131
+    height: 117
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 8
+    paddingTop: 7
+    paddingBottom: 10
+  - name: Magician_head
+    x: 0
+    y: 834
+    width: 193
+    height: 190
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 8
+    paddingTop: 18
+    paddingBottom: 5
+  - name: Minotauros_head
+    x: 328
+    y: 696
+    width: 165
+    height: 137
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 16
+    paddingTop: 12
+    paddingBottom: 16
+  - name: MohikanSlime_head
+    x: 195
+    y: 213
+    width: 129
+    height: 134
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 13
+    paddingTop: 10
+    paddingBottom: 16
+  - name: Mrpenguin_head
+    x: 328
+    y: 106
+    width: 146
+    height: 124
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 3
+    paddingTop: 9
+    paddingBottom: 0
+  - name: MudGolem_head
+    x: 728
+    y: 43
+    width: 104
+    height: 88
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 23
+    paddingRight: 11
+    paddingTop: 11
+    paddingBottom: 10
+  - name: Queen_head
+    x: 328
+    y: 382
+    width: 138
+    height: 162
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 11
+    paddingTop: 0
+    paddingBottom: 0
+  - name: RaccerImp_head
+    x: 744
+    y: 448
+    width: 135
+    height: 115
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 8
+    paddingTop: 7
+    paddingBottom: 12
+  - name: Rebelika_head
+    x: 194
+    y: 868
+    width: 219
+    height: 156
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 4
+    paddingTop: 13
+    paddingBottom: 1
+  - name: Rich_head
+    x: 328
+    y: 231
+    width: 148
+    height: 150
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 26
+    paddingRight: 23
+    paddingTop: 13
+    paddingBottom: 13
+  - name: Sheilder_head
+    x: 479
+    y: 210
+    width: 120
+    height: 115
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 8
+    paddingTop: 6
+    paddingBottom: 0
+  - name: Skeleton_head
+    x: 609
+    y: 6
+    width: 109
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 35
+    paddingRight: 20
+    paddingTop: 25
+    paddingBottom: 26
+  - name: SkeletonKnight_head
+    x: 195
+    y: 497
+    width: 128
+    height: 153
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 21
+    paddingTop: 10
+    paddingBottom: 19
+  - name: SkeletonMage_head
+    x: 728
+    y: 220
+    width: 110
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 19
+    paddingRight: 18
+    paddingTop: 14
+    paddingBottom: 16
+  - name: SkeletonWarrior_head
+    x: 479
+    y: 326
+    width: 129
+    height: 114
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 12
+    paddingTop: 19
+    paddingBottom: 11
+  - name: SkeletonWizzard_head
+    x: 773
+    y: 863
+    width: 183
+    height: 161
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 14
+    paddingTop: 17
+    paddingBottom: 18
+  - name: Slime_head
+    x: 195
+    y: 30
+    width: 120
+    height: 52
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 13
+    paddingTop: 15
+    paddingBottom: 21
+  - name: StoneGolem_head
+    x: 839
+    y: 221
+    width: 108
+    height: 107
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 24
+    paddingRight: 14
+    paddingTop: 19
+    paddingBottom: 10
+  - name: SwordKnight_head
+    x: 479
+    y: 441
+    width: 130
+    height: 122
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 20
+    paddingRight: 9
+    paddingTop: 5
+    paddingBottom: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 133446}
+  m_IsPrefabParent: 1

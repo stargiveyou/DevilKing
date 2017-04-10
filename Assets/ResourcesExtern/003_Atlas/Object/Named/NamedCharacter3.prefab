@@ -1,0 +1,397 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &171848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 482326}
+  - 114: {fileID: 11439582}
+  m_Layer: 0
+  m_Name: NamedCharacter3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &482326
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11439582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 1d2c372e665a50a4c98bd28f29ab4af6, type: 2}
+  mSprites:
+  - name: Archdemon
+    x: 1796
+    y: 1043
+    width: 222
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 367
+    paddingRight: 29
+    paddingTop: 87
+    paddingBottom: 41
+  - name: attack_Archdemon_01
+    x: 1597
+    y: 394
+    width: 222
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 367
+    paddingRight: 29
+    paddingTop: 87
+    paddingBottom: 41
+  - name: attack_Archdemon_02
+    x: 1612
+    y: 1743
+    width: 422
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 162
+    paddingRight: 34
+    paddingTop: 87
+    paddingBottom: 41
+  - name: attack_Archdemon_03
+    x: 0
+    y: 125
+    width: 478
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 119
+    paddingRight: 21
+    paddingTop: 87
+    paddingBottom: 41
+  - name: attack_Archdemon_04
+    x: 785
+    y: 1392
+    width: 524
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 73
+    paddingRight: 21
+    paddingTop: 87
+    paddingBottom: 41
+  - name: attack_Archdemon_05
+    x: 552
+    y: 1043
+    width: 478
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 119
+    paddingRight: 21
+    paddingTop: 87
+    paddingBottom: 41
+  - name: attack_Archdemon_06
+    x: 1310
+    y: 1392
+    width: 516
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 73
+    paddingRight: 29
+    paddingTop: 87
+    paddingBottom: 41
+  - name: attack_Archdemon_07
+    x: 1031
+    y: 1043
+    width: 437
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 147
+    paddingRight: 34
+    paddingTop: 87
+    paddingBottom: 41
+  - name: attack_Archdemon_08
+    x: 1820
+    y: 394
+    width: 222
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 367
+    paddingRight: 29
+    paddingTop: 87
+    paddingBottom: 41
+  - name: attack_Death_01
+    x: 1332
+    y: 388
+    width: 264
+    height: 311
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 47
+    paddingRight: 55
+    paddingTop: 48
+    paddingBottom: 44
+  - name: attack_Death_02
+    x: 1700
+    y: 735
+    width: 270
+    height: 307
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 51
+    paddingRight: 45
+    paddingTop: 54
+    paddingBottom: 42
+  - name: attack_Death_03
+    x: 552
+    y: 28
+    width: 279
+    height: 308
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 52
+    paddingRight: 29
+    paddingTop: 54
+    paddingBottom: 44
+  - name: attack_Death_04
+    x: 0
+    y: 431
+    width: 496
+    height: 460
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 50
+    paddingRight: 31
+    paddingTop: 0
+    paddingBottom: 4
+  - name: attack_Death_05
+    x: 0
+    y: 892
+    width: 551
+    height: 456
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 43
+    paddingRight: 18
+    paddingTop: 6
+    paddingBottom: 14
+  - name: attack_Dragon_01
+    x: 956
+    y: 701
+    width: 375
+    height: 341
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 37
+    paddingRight: 20
+    paddingTop: 19
+    paddingBottom: 10
+  - name: attack_Dragon_02
+    x: 1332
+    y: 700
+    width: 367
+    height: 342
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 21
+    paddingRight: 15
+    paddingTop: 3
+    paddingBottom: 15
+  - name: attack_Dragon_03
+    x: 552
+    y: 690
+    width: 403
+    height: 352
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 19
+    paddingTop: 10
+    paddingBottom: 13
+  - name: attack_Dragon_04
+    x: 0
+    y: 1698
+    width: 805
+    height: 350
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 20
+    paddingTop: 39
+    paddingBottom: 10
+  - name: attack_Dragon_05
+    x: 0
+    y: 1349
+    width: 784
+    height: 348
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 19
+    paddingTop: 64
+    paddingBottom: 15
+  - name: attack_Dragon_06
+    x: 806
+    y: 1698
+    width: 805
+    height: 350
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 20
+    paddingTop: 39
+    paddingBottom: 10
+  - name: attack_Dragon_07
+    x: 552
+    y: 337
+    width: 403
+    height: 352
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 19
+    paddingTop: 10
+    paddingBottom: 13
+  - name: attack_Dragon_08
+    x: 956
+    y: 359
+    width: 375
+    height: 341
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 37
+    paddingRight: 20
+    paddingTop: 19
+    paddingBottom: 10
+  - name: Death
+    x: 1332
+    y: 76
+    width: 264
+    height: 311
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 47
+    paddingRight: 55
+    paddingTop: 48
+    paddingBottom: 44
+  - name: Death_retire
+    x: 0
+    y: 8
+    width: 256
+    height: 116
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 41
+    paddingRight: 10
+    paddingTop: 27
+    paddingBottom: 22
+  - name: Dragon
+    x: 956
+    y: 17
+    width: 375
+    height: 341
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 37
+    paddingRight: 20
+    paddingTop: 19
+    paddingBottom: 10
+  - name: Minotauros_retire
+    x: 1469
+    y: 1109
+    width: 326
+    height: 239
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 39
+    paddingRight: 36
+    paddingTop: 32
+    paddingBottom: 38
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 171848}
+  m_IsPrefabParent: 1

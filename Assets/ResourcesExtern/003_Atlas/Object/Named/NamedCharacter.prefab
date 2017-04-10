@@ -1,0 +1,449 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &130068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 472838}
+  - 114: {fileID: 11494580}
+  m_Layer: 0
+  m_Name: NamedCharacter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &472838
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11494580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: b818efcee823217448eb572ab7c99cf2, type: 2}
+  mSprites:
+  - name: attack_Basilisk_01
+    x: 882
+    y: 1024
+    width: 247
+    height: 112
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 8
+    paddingTop: 15
+    paddingBottom: 13
+  - name: attack_Basilisk_02
+    x: 1569
+    y: 1341
+    width: 246
+    height: 127
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 8
+    paddingTop: 4
+    paddingBottom: 9
+  - name: attack_Basilisk_03
+    x: 907
+    y: 1551
+    width: 647
+    height: 153
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 58
+    paddingTop: 42
+    paddingBottom: 47
+  - name: attack_Basilisk_04
+    x: 396
+    y: 1315
+    width: 647
+    height: 153
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 58
+    paddingTop: 42
+    paddingBottom: 47
+  - name: attack_Basilisk_05
+    x: 1380
+    y: 1187
+    width: 246
+    height: 127
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 8
+    paddingTop: 4
+    paddingBottom: 9
+  - name: attack_Basilisk_06
+    x: 1130
+    y: 1024
+    width: 247
+    height: 112
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 8
+    paddingTop: 15
+    paddingBottom: 13
+  - name: attack_Cyclopse_01
+    x: 1557
+    y: 1708
+    width: 284
+    height: 340
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 10
+    paddingTop: 28
+    paddingBottom: 18
+  - name: attack_Cyclopse_02
+    x: 0
+    y: 934
+    width: 298
+    height: 381
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 11
+    paddingTop: 4
+    paddingBottom: 25
+  - name: attack_Cyclopse_03
+    x: 0
+    y: 1316
+    width: 395
+    height: 388
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 8
+    paddingTop: 0
+    paddingBottom: 16
+  - name: attack_Cyclopse_04
+    x: 542
+    y: 1708
+    width: 501
+    height: 340
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 6
+    paddingTop: 8
+    paddingBottom: 17
+  - name: attack_Cyclopse_05
+    x: 0
+    y: 1705
+    width: 541
+    height: 343
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 3
+    paddingTop: 15
+    paddingBottom: 36
+  - name: attack_Cyclopse_06
+    x: 0
+    y: 593
+    width: 284
+    height: 340
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 10
+    paddingTop: 28
+    paddingBottom: 18
+  - name: attack_Gripon_01
+    x: 0
+    y: 49
+    width: 272
+    height: 202
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 15
+    paddingTop: 9
+    paddingBottom: 8
+  - name: attack_Gripon_02
+    x: 396
+    y: 65
+    width: 242
+    height: 215
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 27
+    paddingRight: 17
+    paddingTop: 8
+    paddingBottom: 3
+  - name: attack_Gripon_03
+    x: 396
+    y: 1469
+    width: 510
+    height: 235
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 11
+    paddingTop: 37
+    paddingBottom: 10
+  - name: attack_Gripon_04
+    x: 1044
+    y: 1813
+    width: 512
+    height: 235
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 42
+    paddingRight: 35
+    paddingTop: 20
+    paddingBottom: 4
+  - name: attack_Gripon_05
+    x: 396
+    y: 484
+    width: 272
+    height: 202
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 8
+    paddingTop: 15
+    paddingBottom: 7
+  - name: attack_Kerberos_01
+    x: 882
+    y: 1137
+    width: 248
+    height: 177
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 2
+    paddingTop: 16
+    paddingBottom: 2
+  - name: attack_Kerberos_02
+    x: 639
+    y: 93
+    width: 241
+    height: 187
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 0
+    paddingTop: 10
+    paddingBottom: 0
+  - name: attack_Kerberos_03
+    x: 396
+    y: 967
+    width: 477
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 20
+    paddingRight: 8
+    paddingTop: 0
+    paddingBottom: 0
+  - name: attack_Kerberos_04
+    x: 396
+    y: 1142
+    width: 485
+    height: 172
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 8
+    paddingTop: 0
+    paddingBottom: 2
+  - name: Basilisk
+    x: 1378
+    y: 1024
+    width: 247
+    height: 112
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 8
+    paddingTop: 15
+    paddingBottom: 13
+  - name: Basilisk_retire
+    x: 1627
+    y: 1202
+    width: 262
+    height: 112
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 9
+    paddingTop: 10
+    paddingBottom: 13
+  - name: Cyclopse
+    x: 0
+    y: 252
+    width: 284
+    height: 340
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 10
+    paddingTop: 28
+    paddingBottom: 18
+  - name: Cyclopse_retire
+    x: 396
+    y: 687
+    width: 287
+    height: 279
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 5
+    paddingTop: 4
+    paddingBottom: 20
+  - name: Dragon_retire
+    x: 1555
+    y: 1489
+    width: 447
+    height: 215
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 21
+    paddingTop: 37
+    paddingBottom: 16
+  - name: Gripon
+    x: 396
+    y: 281
+    width: 272
+    height: 202
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 15
+    paddingTop: 9
+    paddingBottom: 8
+  - name: Gripon_retire
+    x: 1044
+    y: 1329
+    width: 260
+    height: 139
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 4
+    paddingTop: 8
+    paddingBottom: 2
+  - name: Kerberos
+    x: 1131
+    y: 1137
+    width: 248
+    height: 177
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 2
+    paddingTop: 16
+    paddingBottom: 2
+  - name: Kerberos_retire
+    x: 1305
+    y: 1336
+    width: 263
+    height: 132
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 0
+    paddingTop: 12
+    paddingBottom: 3
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 130068}
+  m_IsPrefabParent: 1
