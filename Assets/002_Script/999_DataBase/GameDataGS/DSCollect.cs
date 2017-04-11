@@ -7,9 +7,10 @@ public class DSCollect
 
 }
 
-
+//Maybe Proxy?
 public interface DSInterface
 {
+	
 
     void sendIntCmd(string command, int sendParam);
     void sendFloatCmd(string command, float sendParam);
@@ -39,6 +40,7 @@ public class DSFactory
         {
             case "User":
                 instance = new DS_UserClass(GDB.getUserDB);
+
                 break;
             case "Level":
                 break;
@@ -60,7 +62,6 @@ public class DS_UserClass : DSInterface
 
     public DS_UserClass(UserDataBase _DB)
     {
-        
         DB = _DB;
     }
 
@@ -120,24 +121,20 @@ public class DS_UserClass : DSInterface
                 returnValue = DB.getUserDB.player_sprite_name;
                 break;
         }
-
         return returnValue;
     }
 
     public void sendFloatCmd(string command, float sendParam)
     {
-        UserDataBase.player_user_data_struct loadCurrentData = DB.getUserDB;
         switch (command)
         {
-            case "Time":
-                loadCurrentData.total_time = sendParam;
+		case "Time":
+			DB.UpdateTime (sendParam);
                 break;
-            case "deltaTime":
-                loadCurrentData.total_time += sendParam;
+		case "deltaTime":
+			DB.AddTimeAmount (sendParam);
                 break;
-
         }
-        DB.getUserDB.Copy(loadCurrentData);
     }
     /// <summary>
     /// Send Integer Value By User DB
@@ -150,7 +147,6 @@ public class DS_UserClass : DSInterface
         switch (command)
         {
             case "currentGold":
-                
                 break;
             case "GoldUpdate":
                 DB.GoldUpdate(sendParam);
@@ -182,30 +178,61 @@ public class DS_UserClass : DSInterface
         switch (command)
         {
             case "playerName":
-                loadCurrentData.player_name = sendParam;
+				DB.PlayerName = sendParam;
                 break;
             case "spriteName":
-                loadCurrentData.player_sprite_name = sendParam;
+				DB.PlayerSpriteName = sendParam;
                 break;
         }
-        DB.getUserDB.Copy(loadCurrentData);
     }
-
-
-    public void GameStart()
-    {
-        Debug.Log("?");
-    }
-
-
 }
 
-/*
+
 public class DS_LevelClass: DSInterface
 {
+	LevelDataBase DB;
+
+	public DS_LevelClass(LevelDataBase _DB)
+	{
+		DB = _DB;
+	}
+
+	public void sendIntCmd (string objectName, int sendParam)
+	{
+		DB.setLevelData (objectName, sendParam);
+	}
+	public int receiveIntCmd (string objectName)
+	{
+		return DB.getLevelData (objectName);
+	}
+
+	public void sendStringCmd (string command, string sendParam)
+	{
+		if (command.Equals ("Create")) {
+			DB.createLevelData (sendParam);
+		}
+	}
+
+	public string receiveStringCmd (string cmdParam)
+	{
+		throw new NotImplementedException ();
+	}
+	public void sendFloatCmd (string command, float sendParam)
+	{
+		throw new NotImplementedException ();
+	}
+	public float receiveFloatCmd (string cmdParam)
+	{
+		throw new NotImplementedException ();
+	}
+
+
 
 }
 
+
+
+/*
 public class DS_StairClass: DSInterface
 {
 }

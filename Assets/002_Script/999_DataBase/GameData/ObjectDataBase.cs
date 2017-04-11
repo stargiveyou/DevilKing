@@ -283,7 +283,6 @@ public class AliasObjectData : ObjectDataBase
 
     public override void UpdateMonster(string obj_name, params object[] parameter)
     {
-
         List<alias_data_struct> load_struct;
         int search_index;
         int stair =
@@ -509,7 +508,7 @@ public class EnemyObjectData : ObjectDataBase
         }
         else
         {
-            Debug.Log("Data Dictionary Not Loaded");
+			Debug.Log(obj_name+ " Data Dictionary Not Loaded");
         }
 
     }

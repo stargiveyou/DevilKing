@@ -65,9 +65,7 @@ public class GameManager : MonoBehaviour
 
 		GDB = GameDataBase.getDBinstance;
 
-		/*
-		PlayerPrefs.SetInt("GameCount", 2);
-        */
+
 		//isTutoSystem = GDB.getUserDB.getIntData("GameCount") == 1;
 		isTutoSystem = PlayerPrefs.GetInt("GameCount", 0) == 1;
 
@@ -729,7 +727,6 @@ public class GameManager : MonoBehaviour
 			else if (itemType.Equals("Obstacle"))
 			{
 				returnPrice = _CSV.getItemPrice(itemName + "_Enhance", LoadTrapLevelData(trapIndex(itemName)));
-				//_Debug.Log(returnPrice + "   " + LoadTrapLevelData(trapIndex(itemName)));
 			}
 		}
 

@@ -19,6 +19,7 @@ public class UserDataBase : FileDataInterface
 	{
 		public string player_name;
 		public string player_sprite_name;
+
 		public int current_player_gold;
 		public int total_player_gold;
 		public int top_stageCount;
@@ -100,17 +101,7 @@ public class UserDataBase : FileDataInterface
 
 	public string getBinData()
 	{
-		string binData = null;
-		try { 
-			Mem = new MemoryStream();
-			bin.Serialize(Mem, data_struct);
-			binData = Convert.ToBase64String(Mem.GetBuffer());
-		}
-		catch(Exception e)
-		{
-			Debug.Log(e.StackTrace);
-		}
-		return binData;
+		return thisBinData;
 	}
 
     #region Set Function
@@ -137,13 +128,53 @@ public class UserDataBase : FileDataInterface
     }
 
 
+	public void UpdateTime(float time)
+	{
+		data_struct.total_time = time;
+	}
+	public void AddTimeAmount(float timeAmount)
+	{
+		data_struct.total_time += timeAmount;
+	}
+
+
+
+	public string PlayerName
+	{
+		set{
+			data_struct.player_name = value;
+		}
+	}
+
+	public string PlayerSpriteName
+	{
+		set {
+			data_struct.player_sprite_name = value;
+		}
+	}
+
+
+
 
     #endregion
 
 
     public void SaveData ()
 	{
-		throw new NotImplementedException ();
+		try { 
+			Mem = new MemoryStream();
+			bin.Serialize(Mem, data_struct);
+			thisBinData = Convert.ToBase64String(Mem.GetBuffer());
+		}
+		catch(Exception e)
+		{
+			Debug.Log(e.StackTrace);
+		}
+		finally{
+			#if UNITY_EDITOR
+			Debug.Log("Save Data Binary File");
+			#endif
+		}
 	}
 
     public player_user_data_struct getUserDB

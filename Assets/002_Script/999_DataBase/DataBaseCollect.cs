@@ -158,11 +158,15 @@ public class CSVParser
 
     private bool isReady = false;
 
+	private GameDataBase GDB;
+
+
     public CSVParser()
     {
         monster_datas = new Dictionary<string, StatusData[]>();
         trap_datas = new Dictionary<string, TrapStatusData[]>();
         price_datas = new Dictionary<string, int[]>();
+		GDB = GameDataBase.getDBinstance;
         ReadAndParse();
     }
 
@@ -176,17 +180,10 @@ public class CSVParser
         string name = "", type = "";
         int levelRange = 0;
         StatusData[] CharacterData;
+
+
         #region Monster Data
-        /*
-        if(string.IsNullOrEmpty(PlayerPrefs.GetString("CharacterLevel")))
-        {
-            monster_level = new List<MonsterLevData>();
-        }
-        else
-        {
-        
-        }
-*/
+     
 		monster_level = getListFromData();
 
 
@@ -195,11 +192,18 @@ public class CSVParser
             string[] fields = lines[i].Split(fieldSeperator);
             name = fields[0];
 
+
             if(!monster_level.Equals(name))
             {
                 MonsterLevData levelData = new MonsterLevData(name);
                 monster_level.Add(levelData);
             }
+
+
+			if(GDB.isNoneLevelData)
+			{
+				GDB.getLevelDS().sendStringCmd("Create",name);
+			}
 
             int checkRange = 1;
             while (fields[++checkRange] != "" && checkRange < fields.Length - 1) ;
@@ -218,7 +222,7 @@ public class CSVParser
             monster_datas.Add(name, CharacterData);
         }
 
-        if (string.IsNullOrEmpty(PlayerPrefs.GetString("CharacterLevel")))
+		if (GDB.isNoneLevelData)
         {
             //Player
             SetMonsterLevel("Player", 1);
@@ -248,6 +252,12 @@ public class CSVParser
             string[] fields = lines[i].Split(fieldSeperator);
             name = fields[0];
             int checkRange = 1;
+
+			if(GDB.isNoneLevelData)
+			{
+				GDB.getLevelDS().sendStringCmd("Create",name);
+			}
+
             while (fields[++checkRange] != "" && checkRange < fields.Length - 1) ;
 
             levelRange = checkRange / 3;
@@ -341,6 +351,7 @@ public class CSVParser
 		List<MonsterLevData> DataList = null;
 
         string m_levelData = PlayerPrefs.GetString("CharacterLevel");
+		//string m_levelData2 = GameDataBase.getDBinstance.getLevelDS().
 		if (!string.IsNullOrEmpty (m_levelData)) {
 			BinaryFormatter B_Fomatter = new BinaryFormatter ();
 			MemoryStream M_Stream = new MemoryStream (Convert.FromBase64String (m_levelData));
@@ -350,7 +361,6 @@ public class CSVParser
 		}
 		return DataList;
     }
-
     private void SaveListToData( )
     {
         BinaryFormatter B_Fomatter = new BinaryFormatter();
@@ -361,6 +371,35 @@ public class CSVParser
         PlayerPrefs.SetString("CharacterLevel", Convert.ToBase64String(M_Stream.GetBuffer()));
 
     }
+
+	/* PlayerPrefs Data R/W
+
+private List<MonsterLevData> getListFromData()
+    {
+		List<MonsterLevData> DataList = null;
+
+        string m_levelData = PlayerPrefs.GetString("CharacterLevel");
+		if (!string.IsNullOrEmpty (m_levelData)) {
+			BinaryFormatter B_Fomatter = new BinaryFormatter ();
+			MemoryStream M_Stream = new MemoryStream (Convert.FromBase64String (m_levelData));
+			DataList = (List<MonsterLevData>)B_Fomatter.Deserialize (M_Stream);
+		} else {
+			DataList = new List<MonsterLevData> ();
+		}
+		return DataList;
+    }
+    private void SaveListToData( )
+    {
+        BinaryFormatter B_Fomatter = new BinaryFormatter();
+        MemoryStream M_Stream = new MemoryStream();
+
+        B_Fomatter.Serialize(M_Stream, monster_level);
+
+        PlayerPrefs.SetString("CharacterLevel", Convert.ToBase64String(M_Stream.GetBuffer()));
+
+    }
+	*/
+
 
     public int getMonsterLevel(string name)
     {
@@ -378,7 +417,7 @@ public class CSVParser
     public void SetMonsterLevel(string name, int level)
     {
         int length = monster_level.Count;
-
+		Debug.Log ("SetMonster Level : " + name);
         for (int i = 0; i < length; i++)
         {
             if (name.Equals(monster_level[i].getName))

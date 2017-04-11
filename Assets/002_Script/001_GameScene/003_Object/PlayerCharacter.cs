@@ -124,6 +124,8 @@ public class PlayerCharacter : MonoBehaviour
 
 		if (!isPlayer)
 		{
+			GM.updateCharacterStatus (this.gameObject.name, thisTag, StageCntl.StairNumber, int.Parse (this.transform.parent.name), hp);
+
 			if (!isBossMonster)
 			{
 				characterName.gameObject.SetActive(false);
@@ -458,7 +460,13 @@ public class PlayerCharacter : MonoBehaviour
 			return hp;
 		}
 		set {
+			
 			hp = value;
+			hpBar.value = hp / initHp;
+			#if UNITY_EDITOR
+			DebugHPLabel.text = hp.ToString("#.##");
+			#endif
+
 		}
 	}
 

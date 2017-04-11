@@ -43,8 +43,10 @@ public class GameDataBase
 	//FileDataInterface[] FileData = new FileDataInterface[(int)ClassEnumType.End];
 
 	UserDataBase userDB = new UserDataBase();
-	StageDataBase stageDB = new StageDataBase();
 	LevelDataBase levelDB = new LevelDataBase();
+
+	StageDataBase stageDB = new StageDataBase();
+
 
 
     DSFactory ds_factory;
@@ -57,7 +59,7 @@ public class GameDataBase
 
 	public GameDataBase()
 	{
-        DataRemove();
+        //DataRemove();
         binform = new BinaryFormatter();
 		DataBaseFactory factory = new DataBaseFactory ();
         
@@ -65,7 +67,7 @@ public class GameDataBase
         {
             dataCls = new DataContainerClass();
             userDB.Initialize();
-            //levelDB.Initialize();
+            levelDB.Initialize();
             //stageDB.Initialize();
             //achivDB.Initialize();
         }
@@ -150,11 +152,12 @@ public class GameDataBase
 
 	public void UpdateObjectStatus( string obj_name, string objectTag, params object[] status)
 	{
-		Debug.Log("Tag : " + objectTag);
+		Debug.Log("Tag : " + objectTag + " // Object : "+obj_name) ;
 		ObjectClassEnumType sendClassType = ObjectClassEnumType.None;
 		switch (objectTag)
 		{
 		case "Alias":
+		case "Player":
 			sendClassType = ObjectClassEnumType.AliasData;  
 			break;
 		case "Enemy":
@@ -215,20 +218,16 @@ public class GameDataBase
 	public void SaveFile()
 	{
 		//Class Data Save
+		userDB.SaveData();
+		levelDB.SaveData ();
 
 		dataCls.PlayerBinData = userDB.getBinData();
+		dataCls.LevelBinData = levelDB.getBinData ();
 
 		/* Prev (
         dataCls.InstallBinData = installData.getBinData();
-        dataCls.LevelBinData = ObjectLevelData.getBinData();
         )
          */
-
-		/* New(
-		dataCls.LevelBinData = levelDB.getBinData();
-
-		)
-		*/
 
 
 		for(ObjectClassEnumType type = ObjectClassEnumType.None +1; type < ObjectClassEnumType.End;type++)
@@ -288,6 +287,7 @@ public class GameDataBase
 			dataCls = (DataContainerClass)binform.Deserialize(fileStream);
             
 			userDB.Initialize(dataCls.PlayerBinData);
+			levelDB.Initialize (dataCls.LevelBinData);
 
 			//ObjectLevelData.LoadData(dataCls.LevelBinData);
 
@@ -307,44 +307,23 @@ public class GameDataBase
 			return userDB.isDataEmpty;
 		}
 	}
-
-
-	public void SetDataCommand(string className, string function,string callParam, object param = null)
+	public bool isNoneLevelData
 	{
-		//FileDataInterface sendMsgCls;
-		DSFactory factory = new DSFactory(this);
-
-
-		switch(className)
+		get
 		{
-		case "User":
-			//userDB
-			break;
-		case "Object":
-			break;
+			return levelDB.isDataEmpty;
 		}
-        
 	}
 
-	public int getIntDataCommand(string className, string function, string returnParma)
-	{
-		switch (className)
-		{
-		case "User":
-			//userDB
-			break;
-		case "Object":
-			break;
-		}
 
-		return 0;
-	}
-
-    
     public DSInterface getUserDS()
     {
         return ds_factory.createDS("User");
     }
+	public DSInterface getLevelDS()
+	{
+		return ds_factory.createDS ("Level");
+	}
 
 
     public int LoadLevelData(string obj_name)

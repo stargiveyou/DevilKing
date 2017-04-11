@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StageDataBase : FileDataInterface {
+public class StageDataBase : FileDataInterface 
+{
+
+
 	public bool Initialize (string binData)
 	{
 		throw new System.NotImplementedException ();
