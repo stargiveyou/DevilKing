@@ -28,6 +28,9 @@ public class UserDataBase : FileDataInterface
 
 		public float total_time;
 
+		public int aliasEnemyCreateCount;
+
+
 		public bool isNoneData()
 		{
 			return string.IsNullOrEmpty(player_name) && string.IsNullOrEmpty(player_sprite_name);
@@ -135,6 +138,11 @@ public class UserDataBase : FileDataInterface
 	public void AddTimeAmount(float timeAmount)
 	{
 		data_struct.total_time += timeAmount;
+	}
+
+	public void RespawnEnemy()
+	{
+		data_struct.aliasEnemyCreateCount++;
 	}
 
 

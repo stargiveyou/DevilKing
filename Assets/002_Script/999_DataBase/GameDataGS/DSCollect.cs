@@ -40,9 +40,9 @@ public class DSFactory
         {
             case "User":
                 instance = new DS_UserClass(GDB.getUserDB);
-
                 break;
-            case "Level":
+		case "Level":
+				instance = new DS_LevelClass (GDB.getLevelDB);
                 break;
             case "Stage":
                 break;
@@ -66,7 +66,7 @@ public class DS_UserClass : DSInterface
     }
 
     //Float : [Time]
-    //Integer : [currentGold, totalGold, gameCount, dieCount,stageCount]
+	//Integer : [currentGold, totalGold, gameCount, dieCount,stageCount, enemyUniqueID]
     //String : [playerName, spriteName]
 
     public float receiveFloatCmd(string cmdParam)
@@ -83,7 +83,7 @@ public class DS_UserClass : DSInterface
     /// <summary>
     ///  Receive Integer Value by User DB
     /// </summary>
-    /// <param name="cmdParam">currentGold, totalGold, gameCount, dieCount,stageCount</param>
+	/// <param name="cmdParam">currentGold, totalGold, gameCount, dieCount,stageCount,enemyUniqueID</param>
     /// <returns></returns>
     public int receiveIntCmd(string cmdParam)
     {
@@ -105,6 +105,9 @@ public class DS_UserClass : DSInterface
             case "stageCount":
                 returnValue = DB.getUserDB.top_stageCount;
                 break;
+		case "enemyUniqueID":
+			returnValue = DB.getUserDB.aliasEnemyCreateCount;
+			break;
         }
         return returnValue;
     }
@@ -139,14 +142,15 @@ public class DS_UserClass : DSInterface
     /// <summary>
     /// Send Integer Value By User DB
     /// </summary>
-    /// <param name="command">[currentGold, GoldUpdate, totalGold, stageCount]</param>
+	/// <param name="command">[currentGold, GoldUpdate, totalGold, stageCount, enemyCreate]</param>
     /// <param name="sendParam">Integer Value</param>
     public void sendIntCmd(string command, int sendParam)
     {
     
         switch (command)
         {
-            case "currentGold":
+		case "EnemyCreate":
+			DB.RespawnEnemy ();
                 break;
             case "GoldUpdate":
                 DB.GoldUpdate(sendParam);

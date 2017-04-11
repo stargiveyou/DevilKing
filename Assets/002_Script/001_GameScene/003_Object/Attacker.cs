@@ -66,6 +66,7 @@ public class Attacker : MonoBehaviour
 
         CharacterSetting();
         StartCoroutine("MoveSpriteAnimation");
+		StartCoroutine ("EnemySaveCoroutine");
     }
 
     private Vector3 swordAttackPos = new Vector3(-50f, 0, 0);
@@ -74,6 +75,12 @@ public class Attacker : MonoBehaviour
     private Vector3 archeryAttackPos = new Vector3(-185, 0, 0);
     private Vector3 archeryAttackSize = new Vector3(600, 100, 100);
 
+	IEnumerator EnemySaveCoroutine()
+	{
+		yield return new WaitForSeconds (1.0f);
+		GM.updateEnemyStatus(gameObject.name,gameObject.tag,currentStair,unique_id,transform.localPosition.x,hp);
+		StartCoroutine ("EnemySaveCoroutine");
+	}
 
     private void CharacterSetting()
     {
@@ -253,6 +260,11 @@ public class Attacker : MonoBehaviour
     public void UpdateCharacterHP(int lastHP)
     {
         hp = lastHP;
+
+		#if UNITY_EDITOR
+		DebugHPLabel.text = hp.ToString();
+		#endif
+
         hpBar.value = (hp / initHp);
     }
  
@@ -307,6 +319,7 @@ public class Attacker : MonoBehaviour
         {
             GM.ChangeAttackTrsByLevel(this.gameObject, ++currentStair);
 			//Update Pos
+			GM.updateEnemyStatus(gameObject.name,gameObject.tag,currentStair,unique_id,0.0f,hp);
 			CharacterPositionSet();
         }
 
@@ -337,6 +350,7 @@ public class Attacker : MonoBehaviour
         if (hit.gameObject.name.Equals("Heal"))
         {
             DamageCharacter(-1 * hit.gameObject.GetComponent<AttackerHealGS>().GetHealAmount);
+
         }
     }
 
@@ -490,6 +504,9 @@ public class Attacker : MonoBehaviour
                     break;
 
             }
+			StopCoroutine ("EnemySaveCoroutine");
+
+			GM.unInstallObject (this.gameObject.name, this.gameObject.tag, unique_id, currentStair);
 
             TempStaticMemory.gold += getGoldAmount;
             GameDataBase.getDBinstance.getUserDS().sendIntCmd("totalGold", getGoldAmount);
@@ -508,11 +525,13 @@ public class Attacker : MonoBehaviour
         else if (hp >= initHp)
         {
             hp = initHp;
+			GM.updateEnemyStatus(gameObject.name,gameObject.tag,currentStair,unique_id,transform.localPosition.x,hp);
             hpBar.value = (hp / initHp);
         }
         else
         {
             hpBar.value = (hp / initHp);
+			GM.updateEnemyStatus(gameObject.name,gameObject.tag,currentStair,unique_id,transform.localPosition.x,hp);
             StartCoroutine("AttackedBlink");
         }
     }
@@ -625,6 +644,9 @@ public class Attacker : MonoBehaviour
             StartCoroutine("KnockBack");
             isKnockBack = false;
         }
+
+		//
+
     }
     
     public bool PlayerFaced

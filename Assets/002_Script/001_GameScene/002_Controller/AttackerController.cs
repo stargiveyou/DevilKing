@@ -41,21 +41,10 @@ public class AttackerController : MonoBehaviour
 		"Gunt",
 		"Mrpenguin" };
 	
-	void LoadEnemyObject( )
-	{
-		if (GDB.isNoneData) {
-			
-
-		} else {
-			
-		}
-
-		UIEventListener.Get (gameObject).onClick += new UIEventListener.VoidDelegate (Process => {
-		});
-	}
 
 	public void LoadEnemyObject(string obj_name = null)
 	{
+		attack_Create_Unique_id = GDB.getUserDS ().receiveIntCmd ("EnemyUniqID");
 		Attacker _attackerCtrl;
 		for (int  i = 0; i < Attackers_name.Length; i++) {
 			GDB.getEnemyObjectDB.LoadData (Attackers_name [i], delegate(int stair, int floor, float hp) {
@@ -102,7 +91,7 @@ public class AttackerController : MonoBehaviour
 				}
 			});
 		}
-
+			
 	
 	}
 
@@ -202,6 +191,9 @@ public class AttackerController : MonoBehaviour
 
         AttackCharacter.GetComponent<Attacker>().control = this.GetComponent<AttackerController>();
         AttackerList.Add(AttackCharacter);
+		GM.installObject (AttackCharacter.name, AttackCharacter.tag,  0,attack_Create_Unique_id);
+		GDB.getUserDS ().sendIntCmd ("EnemyCreate",1);
+
     }
 
     private string getCreateNamedMonsterName()

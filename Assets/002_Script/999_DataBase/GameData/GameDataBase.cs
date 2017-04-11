@@ -59,7 +59,7 @@ public class GameDataBase
 
 	public GameDataBase()
 	{
-        //DataRemove();
+        DataRemove();
         binform = new BinaryFormatter();
 		DataBaseFactory factory = new DataBaseFactory ();
         
@@ -168,6 +168,7 @@ public class GameDataBase
 			break;
 		}
 		ObjectDatas[(int)sendClassType].UpdateMonster(obj_name, status);
+		SaveFile ();
 	}
 
 	#region ObjectDataBase Getter 
@@ -366,6 +367,13 @@ public class GameDataBase
 		get
 		{
 			return userDB;
+		}
+	}
+	public LevelDataBase getLevelDB
+	{
+		get
+		{
+			return levelDB;
 		}
 	}
 	#endregion
