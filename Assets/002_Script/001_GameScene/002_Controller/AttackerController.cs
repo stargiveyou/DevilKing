@@ -53,15 +53,17 @@ public class AttackerController : MonoBehaviour
                     Debug.Log(Attackers_name[i] + " Created // Stair : " + " // Enemy Pos " + floor + " // HP Value : " + hp);
 
                     GameObject AttackCharacter = Instantiate(Empty_Attacker) as GameObject;
-					AttackCharacter.transform.FindChild("BodyContainer").FindChild("Body").GetComponent<UISprite>().atlas = getNamedAtlas(Attackers_name[i]);
-					_attackerCtrl = AttackCharacter.GetComponent<Attacker>();
-					AttackCharacter.name = Attackers_name[i];
-					AttackCharacter.tag = "Enemy";
-					_attackerCtrl.control = this.GetComponent<AttackerController>();
-			        AttackerList.Add(AttackCharacter); 
-					GM.getStageController(stair).addStageList(AttackCharacter);
+                    AttackCharacter.name = Attackers_name[i];
+                    AttackCharacter.transform.FindChild("BodyContainer").FindChild("Body").GetComponent<UISprite>().atlas = NormalMonsterAtlas;
+                    AttackCharacter.tag = "Enemy";
 
-					AttackCharacter.transform.parent = GM.getStageController(stair).StartTrs;
+                    _attackerCtrl = AttackCharacter.GetComponent<Attacker>();
+                    _attackerCtrl.setUniqueID = stair / 100;
+                    _attackerCtrl.control = this.GetComponent<AttackerController>();
+			        AttackerList.Add(AttackCharacter); 
+					GM.getStageController(stair%100).addStageList(AttackCharacter);
+
+					AttackCharacter.transform.parent = GM.getStageController(stair%100).StartTrs;
 					_attackerCtrl.CharacterPositionSet(floor);
 					_attackerCtrl.UpdateCharacterHP((int)hp);
 						
@@ -71,21 +73,25 @@ public class AttackerController : MonoBehaviour
 
 		for (int i = 0; i < Special_Attackers_Name.Length; i++) {
 			GDB.getEnemyObjectDB.LoadData (Special_Attackers_Name [i], delegate(int stair, int floor, float hp) {
-				Debug.Log(Special_Attackers_Name[i] +" Created // Stair : "+ stair +" // Enemy Pos "+ floor + " // HP Value : "+ hp);
-
+				
 				if(stair >-1)
 				{
-					GameObject AttackNamedCharacter = Instantiate(Empty_Attacker) as GameObject;
+                    Debug.Log(Special_Attackers_Name[i] + " Created // Stair : " + stair + " // Enemy Pos " + floor + " // HP Value : " + hp);
+
+                    GameObject AttackNamedCharacter = Instantiate(Empty_Attacker) as GameObject;
 					AttackNamedCharacter.name = Special_Attackers_Name[i];
-					AttackNamedCharacter.tag = "SuperEnemy";
+                    AttackNamedCharacter.transform.FindChild("BodyContainer").FindChild("Body").GetComponent<UISprite>().atlas = getNamedAtlas(Special_Attackers_Name[i]);
+                    AttackNamedCharacter.tag = "SuperEnemy";
 
 					_attackerCtrl= AttackNamedCharacter.GetComponent<Attacker>();
-					_attackerCtrl.bossmonsterLabelSet(GM.getContext("Name","BossMonster", Special_Attackers_Name[i]));
+                    _attackerCtrl.setUniqueID = stair / 100;
+                    _attackerCtrl.bossmonsterLabelSet(GM.getContext("Name","BossMonster", Special_Attackers_Name[i]));
 					_attackerCtrl.control = this.GetComponent<AttackerController>();
 					AttackerList.Add(AttackNamedCharacter);
-					GM.getStageController(stair).addStageList(AttackNamedCharacter);
+					GM.getStageController(stair%100).addStageList(AttackNamedCharacter);
 
-					AttackNamedCharacter.transform.parent = GM.getStageController(stair).StartTrs;
+					AttackNamedCharacter.transform.parent = GM.getStageController(stair%100).StartTrs;
+                    Debug.Log("Floor : " + floor);
 					_attackerCtrl.CharacterPositionSet(floor);
 					_attackerCtrl.UpdateCharacterHP((int)hp);
 				}
@@ -127,25 +133,22 @@ public class AttackerController : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         StartCoroutine("StartRespawn");
     }
-
- 
-
+    
     private StatusData repawnStatus;
-
-
-
+    
     void RespawnEnemy()
     {
         bool isSpecial = UnityEngine.Random.Range(0, 100) < 5 ? true : false;
 
         int rand_Enemy = Random.Range(0, Attackers_name.Length);
 		string create_enemy_sprite_name = Attackers_name[rand_Enemy];
-
+       
         GameObject AttackCharacter = Instantiate(Empty_Attacker) as GameObject;
+        Attacker AttackerCtrl = AttackCharacter.GetComponent<Attacker>();
 
-		//GM Send Object Data Base To Create Install Enemy
-		++attack_Create_Unique_id;
-		AttackCharacter.GetComponent<Attacker> ().setUniqueID = attack_Create_Unique_id;
+        //GM Send Object Data Base To Create Install Enemy
+        ++attack_Create_Unique_id;
+        AttackerCtrl.setUniqueID = attack_Create_Unique_id;
 
         if (isSpecial)
         {
@@ -184,15 +187,17 @@ public class AttackerController : MonoBehaviour
         AttackCharacter.name = create_enemy_sprite_name;
 		if (isSpecial) {
 			AttackCharacter.tag = "SuperEnemy";
-			AttackCharacter.GetComponent<Attacker> ().bossmonsterLabelSet (GM.getContext ("Name", "BossMonster", rand_Enemy));
+            AttackerCtrl.bossmonsterLabelSet (GM.getContext ("Name", "BossMonster", rand_Enemy));
 		} else {
 			AttackCharacter.tag = "Enemy";
 		}
 
-        AttackCharacter.GetComponent<Attacker>().control = this.GetComponent<AttackerController>();
+        AttackerCtrl.control = this.GetComponent<AttackerController>();
         AttackerList.Add(AttackCharacter);
 		GM.installObject (AttackCharacter.name, AttackCharacter.tag,  0,attack_Create_Unique_id);
 		GDB.getUserDS ().sendIntCmd ("EnemyCreate",1);
+
+        AttackerCtrl.CharacterPositionSet(0);
 
     }
 

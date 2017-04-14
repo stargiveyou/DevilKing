@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 
 using System;
 using System.Text;
@@ -59,7 +59,7 @@ public class GameDataBase
 
 	public GameDataBase()
 	{
-        DataRemove();
+        //DataRemove();
         binform = new BinaryFormatter();
 		DataBaseFactory factory = new DataBaseFactory ();
         
@@ -161,6 +161,7 @@ public class GameDataBase
 			sendClassType = ObjectClassEnumType.AliasData;  
 			break;
 		case "Enemy":
+            case "SuperEnemy":
 			sendClassType = ObjectClassEnumType.EnemyData;
 			break;
 		case "Trap":

@@ -45,8 +45,9 @@ public class PlayerCharacter : MonoBehaviour
 		{
 			if (!isBossMonster)
 			{
-				int monster_level = GM.LoadMonsterLevelData(this.gameObject.name) - 1;
-				string monster_name = GM.getMonsterName(this.gameObject.name, monster_level, true);
+                //int monster_level = GM.LoadMonsterLevelData(this.gameObject.name) - 1;
+                int monster_level = 0;
+                string monster_name = GM.getMonsterName(this.gameObject.name, monster_level, true);
 				RebuildList("attack_" + monster_name + "_");
 			}
 			else

@@ -48,11 +48,14 @@ public class LevelDataBase : FileDataInterface {
 
 		}
 		finally{
-			#if UNITY_EDITOR
+			
+            /*
+            #if UNITY_EDITOR
 
 			Debug.Log(this.GetType().ToString()+"// Save BInary File");
 
 			#endif
+            */
 		}
 
 	}

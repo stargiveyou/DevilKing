@@ -198,8 +198,7 @@ public class CSVParser
                 MonsterLevData levelData = new MonsterLevData(name);
                 monster_level.Add(levelData);
             }
-
-
+            
 			if(GDB.isNoneLevelData)
 			{
 				GDB.getLevelDS().sendStringCmd("Create",name);
@@ -412,6 +411,7 @@ private List<MonsterLevData> getListFromData()
             }
         }
         return 0;
+        //return 1;
     }
 
     public void SetMonsterLevel(string name, int level)

@@ -212,7 +212,7 @@ public class AliasObjectData : ObjectDataBase
 		}
 		catch(NullReferenceException nullExcep)
 		{
-			Debug.Log ("Null Exception Interrupt \n"+nullExcep.StackTrace);
+			//Debug.Log ("Null Exception Interrupt \n"+nullExcep.StackTrace);
 			callback (-1, -1,0.0f);
 		}
 
@@ -236,6 +236,9 @@ public class AliasObjectData : ObjectDataBase
             loadStructData = new List<alias_data_struct>();
         }
 
+      
+        loadStructData.Add(alias_str);
+
         loadStructData.Sort(delegate (alias_data_struct x, alias_data_struct y)
         {
             if (x.Tileindex < y.Tileindex) return -1;
@@ -244,7 +247,7 @@ public class AliasObjectData : ObjectDataBase
             else if (x.StairIndex > y.StairIndex) return 1;
             else return 0;
         });
-        loadStructData.Add(alias_str);
+
         alias_data_dic.Add(_name, loadStructData);
         Debug.Log("Saved " + _name + " / " + alias_str.ToString() + "/ List Count" + loadStructData.Count + "/ Dictionary Count" + alias_data_dic.Count);
     }
@@ -466,7 +469,7 @@ public class EnemyObjectData : ObjectDataBase
         {
             if (!string.IsNullOrEmpty(data_bin_string))
             {
-                Debug.Log(data_bin_string);
+
                 BinaryFormatter bin_f = new BinaryFormatter();
                 MemoryStream mem = new MemoryStream(Convert.FromBase64String(data_bin_string));
                 enemy_data_dic = (Dictionary<string, List<enemy_data_struct>>)bin_f.Deserialize(mem);
@@ -500,10 +503,10 @@ public class EnemyObjectData : ObjectDataBase
 
         if (enemy_data_dic.TryGetValue(obj_name, out load_list))
         {
-     
             for (int i = 0; i < load_list.Count; i++)
             {
-				callback(load_list[i].StairIndex, (int)load_list[i].EnemyPos,load_list[i].HpValue);
+                //
+				callback(((int)load_list[i].UniqueID* 100) +load_list[i].StairIndex, (int)load_list[i].EnemyPos,load_list[i].HpValue);
             }
         }
         else
@@ -525,16 +528,17 @@ public class EnemyObjectData : ObjectDataBase
         {
             enemy_list = new List<enemy_data_struct>();
         }
-        
-        enemy_list.Sort(delegate (enemy_data_struct x, enemy_data_struct y) {
-            if (x.UniqueID > y.UniqueID) return 1;
-            else if (x.UniqueID < y.UniqueID) return -1;
-            else return 0;
-        }
-            );
-
+      
         if (enemy_list != null) { 
             enemy_list.Add(enemy_struct);
+
+            enemy_list.Sort(delegate (enemy_data_struct x, enemy_data_struct y)
+            {
+                if (x.UniqueID > y.UniqueID) return 1;
+                else if (x.UniqueID < y.UniqueID) return -1;
+                else return 0;
+            }
+          );
             enemy_data_dic.Add(_name,enemy_list);
         }
 
@@ -564,15 +568,41 @@ public class EnemyObjectData : ObjectDataBase
             Debug.Log("No In List");
         }
         Debug.Log("No In Dictionary");
-
-
-
+        
         return false;
     }
 
     public override void UpdateMonster(string obj_name, params object[] parameter)
     {
-        
+        Debug.Log(obj_name +"// Updated");
+        //unique_id = [0];
+        //stair = [1]
+        //pos_x = [2]
+        //hp = [3]
+
+        int unique_id = (int)parameter[0];
+        int stair = (int)parameter[1];
+        float pos_x = (float)parameter[2];
+        float hp = (float)parameter[3];
+
+        int list_index = -1;
+        List<enemy_data_struct> load_list = null;
+        if (enemy_data_dic.TryGetValue(obj_name, out load_list))
+        {
+            if ((list_index = getObjectIndex(load_list, unique_id)) >= 0)
+            {
+                enemy_data_struct loadStruct = load_list[list_index];
+
+                loadStruct.StairIndex = stair;
+                loadStruct.EnemyPos = pos_x;
+                loadStruct.HpValue = hp;
+
+                load_list.RemoveAt(list_index);
+                load_list.Insert(list_index, loadStruct);
+
+            }
+        }
+
     }
 
     private int getObjectIndex(List<enemy_data_struct> list, int unique_id)
@@ -662,7 +692,7 @@ public class TrapObjectData : ObjectDataBase
 		{
 			if (!string.IsNullOrEmpty(data_bin_string))
 			{
-				Debug.Log(data_bin_string);
+
 				BinaryFormatter bin_f = new BinaryFormatter();
 				MemoryStream mem = new MemoryStream(Convert.FromBase64String(data_bin_string));
 				trap_data_dic = (Dictionary<string, List<trap_data_struct>>)bin_f.Deserialize(mem);

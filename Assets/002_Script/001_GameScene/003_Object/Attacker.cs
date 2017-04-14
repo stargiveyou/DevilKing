@@ -41,18 +41,14 @@ public class Attacker : MonoBehaviour
     // Use this for initialization
 	void Awake()
 	{
-		attackerNameLabel = transform.FindChild ("attacker_name").GetComponent<UILabel> ();
-	}
+        moveSpriteNameLists = new List<string>();
+        attackSpriteNameLists = new List<string>();
+    }
     void OnEnable()
     {
         currentStair = 0;
-    }
-    void Start()
-    {
-        GM = GameManager.getInstance();
 
-        moveSpriteNameLists = new List<string>();
-        attackSpriteNameLists = new List<string>();
+        attackerNameLabel = transform.FindChild("attacker_name").GetComponent<UILabel>();
 
         CharacterBody = transform.FindChild("BodyContainer").gameObject;
         bodyCollider = CharacterBody.GetComponent<BoxCollider>();
@@ -60,11 +56,19 @@ public class Attacker : MonoBehaviour
         thisSprite = CharacterBody.GetComponent<UISprite>();
         healObj = transform.FindChild("Heal").gameObject;
         hpBar = transform.FindChild("HPBar").GetComponent<UIProgressBar>();
+
+
+    }
+    void Start()
+    {
+       
+        GM = GameManager.getInstance();
+      
         localposY = transform.localPosition.y;
 
+        CharacterSetting();
         Create_Move_Attack_List(gameObject.name + "_");
 
-        CharacterSetting();
         StartCoroutine("MoveSpriteAnimation");
 		StartCoroutine ("EnemySaveCoroutine");
     }
@@ -117,19 +121,19 @@ public class Attacker : MonoBehaviour
         }
 
         AttackSprite.spriteName = gameObject.name;
-        GM.SetAttackTrsByLevel(this.gameObject, currentStair);
+        
 
-		CharacterPositionSet ();
-	
-		/*
+
+
+        /*
         if (gameObject.tag.Equals("SuperEnemy"))
         {
             transform.localScale *= 1.2f;
         }
         */
-
+//        CharacterPositionSet();
         GM.setCharacterData(stat_name, out hp, out atk, out range, out atkSpeed, out size);
-
+        
 #if UNITY_EDITOR
 
         strBuilder.AppendLine("[ " + this.gameObject.name + " ]");
@@ -195,6 +199,15 @@ public class Attacker : MonoBehaviour
 	}
 	public void CharacterPositionSet(float x)
 	{
+        if(x == 0)
+        {
+            if(GM == null)
+            {
+                GM = GameManager.getInstance();
+            }
+            GM.SetAttackTrsByLevel(this.gameObject, currentStair);
+        }
+
 		float character_pos_Y = 0;
 		BoxCollider AttackCollider = Attackobj.GetComponent<BoxCollider>();
 		switch (this.gameObject.name)
@@ -217,7 +230,7 @@ public class Attacker : MonoBehaviour
 			character_pos_Y = 0.0f;
 			break;
 		}
-
+       
 		transform.localPosition = new Vector3(x, character_pos_Y, 0);
 		transform.localScale = new Vector3(1, 1, 1);
 	}
@@ -230,7 +243,6 @@ public class Attacker : MonoBehaviour
 
     void Create_Move_Attack_List(string prefixName)
     {
-
         if (thisSprite == null) thisSprite = this.transform.FindChild("BodyContainer").FindChild("Body").GetComponent<UISprite>();
         moveSpriteNameLists.Clear();
         attackSpriteNameLists.Clear();
@@ -262,6 +274,7 @@ public class Attacker : MonoBehaviour
         hp = lastHP;
 
 		#if UNITY_EDITOR
+        if(DebugHPLabel!=null)
 		DebugHPLabel.text = hp.ToString();
 		#endif
 
@@ -341,7 +354,7 @@ public class Attacker : MonoBehaviour
 			Attacker otherAttacker = hit.transform.parent.GetComponent<Attacker> ();
 			//Debug.Log ("??"+otherAttacker.name + "/"+stat_name.ToString()+"/"+otherAttacker.getStatName);
 			if (stat_name.Equals("Archer") && !otherAttacker.getStatName.Equals ("Archer") && !isEnemyFace) {
-				Debug.Log ("Must Be Stop");
+//				Debug.Log ("Must Be Stop");
 				isEnemyFace = true;
 				StopCoroutine("MoveSpriteAnimation");
 				StartCoroutine("AttackProcess");
@@ -399,6 +412,10 @@ public class Attacker : MonoBehaviour
         int mIndex = 0;
         if (attackSpriteNameLists.Count == 0)
         {
+            if (moveSpriteNameLists.Count == 0)
+            {
+                Debug.Log("move Sprite List Null");
+            }
             thisSprite.spriteName = moveSpriteNameLists[0];
         }
         else
@@ -474,6 +491,7 @@ public class Attacker : MonoBehaviour
 
         hp -= damage;
 #if UNITY_EDITOR
+        if(DebugHPLabel != null)
         DebugHPLabel.text = hp.ToString();
 #endif
 
@@ -637,6 +655,7 @@ public class Attacker : MonoBehaviour
     {
         if (TempStaticMemory.isGamePlaying && !isEnemyFace && !isEnemyHeal)
         {
+
             transform.Translate(Vector3.right * Time.fixedDeltaTime * speed);
         }
         if (isKnockBack)

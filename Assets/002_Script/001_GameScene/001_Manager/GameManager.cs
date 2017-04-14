@@ -758,12 +758,11 @@ public class GameManager : MonoBehaviour
 
 	public void updateEnemyStatus(string obj_name, string tag, int stair, int uniq_id, float pos_x, float hp)
 	{
-		Debug.Log("Update Enemy Status" + obj_name + "// " + tag + "// " + pos_x + "// " + hp);
-		//GDB.UpdateObjectStatus(obj_name, tag, stair,  pos_x, hp);
-
+		Debug.Log("Update Enemy Status [" + obj_name + "]// " + tag + "// " + pos_x + "// " + hp);
+        //	GM.updateEnemyStatus(gameObject.name,gameObject.tag,currentStair,unique_id,0.0f,hp);
+        GDB.UpdateObjectStatus(obj_name, tag,uniq_id, stair,  pos_x, hp);
 	}
-
-
+    
 	#endregion
 
 	//Cemetry Part
