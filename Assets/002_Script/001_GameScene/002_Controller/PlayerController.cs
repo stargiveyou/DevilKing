@@ -32,11 +32,11 @@ public class PlayerController : MonoBehaviour {
 		for (int i = 0; i < alias_type_strings.Length; i++) {
 			for (int alias_count = 0; alias_count <	GM.getMonsterNameCount (alias_type_strings [i]); alias_count++) {
 				aliasName = GM.getMonsterName (alias_type_strings [i], alias_count, true);
-				GDB.getAliasObjectDB.LoadData (GM.getMonsterName (alias_type_strings [i], alias_count, true), delegate(int stair, int floor, float hp) {
+				GDB.getAliasObjectDB.LoadData (GM.getMonsterName (alias_type_strings [i], alias_count, true), delegate(int stair, int floor, float hp, int level) {
                     
 					if(stair != -1)
 					{
-                        Debug.Log(aliasName + " Created // Stair : " + stair + " // Enemy Pos " + floor + " // HP Value : " + hp);
+						Debug.Log(aliasName + " Created // Stair : " + stair + " // Enemy Pos " + floor + " // HP Value : " + hp + " // Level : "+ level);
                         
                         //Resources.Load
                         GameObject CreateMonster = Instantiate(Resources.Load(aliasAddress+ aliasName)) as GameObject;
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
 
 						CreateMonsterInfo.AliasPosNumber = floor;
 						CreateMonsterInfo.isBossMonster = false;
-						CreateMonsterInfo.SendMessage("CharacterStatus",SendMessageOptions.DontRequireReceiver);
+						CreateMonsterInfo.SendMessage("CharacterStatus",level,SendMessageOptions.DontRequireReceiver);
 
 						//HP Value Set
 						CreateMonsterInfo.CurrentHP = hp;

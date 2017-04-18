@@ -1,0 +1,293 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &103086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 430202}
+  - 114: {fileID: 11468054}
+  m_Layer: 0
+  m_Name: Death_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &430202
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11468054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 8df2643c12d304deda4e4bd7561989f9, type: 2}
+  mSprites:
+  - name: Death_Effect_01
+    x: 2002
+    y: 1947
+    width: 22
+    height: 23
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 388
+    paddingRight: 390
+    paddingTop: 86
+    paddingBottom: 391
+  - name: Death_Effect_02
+    x: 2002
+    y: 2009
+    width: 38
+    height: 39
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 380
+    paddingRight: 382
+    paddingTop: 76
+    paddingBottom: 385
+  - name: Death_Effect_03
+    x: 1908
+    y: 1675
+    width: 76
+    height: 76
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 362
+    paddingRight: 362
+    paddingTop: 59
+    paddingBottom: 365
+  - name: Death_Effect_04
+    x: 1755
+    y: 1599
+    width: 152
+    height: 152
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 324
+    paddingRight: 324
+    paddingTop: 21
+    paddingBottom: 327
+  - name: Death_Effect_05
+    x: 1602
+    y: 1752
+    width: 399
+    height: 296
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 201
+    paddingRight: 200
+    paddingTop: 0
+    paddingBottom: 204
+  - name: Death_Effect_06
+    x: 1402
+    y: 714
+    width: 562
+    height: 375
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 119
+    paddingRight: 119
+    paddingTop: 0
+    paddingBottom: 125
+  - name: Death_Effect_07
+    x: 801
+    y: 1090
+    width: 719
+    height: 457
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 42
+    paddingRight: 39
+    paddingTop: 0
+    paddingBottom: 43
+  - name: Death_Effect_08
+    x: 0
+    y: 546
+    width: 800
+    height: 500
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Death_Effect_09
+    x: 0
+    y: 1047
+    width: 800
+    height: 500
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Death_Effect_10
+    x: 801
+    y: 1548
+    width: 800
+    height: 500
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Death_Effect_11
+    x: 0
+    y: 1548
+    width: 800
+    height: 500
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Death_Effect_12
+    x: 0
+    y: 50
+    width: 800
+    height: 495
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 5
+  - name: Death_Effect_13
+    x: 801
+    y: 694
+    width: 600
+    height: 395
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 100
+    paddingRight: 100
+    paddingTop: 0
+    paddingBottom: 105
+  - name: Death_Effect_14
+    x: 1521
+    y: 1277
+    width: 350
+    height: 270
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 225
+    paddingRight: 225
+    paddingTop: 0
+    paddingBottom: 230
+  - name: Death_Effect_15
+    x: 1602
+    y: 1599
+    width: 152
+    height: 152
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 324
+    paddingRight: 324
+    paddingTop: 21
+    paddingBottom: 327
+  - name: Death_Effect_16
+    x: 1908
+    y: 1598
+    width: 76
+    height: 76
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 362
+    paddingRight: 362
+    paddingTop: 59
+    paddingBottom: 365
+  - name: Death_Effect_17
+    x: 2002
+    y: 1971
+    width: 38
+    height: 37
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 381
+    paddingRight: 381
+    paddingTop: 79
+    paddingBottom: 384
+  - name: Death_Effect_18
+    x: 2025
+    y: 1948
+    width: 22
+    height: 22
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 389
+    paddingRight: 389
+    paddingTop: 86
+    paddingBottom: 392
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 103086}
+  m_IsPrefabParent: 1

@@ -147,13 +147,13 @@ public class InstallPopUPControl : MonoBehaviour
 					CreateMonster.name =go.name;
                     PlayerCharacter CreateMonsterInfo = CreateMonster.GetComponent<PlayerCharacter>();
               
-					GM.installObject (go.name, go.tag, _currentStageCtrl.StairNumber, installPos);
+					GM.installObject (go.name, go.tag, _currentStageCtrl.StairNumber, installPos, GM.LoadMonsterLevelData(current_monster_name));
                     CreateMonsterInfo.StageCntl = _currentStageCtrl;
                     CreateMonster.transform.parent = _currentStageCtrl.TrsByPos(installPos);
                     CreateMonster.transform.SetAsFirstSibling();
                     CreateMonsterInfo.AliasPosNumber = installPos;
                     CreateMonsterInfo.isBossMonster = false;
-                    CreateMonsterInfo.SendMessage("CharacterStatus", SendMessageOptions.DontRequireReceiver);
+					CreateMonsterInfo.CharacterStatus ();
 
                     TempStaticMemory.gold -= GM.getPrice(go.name, "install", go.tag);
                  
@@ -179,16 +179,20 @@ public class InstallPopUPControl : MonoBehaviour
                     GameObject CreateTrap = Instantiate(Resources.Load(trapAddress + go.name)) as GameObject;
                     CreateTrap.name = go.name;
                     ObstacleCharacter TrapControl = CreateTrap.GetComponent<ObstacleCharacter>();
-                    TrapControl.setTrapPos = installPos;
+                    
                     TrapControl.StageCntl = _currentStageCtrl;
-
                     CreateTrap.transform.parent = _currentStageCtrl.TrsByPos(installPos);
                     CreateTrap.transform.SetAsFirstSibling();
+
+					TrapControl.setTrapStair = _currentStageCtrl.StairNumber;
+					TrapControl.setTrapPos = installPos;
+
+					TrapControl.Initialize ();
 
                     _currentStageCtrl.OccupyPos(installPos, 1);
                     _currentStageCtrl.trapInstall(go.name,true);
 
-					GM.installObject (go.name, go.tag, _currentStageCtrl.StairNumber, installPos);
+					GM.installObject (go.name, go.tag, _currentStageCtrl.StairNumber, installPos,GM.LoadTrapLevelData(GM.trapIndex(go.name)));
 
                     TempStaticMemory.gold -= GM.getPrice(go.name, "install", go.tag);
                     

@@ -47,10 +47,10 @@ public class AttackerController : MonoBehaviour
 		attack_Create_Unique_id = GDB.getUserDS ().receiveIntCmd ("EnemyUniqID");
 		Attacker _attackerCtrl;
 		for (int  i = 0; i < Attackers_name.Length; i++) {
-			GDB.getEnemyObjectDB.LoadData (Attackers_name [i], delegate(int stair, int floor, float hp) {
+			GDB.getEnemyObjectDB.LoadData (Attackers_name [i], delegate(int stair, int floor, float hp, int level) {
 				if( stair > -1)
 				{
-                    Debug.Log(Attackers_name[i] + " Created // Stair : " + " // Enemy Pos " + floor + " // HP Value : " + hp);
+					Debug.Log(Attackers_name[i] + " Created // Stair : " + " // Enemy Pos " + floor + " // HP Value : " + hp+" // Level : "+ level);
 
                     GameObject AttackCharacter = Instantiate(Empty_Attacker) as GameObject;
                     AttackCharacter.name = Attackers_name[i];
@@ -59,20 +59,24 @@ public class AttackerController : MonoBehaviour
 
                     _attackerCtrl = AttackCharacter.GetComponent<Attacker>();
                     _attackerCtrl.setUniqueID = stair / 100;
+
                     _attackerCtrl.control = this.GetComponent<AttackerController>();
 			        AttackerList.Add(AttackCharacter); 
 					GM.getStageController(stair%100).addStageList(AttackCharacter);
 
 					AttackCharacter.transform.parent = GM.getStageController(stair%100).StartTrs;
+
+					_attackerCtrl.CharacterSetting(level);
 					_attackerCtrl.CharacterPositionSet(floor);
 					_attackerCtrl.UpdateCharacterHP((int)hp);
+
 						
 				}
 			});
 		}
 
 		for (int i = 0; i < Special_Attackers_Name.Length; i++) {
-			GDB.getEnemyObjectDB.LoadData (Special_Attackers_Name [i], delegate(int stair, int floor, float hp) {
+			GDB.getEnemyObjectDB.LoadData (Special_Attackers_Name [i], delegate(int stair, int floor, float hp, int level) {
 				
 				if(stair >-1)
 				{
@@ -92,6 +96,7 @@ public class AttackerController : MonoBehaviour
 
 					AttackNamedCharacter.transform.parent = GM.getStageController(stair%100).StartTrs;
                     Debug.Log("Floor : " + floor);
+					_attackerCtrl.CharacterSetting(level);
 					_attackerCtrl.CharacterPositionSet(floor);
 					_attackerCtrl.UpdateCharacterHP((int)hp);
 				}
@@ -192,20 +197,22 @@ public class AttackerController : MonoBehaviour
 			AttackCharacter.tag = "Enemy";
 		}
 
+
         AttackerCtrl.control = this.GetComponent<AttackerController>();
+
         AttackerList.Add(AttackCharacter);
-		GM.installObject (AttackCharacter.name, AttackCharacter.tag,  0,attack_Create_Unique_id);
+		GM.installObject (AttackCharacter.name, AttackCharacter.tag,  0,attack_Create_Unique_id,GM.LoadMonsterLevelData("Normal"));
 		GDB.getUserDS ().sendIntCmd ("EnemyCreate",1);
 
-        AttackerCtrl.CharacterPositionSet(0);
 
+		AttackerCtrl.CharacterSetting();
+        AttackerCtrl.CharacterPositionSet(0);
     }
 
     private string getCreateNamedMonsterName()
     {
         return "";
     }
-
 
     public void DeleteListByObject(GameObject obj)
     {

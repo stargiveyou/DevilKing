@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
 
 	#region PUBLIC Variable
 
-	public GameObject Attack_Respawn;
 	public GameObject Defender;
 	public Camera ViewCamera;
 	public GameObject TutoObject;
@@ -40,10 +39,13 @@ public class GameManager : MonoBehaviour
 	private GameDataBase GDB;
 
 	private AttackerController Attack_Control;
+	private PlayerController Player_Control;
+	private ObstacleController Obstacle_Control;
+
 	private ObjectPoolManager Pool;
 	private CSVParser _CSV;
 	private JsonParser _Json;
-	private PlayerController Player_Control;
+
 	private bool isTutoSystem;
 	private StageManager stageManager;
 
@@ -80,9 +82,12 @@ public class GameManager : MonoBehaviour
 			{
 				//SendToUI("ShowTrophyDisplayPopUp", 0);
 			}
+			GameObject scripts = transform.FindChild ("ScriptCollect").gameObject;
 
-			Attack_Control = Attack_Respawn.GetComponent<AttackerController>();
-			Player_Control = GetComponent<PlayerController>();
+
+			Attack_Control = scripts.GetComponent<AttackerController>();
+			Player_Control = scripts.GetComponent<PlayerController>();
+			Obstacle_Control = scripts.GetComponent<ObstacleController> ();
 		}
 	}
 
@@ -112,6 +117,7 @@ public class GameManager : MonoBehaviour
 
 			Attack_Control.LoadEnemyObject ();
 			Player_Control.LoadAliasObject();
+			Obstacle_Control.LoadTrapObject ();
 
 		}
 		else
@@ -738,9 +744,9 @@ public class GameManager : MonoBehaviour
 	#region File Control 
 
 
-	public void installObject(string obj_name, string tag, int stair, int floor)
+	public void installObject(string obj_name, string tag, int stair, int floor, int level)
 	{
-		GDB.ObjectInstall (obj_name, tag, stair, floor);
+		GDB.ObjectInstall (obj_name, tag, stair, floor, level);
 	}
 
 	public void unInstallObject(string obj_name, string tag, int stair, int floor)
@@ -758,11 +764,17 @@ public class GameManager : MonoBehaviour
 
 	public void updateEnemyStatus(string obj_name, string tag, int stair, int uniq_id, float pos_x, float hp)
 	{
-		Debug.Log("Update Enemy Status [" + obj_name + "]// " + tag + "// " + pos_x + "// " + hp);
-        //	GM.updateEnemyStatus(gameObject.name,gameObject.tag,currentStair,unique_id,0.0f,hp);
+//		Debug.Log("Update Enemy Status [" + obj_name + "]// " + tag + "// " + pos_x + "// " + hp);
         GDB.UpdateObjectStatus(obj_name, tag,uniq_id, stair,  pos_x, hp);
 	}
     
+	public void updateTrapStatus(string obj_name, string tag, int stair, int floor, int lastCount)
+	{
+		Debug.Log("Update Trap Status [" + obj_name + "]// " + tag + "//"+ stair +"// " + floor + "// " + lastCount);
+		GDB.UpdateObjectStatus(obj_name,tag,stair,floor,lastCount);
+	}
+
+
 	#endregion
 
 	//Cemetry Part

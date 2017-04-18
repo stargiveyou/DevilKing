@@ -303,13 +303,13 @@ public class StageController : MonoBehaviour
         stageBossMonster.StageCntl = this;
         stageBossMonster.AliasPosNumber = 10;
         stageBossMonster.isBossMonster = true;
-        stageBossMonster.SendMessage("CharacterStatus", SendMessageOptions.DontRequireReceiver);
+		stageBossMonster.CharacterStatus ();
     }
     public void updateReNewBossmonster()
     {
 		Debug.Log("1 :"+GM.getContext("BossMonster", stairNumber) +" // "+ stairNumber);
         Debug.Log("2 :"+stageBossMonster.gameObject.name +" //");
-        stageBossMonster.SendMessage("CharacterStatus", SendMessageOptions.DontRequireReceiver);
+		stageBossMonster.CharacterStatus ();
     }
     #region Getter Function
 

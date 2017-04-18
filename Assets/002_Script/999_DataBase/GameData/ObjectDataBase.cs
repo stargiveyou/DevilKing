@@ -11,7 +11,7 @@ using System.Runtime.Serialization.Formatters;
 
 
 //public delegate void delegateLoadObject(int stair, int floor);
-public delegate void delegateLoadObject(int stair, int floor,float hp);
+public delegate void delegateLoadObject(int stair, int floor,float hp, int level);
 
 
 //Factory Method 얼추 비슷한 패턴으로
@@ -56,7 +56,7 @@ public abstract class ObjectDataBase : FileDataInterface
 
     public abstract void SaveData();
     public abstract void LoadData(string obj_name, delegateLoadObject callback);
-    public abstract void InstallMonster(int stair, int floor, string _name);
+	public abstract void InstallMonster(int stair, int floor,int level, string _name);
     public abstract bool UnInstallMonster(int stair, int floor, string _name);
     public abstract void UpdateMonster(string obj_name, params object[] parameter);
 
@@ -92,13 +92,14 @@ public class AliasObjectData : ObjectDataBase
         int stairIndex;
         int tileIndex;
         float alias_hp;
-        public alias_data_struct(int stair, int tile, float hp)
+		int alias_level;
+		public alias_data_struct(int stair, int tile, float hp, int level)
         {
             alias_hp = hp;
             stairIndex = stair;
             tileIndex = tile;
+			alias_level = level;
         }
-
 
         public int StairIndex
         {
@@ -133,16 +134,23 @@ public class AliasObjectData : ObjectDataBase
                 alias_hp = value;
             }
         }
+		public int AliasLevel
+		{
+			get
+			{
+				return alias_level;
+			}
+		}
 
         public bool Equals(alias_data_struct other)
         {
             return (other.stairIndex == this.stairIndex) && (other.tileIndex == this.tileIndex);
         }
 
-        public override string ToString()
-        {
-            return "Stair : " + stairIndex.ToString() + "_Tile :" + tileIndex.ToString() + "_HP:" + alias_hp.ToString();
-        }
+		public override string ToString ()
+		{
+			return string.Format ("[alias_data_struct: StairIndex={0}, Tileindex={1}, \n HpValue={2}, AliasLevel={3}]", StairIndex, Tileindex, HpValue, AliasLevel);
+		}
     };
 
     private Dictionary<string, List<alias_data_struct>> alias_data_dic;
@@ -207,20 +215,20 @@ public class AliasObjectData : ObjectDataBase
 		try{
 			alias_data_dic.TryGetValue (obj_name, out load_list);
 			for (int i = 0; i < load_list.Count; i++) {
-				callback (load_list [i].StairIndex, load_list [i].Tileindex, load_list[i].HpValue);
+				callback (load_list [i].StairIndex, load_list [i].Tileindex, load_list[i].HpValue,load_list[i].AliasLevel);
 			}
 		}
 		catch(NullReferenceException nullExcep)
 		{
 			//Debug.Log ("Null Exception Interrupt \n"+nullExcep.StackTrace);
-			callback (-1, -1,0.0f);
+			callback (-1, -1,0.0f,0);
 		}
 
     }
 
-    public override void InstallMonster(int stair, int floor, string _name)
+	public override void InstallMonster(int stair, int floor, int level ,string _name)
     {
-        alias_data_struct alias_str = new alias_data_struct(stair, floor, 0.0f);
+		alias_data_struct alias_str = new alias_data_struct(stair, floor, 0.0f, level);
         List<alias_data_struct> loadStructData;
 
         if (alias_data_dic.ContainsKey(_name))
@@ -252,7 +260,7 @@ public class AliasObjectData : ObjectDataBase
         Debug.Log("Saved " + _name + " / " + alias_str.ToString() + "/ List Count" + loadStructData.Count + "/ Dictionary Count" + alias_data_dic.Count);
     }
 
-    public override bool UnInstallMonster(int stair, int floor, string _name)
+	public override bool UnInstallMonster(int stair, int floor,string _name)
     {
         if (alias_data_dic.Count == 0) {
             Debug.Log("Dicionary Count is 0");
@@ -328,7 +336,6 @@ public class AliasObjectData : ObjectDataBase
         {
             if (list_struct[i].StairIndex == stair && list_struct[i].Tileindex == tile)
             {
-                Debug.Log("found");
                 returnvalue = i; break;
             }
         }
@@ -400,13 +407,14 @@ public class EnemyObjectData : ObjectDataBase
         int stairIndex;
         float enemy_pos_x;
         float enemy_hp;
-
-        public enemy_data_struct(uint u_id,int stair, float hp)
+		int enemy_level;
+		public enemy_data_struct(uint u_id,int stair, float hp, int level)
         {
             unique_id = u_id;
             stairIndex = stair;
             enemy_pos_x = 0.0f;
             enemy_hp = hp;
+			enemy_level  = level;
         }
 
         public float EnemyPos
@@ -444,6 +452,13 @@ public class EnemyObjectData : ObjectDataBase
                 enemy_hp = value;
             }
         }
+		public int EnemyLevel
+		{
+			get
+			{
+				return enemy_level;
+			}
+		}
 
         public uint UniqueID
         {
@@ -453,6 +468,11 @@ public class EnemyObjectData : ObjectDataBase
             }
         }
 
+
+		public override string ToString ()
+		{
+			return string.Format ("[enemy_data_struct: EnemyPos={0}, StairIndex={1}, HpValue={2}, EnemyLevel={3}, UniqueID={4}]", EnemyPos, StairIndex, HpValue, EnemyLevel, UniqueID);
+		}
     }
 
     private Dictionary<string, List<enemy_data_struct>> enemy_data_dic;
@@ -506,7 +526,7 @@ public class EnemyObjectData : ObjectDataBase
             for (int i = 0; i < load_list.Count; i++)
             {
                 //
-				callback(((int)load_list[i].UniqueID* 100) +load_list[i].StairIndex, (int)load_list[i].EnemyPos,load_list[i].HpValue);
+				callback(((int)load_list[i].UniqueID* 100) +load_list[i].StairIndex, (int)load_list[i].EnemyPos,load_list[i].HpValue, load_list[i].EnemyLevel);
             }
         }
         else
@@ -516,9 +536,9 @@ public class EnemyObjectData : ObjectDataBase
 
     }
 
-	public override void InstallMonster(int stair, int unique_id, string _name)
+	public override void InstallMonster(int stair, int unique_id,  int level,string _name)
     {
-		enemy_data_struct enemy_struct = new enemy_data_struct((uint)unique_id, stair, 0.0f);
+		enemy_data_struct enemy_struct = new enemy_data_struct((uint)unique_id, stair, 0.0f,level);
         List<enemy_data_struct> enemy_list = null;
         if(enemy_data_dic.ContainsKey(_name) && enemy_data_dic.TryGetValue(_name, out enemy_list))
         {
@@ -627,17 +647,18 @@ public class EnemyObjectData : ObjectDataBase
 
 public class TrapObjectData : ObjectDataBase
 {
+	[Serializable]
 	struct   trap_data_struct
 	{
 		int stair;
 		int floor;
 		int lastCount;
-
-		public trap_data_struct(int stair, int floor)
+		int trapLevel;
+		public trap_data_struct(int stair, int floor, int level)
 		{
 			this.stair = stair;
 			this.floor = floor;
-		
+			this.trapLevel = level;
 			lastCount = 0;
 		}
 
@@ -673,6 +694,17 @@ public class TrapObjectData : ObjectDataBase
 			{
 				stair = value;
 			}
+		}
+
+		public int TrapLevel{
+			get {
+				return trapLevel;
+			}
+		}
+
+		public override string ToString ()
+		{
+			return string.Format ("[trap_data_struct: TrapCount={0}, Tileindex={1}, StairIndex={2}, TrapLevel={3}]", TrapCount, Tileindex, StairIndex, TrapLevel);
 		}
 	}
 	//trap struct
@@ -721,28 +753,25 @@ public class TrapObjectData : ObjectDataBase
     }
     public override void LoadData(string obj_name, delegateLoadObject callback)
     {
-        
 		List<trap_data_struct> load_list;
 		if (trap_data_dic.TryGetValue(obj_name, out load_list))
 		{
 
 			for (int i = 0; i < load_list.Count; i++)
 			{
-				callback(load_list[i].StairIndex, (int)load_list[i].Tileindex,load_list[i].TrapCount);
+				callback(load_list[i].StairIndex, load_list[i].Tileindex,  load_list[i].TrapCount, load_list[i].TrapLevel);
 			}
 		}
 		else
 		{
 			Debug.Log("Data Dictionary Not Loaded");
 		}
-
-
     }
 
-    public override void InstallMonster(int stair, int floor, string _name)
+	public override void InstallMonster(int stair, int floor, int level,string _name)
     {
         
-		trap_data_struct trap_struct = new trap_data_struct (stair, floor);
+		trap_data_struct trap_struct = new trap_data_struct (stair, floor,level);
 		List<trap_data_struct> trap_list = null;
 
 		if(trap_data_dic.ContainsKey(_name) && trap_data_dic.TryGetValue(_name,out trap_list))
@@ -796,12 +825,34 @@ public class TrapObjectData : ObjectDataBase
     }
     public override void UpdateMonster(string obj_name, params object[] parameter)
     {
-        throw new NotImplementedException();
-
+		Debug.Log(obj_name +"// Updated");
 		//parameter [0] : stair
 		//parameter [1] : floor
-		//parameter [2] : count
+		//parameter [2] : lastCount
 
+
+		int stair = (int)parameter[0];
+		int floor = (int)parameter[1];
+		int lastCount = (int)parameter[2];
+
+		int list_index = -1;
+		List<trap_data_struct> load_list = null;
+
+
+		if (trap_data_dic.TryGetValue(obj_name, out load_list))
+		{
+			if ((list_index = GetObjectListIndex(load_list, stair,floor)) >= 0)
+			{
+				trap_data_struct loadStruct = load_list[list_index];
+
+				loadStruct.StairIndex = stair;
+				loadStruct.Tileindex = floor;
+				loadStruct.TrapCount = lastCount;
+
+				load_list.RemoveAt(list_index);
+				load_list.Insert(list_index, loadStruct);
+			}
+		}
     }
 
 	private int GetObjectListIndex(List<trap_data_struct> list, int stair, int floor)
@@ -816,7 +867,6 @@ public class TrapObjectData : ObjectDataBase
 		}
 
 		return returnValue;
-
 	}
 
 

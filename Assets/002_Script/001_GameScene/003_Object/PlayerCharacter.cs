@@ -77,7 +77,7 @@ public class PlayerCharacter : MonoBehaviour
 		CharacterStatus();
 	}
 
-	void CharacterStatus()
+	public void CharacterStatus(int level =0)
 	{
 		characterName = transform.FindChild("NameLabel").GetComponent<UILabel>();
 		thisBoxCol = GetComponent<BoxCollider>();
@@ -86,8 +86,11 @@ public class PlayerCharacter : MonoBehaviour
 		{
 			GM = GameManager.getInstance();
 		}
-
-		GM.setCharacterData(this.gameObject.name, out initHp, out atk, out range, out speed, out c_size);
+		if (level == 0) {
+			GM.setCharacterData (this.gameObject.name, out initHp, out atk, out range, out speed, out c_size);
+		} else {
+			GM.setCharacterData (this.gameObject.name,level ,out initHp, out atk, out range, out speed, out c_size);
+		}
 
 		#if UNITY_EDITOR
 

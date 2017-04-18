@@ -43,6 +43,7 @@ public class Attacker : MonoBehaviour
 	{
         moveSpriteNameLists = new List<string>();
         attackSpriteNameLists = new List<string>();
+		GM = GameManager.getInstance();
     }
     void OnEnable()
     {
@@ -61,12 +62,10 @@ public class Attacker : MonoBehaviour
     }
     void Start()
     {
-       
-        GM = GameManager.getInstance();
       
         localposY = transform.localPosition.y;
 
-        CharacterSetting();
+    //    CharacterSetting();
         Create_Move_Attack_List(gameObject.name + "_");
 
         StartCoroutine("MoveSpriteAnimation");
@@ -86,7 +85,7 @@ public class Attacker : MonoBehaviour
 		StartCoroutine ("EnemySaveCoroutine");
 	}
 
-    private void CharacterSetting()
+	public void CharacterSetting(int level =0)
     {
         UISprite AttackSprite = CharacterBody.transform.FindChild("Body").GetComponent<UISprite>();
         BoxCollider AttackCollider = Attackobj.GetComponent<BoxCollider>();
@@ -132,7 +131,11 @@ public class Attacker : MonoBehaviour
         }
         */
 //        CharacterPositionSet();
-        GM.setCharacterData(stat_name, out hp, out atk, out range, out atkSpeed, out size);
+		if (level == 0) {
+			GM.setCharacterData (stat_name, out hp, out atk, out range, out atkSpeed, out size);
+		} else {
+			GM.setCharacterData (stat_name,level, out hp, out atk, out range, out atkSpeed, out size);
+		}
         
 #if UNITY_EDITOR
 
@@ -205,7 +208,7 @@ public class Attacker : MonoBehaviour
             {
                 GM = GameManager.getInstance();
             }
-            GM.SetAttackTrsByLevel(this.gameObject, currentStair);
+			GM.SetAttackTrsByLevel(this.gameObject, currentStair);    
         }
 
 		float character_pos_Y = 0;

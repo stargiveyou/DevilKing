@@ -8,46 +8,81 @@ public class ObstacleCharacter : MonoBehaviour
     private int initCount;
     private GameManager GM;
     private UISprite thisSprite, effectSprite;
-    string _name;
+   
     private StageController _stageControl;
-    private int trapPos =0;
-    // Use this for initialization
 
     private const string fire_hole = "2-0_SpitFire1~2Hole";
+	private int currentStair, currentFloor;
 
+	void Awake()
+	{
+
+		thisSprite = GetComponent<UISprite>();
+	}
+	// Use this for initialization
     void Start()
     {
-        GM = GameManager.getInstance();
-        
-        thisSprite = GetComponent<UISprite>();
+    
+	}
 
-        _name = this.gameObject.name;
-        GM.setTrapData(_name, 0, out damage, out count, out installCount);
-        initCount = count;
-        switch (_name)
-        {
-            case "Fire":
-                FireObstacleProcess();
-                break;
-            case "Stone":
-                StoneObstacleProcess();
-                transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                break;
-            case "Spike":
-                SpikeObstacleProcess();
-                break;
-            default:
-                break;
-        }
-    }
+	public void Initialize()
+	{
+		GM = GameManager.getInstance();
+		string _name = this.gameObject.name;
+		int level = GM.LoadTrapLevelData (GM.trapIndex (_name));
+		GM.setTrapData(_name, level, out damage, out count, out installCount);
+		switch (_name)
+		{
+		case "Fire":
+			FireObstacleProcess(level);
+			break;
+		case "Stone":
+			StoneObstacleProcess( level);
+			transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+			break;
+		case "Spike":
+			SpikeObstacleProcess(level);
+			break;
+		default:
+			break;
+		}
+		GM.updateTrapStatus (_name, this.gameObject.tag, currentStair, currentFloor, count);
+		initCount = count;
 
-    void SpikeObstacleProcess()
+	}
+
+	public void Initialize(int level, int prevInstalledCount)
+	{
+		GM = GameManager.getInstance();
+		string _name = this.gameObject.name;
+		GM.setTrapData(_name, level, out damage, out count, out installCount);
+		initCount = count;
+		count = prevInstalledCount;	
+		switch (_name)
+		{
+		case "Fire":
+			FireObstacleProcess(level);
+			break;
+		case "Stone":
+			StoneObstacleProcess(level);
+			transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+			break;
+		case "Spike":
+			SpikeObstacleProcess(level);
+			break;
+		default:
+			break;
+		}
+	}
+
+
+
+	void SpikeObstacleProcess(int level)
     {
         thisSprite = GetComponent<UISprite>();
         transform.localPosition = Vector3.up * 10;
         this.gameObject.tag = "Obstacle";
-        int level = GM.LoadTrapLevelData(0);
-
+        
         switch (level)
         {
             case 1:
@@ -68,7 +103,7 @@ public class ObstacleCharacter : MonoBehaviour
         thisSprite.MakePixelPerfect();
     }
 
-    void FireObstacleProcess()
+	void FireObstacleProcess(int level)
     {
         thisSprite = GetComponent<UISprite>();
         transform.localPosition = Vector3.up * 30;
@@ -76,7 +111,7 @@ public class ObstacleCharacter : MonoBehaviour
         Debug.Log(effectSprite.name+"  "+ effectSprite.tag);
         //int level = PlayerPrefs.GetInt("Obstacle_Level", 1);
         effectSprite.tag = "Obstacle";
-        int level = GM.LoadTrapLevelData(1);
+        
         thisSprite.MakePixelPerfect();
 
         switch (level)
@@ -146,13 +181,13 @@ public class ObstacleCharacter : MonoBehaviour
     string ready_spriteName, attack_spriteName;
 
 
-    void StoneObstacleProcess()
+	void StoneObstacleProcess(int level)
     {
         thisSprite = GetComponent<UISprite>();
         effectSprite = transform.FindChild("Effect").GetComponent<UISprite>();
         effectSprite.tag = "Obstacle";
         transform.localPosition = Vector3.up * 180;
-        int level = GM.LoadTrapLevelData(2);
+        
         thisSprite.spriteName = "3-0StonFallHole";
         thisSprite.MakePixelPerfect();
         switch (level)
@@ -243,12 +278,18 @@ public class ObstacleCharacter : MonoBehaviour
     }
     public int setTrapPos
     {
-
         set
         {
-            trapPos = value;
+			currentFloor = value;
         }
     }
+	public int setTrapStair
+	{
+		set
+		{
+			currentStair = value;
+		}
+	}
 
     void Discount()
     {
@@ -257,10 +298,13 @@ public class ObstacleCharacter : MonoBehaviour
         if (count == 0)
         {
             count = initCount;
-            _stageControl.NonOccupyPos(trapPos, 1);
-            
+			_stageControl.NonOccupyPos(currentFloor, 1);
+
+			GM.unInstallObject (this.gameObject.name, this.gameObject.tag, currentStair, currentFloor);
+
             _stageControl.trapInstall(gameObject.name, false);
             gameObject.SetActive(false);
+			Destroy (gameObject);
         }
     }
 

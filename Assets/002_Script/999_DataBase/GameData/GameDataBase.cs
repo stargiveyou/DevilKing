@@ -59,7 +59,7 @@ public class GameDataBase
 
 	public GameDataBase()
 	{
-        //DataRemove();
+        DataRemove();
         binform = new BinaryFormatter();
 		DataBaseFactory factory = new DataBaseFactory ();
         
@@ -107,7 +107,7 @@ public class GameDataBase
       */
 
 
-	public void ObjectInstall(string objectName, string objectTag ,int stair, int floor)
+	public void ObjectInstall(string objectName, string objectTag ,int stair, int floor, int level)
 	{
 		ObjectClassEnumType sendClassType = ObjectClassEnumType.None;
 
@@ -118,12 +118,12 @@ public class GameDataBase
 		case "Enemy":
 			sendClassType = ObjectClassEnumType.EnemyData;
 			break;
-		case "Trap":
+		case "Obstacle":
 			sendClassType = ObjectClassEnumType.TrapData;
 			break;
 		}
 
-		ObjectDatas [(int)sendClassType].InstallMonster (stair, floor, objectName);
+		ObjectDatas [(int)sendClassType].InstallMonster (stair, floor, level,objectName);
 	}
 
 	public void ObjectUnInstall(string objectName, string objectTag, int stair, int floor)
@@ -137,7 +137,7 @@ public class GameDataBase
 		case "Enemy":
 			sendClassType = ObjectClassEnumType.EnemyData;
 			break;
-		case "Trap":
+		case "Obstacle":
 			sendClassType = ObjectClassEnumType.TrapData;
 			break;
 		}
@@ -152,7 +152,6 @@ public class GameDataBase
 
 	public void UpdateObjectStatus( string obj_name, string objectTag, params object[] status)
 	{
-		Debug.Log("Tag : " + objectTag + " // Object : "+obj_name) ;
 		ObjectClassEnumType sendClassType = ObjectClassEnumType.None;
 		switch (objectTag)
 		{
@@ -164,7 +163,7 @@ public class GameDataBase
             case "SuperEnemy":
 			sendClassType = ObjectClassEnumType.EnemyData;
 			break;
-		case "Trap":
+		case "Obstacle":
 			sendClassType = ObjectClassEnumType.TrapData;
 			break;
 		}

@@ -26,7 +26,6 @@ public class ObjectPoolManager : MonoBehaviour {
     
     enum Obj_Enum { one_Cemetry = 0, two_Cemetry,one_Ghost,two_Ghost, endEnum};
 
-
 	// Use this for initialization
 	void Start () {
 
@@ -49,12 +48,9 @@ public class ObjectPoolManager : MonoBehaviour {
         {
             int length = Prefabs.transform.childCount;
 
-            for(int i =0; i< length; i++)
-            {
-                CreateObject(Prefabs.transform.GetChild(i).name);
-            }
-
-
+			for (int i = 0; i < length; i++) {
+				CreateObject (Prefabs.transform.GetChild (i).name);
+			}
         }
         else
         {
@@ -88,6 +84,7 @@ public class ObjectPoolManager : MonoBehaviour {
             case "twoGhost":
                 obj_list[(int)Obj_Enum.two_Ghost].Add(obj);
                 break;
+
             default:
                 break;
         }
