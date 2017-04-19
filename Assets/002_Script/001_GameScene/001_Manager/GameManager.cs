@@ -67,10 +67,8 @@ public class GameManager : MonoBehaviour
 
 		GDB = GameDataBase.getDBinstance;
 
-
-		//isTutoSystem = GDB.getUserDB.getIntData("GameCount") == 1;
-		isTutoSystem = PlayerPrefs.GetInt("GameCount", 0) == 1;
-
+		isTutoSystem = GDB.getUserDS().receiveIntCmd("gameCount") == 1;
+		Debug.Log ("isTuto? "+isTutoSystem);
 		// Scene Init
 
 		if (SceneManager.GetActiveScene().name.Equals("Game"))
@@ -109,6 +107,7 @@ public class GameManager : MonoBehaviour
 			{
 				TempStaticMemory.gold += 300;
                 GDB.getUserDS().sendIntCmd("totalGold", 300);
+
 			}
 			else
 			{
@@ -226,7 +225,7 @@ public class GameManager : MonoBehaviour
 	void GameStartAllObject()
 	{
 		UI.SendMessage("GameStart");
-		isTutoSystem = PlayerPrefs.GetInt("GameCount", 0) == 1;
+		//isTutoSystem = PlayerPrefs.GetInt("GameCount", 0) == 1;
 
 		if (!isTutoSystem)
 		{

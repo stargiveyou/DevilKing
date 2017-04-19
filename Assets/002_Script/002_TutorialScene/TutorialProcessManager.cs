@@ -11,7 +11,9 @@ public class TutorialProcessManager : MonoBehaviour
     public UISprite own_bubble_Sprite;
     public UISpriteAnimation player_animation;
     public UISprite kira_Player_Sprite;
-    public GameObject nextButton;
+    
+	public GameObject nextButton;
+
     public UILabel tuto_goldLabel;
     private Transform own_bubble_Trs;
 
@@ -31,6 +33,7 @@ public class TutorialProcessManager : MonoBehaviour
 
         UIEventListener.Get(nextButton).onClick -= new UIEventListener.VoidDelegate(ButtonProcess);
         UIEventListener.Get(nextButton).onClick += new UIEventListener.VoidDelegate(ButtonProcess);
+
 
         kira_Player_Sprite.spriteName = "emotion_" + player_sprite_type + "_kira";
         kira_Player_Sprite.MakePixelPerfect();
@@ -62,6 +65,7 @@ public class TutorialProcessManager : MonoBehaviour
 
     public void TutoProcess()
     {
+		
         StopCoroutine("StartTypeingAnima");
         StopCoroutine("StartTutoAnimation");
         StartCoroutine(StartTutoAnimation(++tuto_process));
@@ -70,7 +74,7 @@ public class TutorialProcessManager : MonoBehaviour
 
     private IEnumerator StartTutoAnimation(int tuto)
     {
-
+		nextButton.SetActive (false);
         string conversation = "";
 
         //conversation = "튜토리얼 테스트를 해보자/////" + tuto.ToString("#");
@@ -134,6 +138,9 @@ public class TutorialProcessManager : MonoBehaviour
 
 
         yield return StartCoroutine("StartTypeingAnima", conversation);
+
+		nextButton.SetActive (true);
+
 
     }
 

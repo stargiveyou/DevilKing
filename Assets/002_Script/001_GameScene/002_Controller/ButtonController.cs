@@ -6,6 +6,7 @@ public class ButtonController : MonoBehaviour
 
     private GameManager GM;
     public SkillBuyPanelController SkillBuyControl;
+	public SkillEffectController SkillEffectControl;
     void Awake()
     {
         GM = GameManager.getInstance();
@@ -120,8 +121,9 @@ public class ButtonController : MonoBehaviour
             SkillBuyControl.SendMessage("SkillBuyPopUpCreate", index);
         }
         else {
-			Debug.Log("Act Skill : " + go.name);
+			SkillEffectControl.DisplaySkillEffect (go.name);
 			GM.ExecuteSpeSkill(go.name);
+			Debug.Log("Act Skill : " + go.name);
             StartCoroutine("DelayUnLock", go);
         }
     }
@@ -147,7 +149,6 @@ public class ButtonController : MonoBehaviour
                 break;
         }
 
-        
         if (skillBtn != null)
         {
             skillBtn.transform.FindChild("Locked").gameObject.SetActive(false);

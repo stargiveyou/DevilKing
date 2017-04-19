@@ -103,16 +103,14 @@ public class TutorialManager : MonoBehaviour
                 inputObject.gameObject.SetActive(true);
                 enterButton.SetActive(true);
                 break;
-            case "EnterButton":
+		case "EnterButton":
 
-                GDB.CreatePlayerData(inputObject.value, player_spriteName);
-                CameraTrs.position = tutoPos;
-                tutorialPanel.SetActive(true);
+			GDB.CreatePlayerData (inputObject.value, player_spriteName);
+			CameraTrs.position = tutoPos;
+			tutorialPanel.SetActive (true);
 
-                GDB.SaveFile();
-
-                MoveLoadingScene();
-                break;
+			GDB.SaveFile ();
+        break;
             case "TouchBtn":
                 // /* File Data PART
                 if (GDB.isNoneData)
@@ -126,6 +124,10 @@ public class TutorialManager : MonoBehaviour
                 }
 
                 break;
+		case "SkipButton":
+			MoveLoadingScene ();
+			break;
+
             default:
                 break;
         }
@@ -144,7 +146,6 @@ public class TutorialManager : MonoBehaviour
     {
         loadingSlider.value = 0;
         GDB.getUserDS().sendIntCmd("GameStart", 0);
-        Debug.Log("GameCount : " + GDB.getUserDS().receiveIntCmd("gameCount"));
         AsyncOperation async = SceneManager.LoadSceneAsync("Game");
 
         while (!async.isDone)

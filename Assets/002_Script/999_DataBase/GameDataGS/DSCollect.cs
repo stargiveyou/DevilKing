@@ -108,6 +108,7 @@ public class DS_UserClass : DSInterface
 		case "enemyUniqueID":
 			returnValue = DB.getUserDB.aliasEnemyCreateCount;
 			break;
+		
         }
         return returnValue;
     }

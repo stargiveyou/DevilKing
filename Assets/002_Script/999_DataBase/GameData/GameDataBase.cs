@@ -113,9 +113,11 @@ public class GameDataBase
 
 		switch (objectTag) {
 		case "Alias":
+		case "Player":
 			sendClassType = ObjectClassEnumType.AliasData;
 			break;
 		case "Enemy":
+		case "SuperEnemy":
 			sendClassType = ObjectClassEnumType.EnemyData;
 			break;
 		case "Obstacle":
@@ -132,9 +134,11 @@ public class GameDataBase
 
 		switch (objectTag) {
 		case "Alias":
+		case "Player":
 			sendClassType = ObjectClassEnumType.AliasData;
 			break;		
 		case "Enemy":
+		case "SuperEnemy":
 			sendClassType = ObjectClassEnumType.EnemyData;
 			break;
 		case "Obstacle":
