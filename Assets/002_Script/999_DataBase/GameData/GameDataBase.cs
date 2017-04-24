@@ -43,11 +43,10 @@ public class GameDataBase
 	//FileDataInterface[] FileData = new FileDataInterface[(int)ClassEnumType.End];
 
 	UserDataBase userDB = new UserDataBase();
+	TrophyDataBase tropyDB = new TrophyDataBase ();
 	LevelDataBase levelDB = new LevelDataBase();
 
 	StageDataBase stageDB = new StageDataBase();
-
-
 
     DSFactory ds_factory;
 
@@ -196,6 +195,15 @@ public class GameDataBase
 		}
 	}
 
+	public TrophyDataBase getTropyDB
+	{
+		get{
+			return tropyDB;
+		}
+	}
+
+
+
 	#endregion
 
 	#region FILE I/O
@@ -225,6 +233,8 @@ public class GameDataBase
 		//Class Data Save
 		userDB.SaveData();
 		levelDB.SaveData ();
+		tropyDB.SaveData ();
+
 
 		dataCls.PlayerBinData = userDB.getBinData();
 		dataCls.LevelBinData = levelDB.getBinData ();
@@ -293,6 +303,8 @@ public class GameDataBase
             
 			userDB.Initialize(dataCls.PlayerBinData);
 			levelDB.Initialize (dataCls.LevelBinData);
+			tropyDB.Initialize (dataCls.TropyBinData);
+
 
 			//ObjectLevelData.LoadData(dataCls.LevelBinData);
 
@@ -329,6 +341,8 @@ public class GameDataBase
 	{
 		return ds_factory.createDS ("Level");
 	}
+
+
 
 
     public int LoadLevelData(string obj_name)
@@ -752,8 +766,10 @@ class DataContainerClass
 	private string trapInstallData;
 
 	private string levelData;
-
 	private string stageData;
+	private string tropyData;
+
+
 
 	private string achivData;
 
@@ -791,6 +807,17 @@ class DataContainerClass
 		set
 		{
 			stageData = value;
+		}
+	}
+
+
+	public string TropyBinData
+	{
+		get {
+			return tropyData;
+		}
+		set {
+			tropyData = value;
 		}
 	}
 

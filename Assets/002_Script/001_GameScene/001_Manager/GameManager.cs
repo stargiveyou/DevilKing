@@ -381,6 +381,8 @@ public class GameManager : MonoBehaviour
 	{
 		PopUp.SendMessage("TutorialProcess", 3);
 	}
+
+
 	#endregion
 
 	#region Receive Other Script
@@ -417,6 +419,16 @@ public class GameManager : MonoBehaviour
 		{
 			Player_Control.SendMessage(msg, parameter, SendMessageOptions.DontRequireReceiver);
 		}
+	}
+
+
+	public void SendToTropy()
+	{
+		GDB.getTropyDB.sendTropyCommand ("", 1, TropyHandler);
+	}
+	private void TropyHandler(int index, string spriteName)
+	{
+		
 	}
 
 

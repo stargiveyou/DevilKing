@@ -186,7 +186,6 @@ public class CSVParser
      
 		monster_level = getListFromData();
 
-
         for (int i = 0; i < lines.Length - 1; i++)
         {
             string[] fields = lines[i].Split(fieldSeperator);
@@ -299,6 +298,29 @@ public class CSVParser
             price_datas.Add(name, priceArray);
         }
         #endregion
+
+
+		#region Trophy
+
+		monster_dataFile = Resources.Load("006_Database/CSVFileData/Trophy") as TextAsset;
+		dataText = monster_dataFile.text;
+
+		lines = dataText.Split(lineSperator);
+
+		for(int i =1; i< lines.Length;i++)
+		{
+			string[] fields = lines[i].Split(fieldSeperator);
+
+			// 0 : index
+			// 1 : Condition
+			// 2 : Amount
+
+
+		}
+
+		#endregion;
+
+		monster_dataFile = trap_dataFile = price_dataFile = null;
 
         isReady = true;
     }
