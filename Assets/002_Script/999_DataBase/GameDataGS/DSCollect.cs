@@ -11,7 +11,6 @@ public class DSCollect
 public interface DSInterface
 {
 	
-
     void sendIntCmd(string command, int sendParam);
     void sendFloatCmd(string command, float sendParam);
     void sendStringCmd(string command, string sendParam);
@@ -45,8 +44,6 @@ public class DSFactory
 				instance = new DS_LevelClass (GDB.getLevelDB);
                 break;
             case "Stage":
-                break;
-            case "Trophy":
                 break;
             default:
                 break;
@@ -234,7 +231,6 @@ public class DS_LevelClass: DSInterface
 
 
 }
-
 
 
 /*

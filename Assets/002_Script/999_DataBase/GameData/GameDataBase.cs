@@ -43,11 +43,10 @@ public class GameDataBase
 	//FileDataInterface[] FileData = new FileDataInterface[(int)ClassEnumType.End];
 
 	UserDataBase userDB = new UserDataBase();
+	TrophyDataBase tropyDB = new TrophyDataBase ();
 	LevelDataBase levelDB = new LevelDataBase();
 
 	StageDataBase stageDB = new StageDataBase();
-
-
 
     DSFactory ds_factory;
 
@@ -68,6 +67,7 @@ public class GameDataBase
             dataCls = new DataContainerClass();
             userDB.Initialize();
             levelDB.Initialize();
+            tropyDB.Initialize();
             //stageDB.Initialize();
             //achivDB.Initialize();
         }
@@ -196,6 +196,15 @@ public class GameDataBase
 		}
 	}
 
+	public TrophyDataBase getTropyDB
+	{
+		get{
+			return tropyDB;
+		}
+	}
+
+
+
 	#endregion
 
 	#region FILE I/O
@@ -222,9 +231,14 @@ public class GameDataBase
 
 	public void SaveFile()
 	{
+        Debug.Log("Save File");
 		//Class Data Save
 		userDB.SaveData();
 		levelDB.SaveData ();
+#if !EditorDebug
+        tropyDB.SaveData ();
+        Debug.Log("Editor Debug");
+#endif
 
 		dataCls.PlayerBinData = userDB.getBinData();
 		dataCls.LevelBinData = levelDB.getBinData ();
@@ -293,7 +307,9 @@ public class GameDataBase
             
 			userDB.Initialize(dataCls.PlayerBinData);
 			levelDB.Initialize (dataCls.LevelBinData);
+            tropyDB.Initialize (dataCls.TropyBinData);
 
+            
 			//ObjectLevelData.LoadData(dataCls.LevelBinData);
 
 			fileStream.Close();
@@ -303,7 +319,7 @@ public class GameDataBase
 
 	}
 
-	#endregion
+#endregion
 
 	public bool isNoneData
 	{
@@ -329,6 +345,8 @@ public class GameDataBase
 	{
 		return ds_factory.createDS ("Level");
 	}
+
+
 
 
     public int LoadLevelData(string obj_name)
@@ -359,7 +377,7 @@ public class GameDataBase
 		}
 	}
 
-	#region Data Save Function
+#region Data Save Function
 
 	public void SaveLevelData(string obj_name, int level)
 	{
@@ -380,7 +398,7 @@ public class GameDataBase
 			return levelDB;
 		}
 	}
-	#endregion
+#endregion
 
 
 }
@@ -752,8 +770,10 @@ class DataContainerClass
 	private string trapInstallData;
 
 	private string levelData;
-
 	private string stageData;
+	private string tropyData;
+
+
 
 	private string achivData;
 
@@ -791,6 +811,17 @@ class DataContainerClass
 		set
 		{
 			stageData = value;
+		}
+	}
+
+
+	public string TropyBinData
+	{
+		get {
+			return tropyData;
+		}
+		set {
+			tropyData = value;
 		}
 	}
 
