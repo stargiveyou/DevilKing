@@ -86,6 +86,7 @@ public class CastleEnhanceManager : MonoBehaviour
         int floor = 0;
         if (ButtonParentName.Equals("Door"))
         {
+
             Debug.Log(GM.getPrice("Gate") + "Gate Gold");
             if (!GM.isMaxLevelCharacter("Normal"))
             {
@@ -108,6 +109,7 @@ public class CastleEnhanceManager : MonoBehaviour
 
                     DoorGoldLabel.text = GM.getPrice("Gate").ToString();
                     GateLevelLabel.text = "Lv " + (GM.LoadMonsterLevelData("Normal")).ToString();
+
                 }
                 else
                 {
