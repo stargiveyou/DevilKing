@@ -20,7 +20,12 @@ public class TrophyDataBase : FileDataInterface {
 	{
 		int tropyIndex;
 		string spriteName;
+<<<<<<< HEAD
         
+=======
+
+
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 		string condition;
 		int amount;
 		bool isCompleted;
@@ -94,7 +99,10 @@ public class TrophyDataBase : FileDataInterface {
 		}
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 	};
 
 	private string thisBinData;
@@ -111,7 +119,11 @@ public class TrophyDataBase : FileDataInterface {
 		thisClassEnum = ClassEnumType.TropyData;
 	}
 
+<<<<<<< HEAD
 	public bool Initialize (string binData = null)
+=======
+	public bool Initialize (string binData)
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 	{
 		bin = new BinaryFormatter();
 
@@ -132,7 +144,12 @@ public class TrophyDataBase : FileDataInterface {
 
 	public string getBinData ()
 	{
+<<<<<<< HEAD
 			return thisBinData;
+=======
+		
+		return thisBinData;
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 	}
 
 	public void SaveData ()
@@ -183,7 +200,13 @@ public class TrophyDataBase : FileDataInterface {
 			Debug.Log (ane.StackTrace);
 		}
 	}
+<<<<<<< HEAD
     
+=======
+
+
+
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 	public bool checkTropyData(string cmd, int amount)
 	{
 		int listIndex;
@@ -198,7 +221,12 @@ public class TrophyDataBase : FileDataInterface {
 
 		return tropy_List [listIndex].Completed;
 
+<<<<<<< HEAD
        }
+=======
+
+	}
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 
 	public bool checkTropyData(int listIndex)
 	{
@@ -236,6 +264,7 @@ public class TrophyDataBase : FileDataInterface {
 	}
 
 
+<<<<<<< HEAD
     public int currentTropyListCount
     {
         get
@@ -262,6 +291,10 @@ public class TrophyDataBase : FileDataInterface {
         return builder.ToString();
 
     }
+=======
+
+
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 
 
 }

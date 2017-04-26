@@ -186,8 +186,11 @@ public class CSVParser
 
         #region Monster Data
 
+<<<<<<< HEAD
         monster_level = getListFromData();
 
+=======
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
         for (int i = 0; i < lines.Length - 1; i++)
         {
             string[] fields = lines[i].Split(fieldSeperator);
@@ -302,6 +305,7 @@ public class CSVParser
         #endregion
 
 
+<<<<<<< HEAD
         #region Trophy
 
         int tropy_list_count = 0;
@@ -328,6 +332,29 @@ public class CSVParser
         #endregion;
 
         monster_dataFile = trap_dataFile = price_dataFile = null;
+=======
+		#region Trophy
+
+		monster_dataFile = Resources.Load("006_Database/CSVFileData/Trophy") as TextAsset;
+		dataText = monster_dataFile.text;
+
+		lines = dataText.Split(lineSperator);
+
+		for(int i =1; i< lines.Length;i++)
+		{
+			string[] fields = lines[i].Split(fieldSeperator);
+
+			// 0 : index
+			// 1 : Condition
+			// 2 : Amount
+
+
+		}
+
+		#endregion;
+
+		monster_dataFile = trap_dataFile = price_dataFile = null;
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 
         isReady = true;
     }

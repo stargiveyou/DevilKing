@@ -235,10 +235,15 @@ public class GameDataBase
 		//Class Data Save
 		userDB.SaveData();
 		levelDB.SaveData ();
+<<<<<<< HEAD
 #if !EditorDebug
         tropyDB.SaveData ();
         Debug.Log("Editor Debug");
 #endif
+=======
+		tropyDB.SaveData ();
+
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 
 		dataCls.PlayerBinData = userDB.getBinData();
 		dataCls.LevelBinData = levelDB.getBinData ();
@@ -307,7 +312,12 @@ public class GameDataBase
             
 			userDB.Initialize(dataCls.PlayerBinData);
 			levelDB.Initialize (dataCls.LevelBinData);
+<<<<<<< HEAD
             tropyDB.Initialize (dataCls.TropyBinData);
+=======
+			tropyDB.Initialize (dataCls.TropyBinData);
+
+>>>>>>> 636028099c168bcaacf4bcbd7216573dd060ec45
 
             
 			//ObjectLevelData.LoadData(dataCls.LevelBinData);
