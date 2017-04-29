@@ -156,13 +156,10 @@ public class TrophyDataBase : FileDataInterface {
 	{
 		if (tropy_List == null)
 			tropy_List = new List<tropy_data_struct> ();
+		
+		tropy_data_struct newData = new tropy_data_struct(index,spriteName,newCmd,newAmount);
+		tropy_List.Add(newData);
 
-		if (tropy_List.Count == 0 || getListIndex (newCmd, newAmount) >=0) {
-			
-			tropy_data_struct newData = new tropy_data_struct(index,spriteName,newCmd,newAmount);
-			tropy_List.Add(newData);
-
-		}
 
 	}
 
@@ -247,10 +244,10 @@ public class TrophyDataBase : FileDataInterface {
         StringBuilder builder = new StringBuilder();
         int index = 0;
         foreach(tropy_data_struct data in this.tropy_List) {
-            /*
-        builder.AppendFormat("[ List Index ]: {0} ,[ Index ] : {1} , [ Command ] : {2}, [ Amount ] : {3} \n"
-            , index++, data.TropyIndex,data.);
-            */
+
+			builder.AppendFormat("[ List Index ]: {0} ,[ Index ] : {1}  , SpriteName: {2} \n"
+				, index++, data.TropyIndex, data.TropySpriteName);
+
         }
 
         return builder.ToString();

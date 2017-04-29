@@ -1,0 +1,267 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &142812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 424158}
+  - 114: {fileID: 11473076}
+  m_Layer: 0
+  m_Name: Trophy_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &424158
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11473076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f534e50b3be27457cb26a330a8daf692, type: 2}
+  mSprites:
+  - name: Trophy_Sprite_01
+    x: 0
+    y: 2134
+    width: 918
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 8
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_02
+    x: 1832
+    y: 3125
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_03
+    x: 2737
+    y: 3125
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_04
+    x: 927
+    y: 2153
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_05
+    x: 927
+    y: 1181
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_06
+    x: 927
+    y: 209
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_07
+    x: 1832
+    y: 2153
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_08
+    x: 2737
+    y: 2153
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_09
+    x: 1832
+    y: 1181
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_10
+    x: 0
+    y: 3106
+    width: 926
+    height: 990
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Trophy_Sprite_11
+    x: 0
+    y: 179
+    width: 906
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_12
+    x: 1832
+    y: 209
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_13
+    x: 2737
+    y: 1181
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_14
+    x: 2737
+    y: 209
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  - name: Trophy_Sprite_15
+    x: 0
+    y: 1151
+    width: 904
+    height: 982
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 0
+  - name: Trophy_Sprite_16
+    x: 927
+    y: 3125
+    width: 904
+    height: 971
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 11
+    paddingTop: 8
+    paddingBottom: 11
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 142812}
+  m_IsPrefabParent: 1

@@ -310,7 +310,7 @@ public class CSVParser
             dataText = monster_dataFile.text;
 
             lines = dataText.Split(lineSperator);
-
+			Debug.Log("[Line : "+lines.Length+"]");
             for (int i = tropy_list_count + 1; i < lines.Length; i++)
             {
                 string[] fields = lines[i].Split(fieldSeperator);
@@ -319,34 +319,15 @@ public class CSVParser
                 // 1 : Condition
                 // 2 : Amount 
                 // 3 : spriteName
-                GDB.getTropyDB.CreateTropyData(int.Parse(fields[0]), string.Empty, fields[1], int.Parse(fields[2]));
+				GDB.getTropyDB.CreateTropyData(int.Parse(fields[0]), fields[3], fields[1], int.Parse(fields[2]));
+
 
             }
 
+			Debug.Log(GDB.getTropyDB.ToString());
+
         }
         #endregion;
-
-        monster_dataFile = trap_dataFile = price_dataFile = null;
-
-		#region Trophy
-
-		monster_dataFile = Resources.Load("006_Database/CSVFileData/Trophy") as TextAsset;
-		dataText = monster_dataFile.text;
-
-		lines = dataText.Split(lineSperator);
-
-		for(int i =1; i< lines.Length;i++)
-		{
-			string[] fields = lines[i].Split(fieldSeperator);
-
-			// 0 : index
-			// 1 : Condition
-			// 2 : Amount
-
-
-		}
-
-		#endregion;
 
 		monster_dataFile = trap_dataFile = price_dataFile = null;
         isReady = true;

@@ -441,7 +441,6 @@ public class GameManager : MonoBehaviour
 		Alert.CreateAlert(alert, value);
 	}
 
-
 	//StageManager
 	void SetHeroTrs(Transform Trs)
 	{
@@ -450,7 +449,6 @@ public class GameManager : MonoBehaviour
 	}
 
 	//Attackers
-
 	public void SetAttackTrsByLevel(GameObject attack, int level)
 	{
 		int respawnLevel = level;

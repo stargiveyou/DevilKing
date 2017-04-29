@@ -56,28 +56,12 @@ public class UIManager : MonoBehaviour
         s_Manager.SendMessage("MoveStageAndFocus", value);
     }
     
-    void ShowTrophyDisplayPopUp(int index)
-    {
-        TrophyDisplayPopUP.gameObject.SetActive(true);
-        string spriteName = "", context = "";
-        TrophySpriteNameByIndex(index, out spriteName, out context);
-        TrophyDisplayPopUP.SetTrophy(spriteName, context);
-    }
-
-    private void TrophySpriteNameByIndex(int index, out string spritename, out string context)
-    {
-        switch (index)
-        {
-            case 0:
-                spritename = "welcome";
-                context = "웰컴 투 마왕성";
-                break;
-            default:
-                spritename = "1";
-                context = "2";
-                break;
-        }
-    }
+    
+	public	void ShowTropyDisplayPopUp(int index, string spriteName)
+	{
+		//string context = GM.getContext\(
+		TrophyDisplayPopUP.SetTropy(index,spriteName, " ");
+	}
 
 
     public Transform stageStartTrs;
