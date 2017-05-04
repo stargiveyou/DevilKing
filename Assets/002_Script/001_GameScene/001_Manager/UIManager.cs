@@ -108,7 +108,7 @@ public class UIManager : MonoBehaviour
     private int maxFeverCount;
     void UpdateMaxFeverCount()
     {
-        int enemy_level = GM.LoadMonsterLevelData("Normal");
+        int enemy_level = GM.LoadLevelData("Normal");
         int enemy_index = 0;
         switch(enemy_level)
         {

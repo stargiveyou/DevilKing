@@ -72,12 +72,12 @@ public class GameTutorialManager : MonoBehaviour {
                     break;
                 case 4:
                     PlayerPrefs.SetInt("trapLevel", 100);
-                    GM.SaveMonsterLevelData("Skeleton", 0);
+                    GM.LevelUpData("Skeleton");
                     interface_msg = "이번에는 함정이다!_있는걸 알면서도 시스템상 어쩔 수 없이 걸리게 되는 함정을 설치해주마!_자 설치할 곳을 골라볼까.";
                     _tuto_Enum = TutoType.Trap;
                     break;
                 case 5:
-                    GM.SaveMonsterLevelData("Skeleton", 1);
+				GM.LevelUpData("Skeleton");
                     interface_msg = "스파이크는 고전적이지만 효과적이지 크큭… 용사녀석들!_알면서도 밟고 넘어올 수 밖에 없는 잔혹한 함정을 맛보아라!";
                     _tuto_Enum = TutoType.Next;
                     break;

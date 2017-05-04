@@ -66,7 +66,7 @@ public class MonsterEnhanceManager : MonoBehaviour
 
             if (Items.tag.Equals("Alias"))
             {
-                level = GM.LoadMonsterLevelData(Items.name);
+                level = GM.LoadLevelData(Items.name);
                 
                 if (level == 0)
                 {
@@ -83,7 +83,7 @@ public class MonsterEnhanceManager : MonoBehaviour
             }
             else if (Items.tag.Equals("Obstacle"))
             {
-                level = GM.LoadTrapLevelData(GM.trapIndex(Items.name));
+				level = GM.LoadLevelData(Items.name);
                 if (level == 0)
                 {
                     EnhanceLock.SetActive(true);
@@ -128,7 +128,7 @@ public class MonsterEnhanceManager : MonoBehaviour
 
         if (title.Equals("Alias"))
         {
-            int monster_level = GM.LoadMonsterLevelData(objName);
+            int monster_level = GM.LoadLevelData(objName);
 
             float atk, hp, speed;
             int size, range;
@@ -191,7 +191,7 @@ public class MonsterEnhanceManager : MonoBehaviour
         else if(title.Equals("Obstacle"))
         {
 
-            int trap_level = GM.LoadTrapLevelData(GM.trapIndex(objName));
+			int trap_level = GM.LoadLevelData(objName);
 
             float atk = 0;
             int count = 0, installCount = 0;
@@ -258,14 +258,16 @@ public class MonsterEnhanceManager : MonoBehaviour
             int enhanceLevel = 0;
             if (upgradeObject.tag.Equals("Alias"))
             {
-                enhanceLevel = GM.LoadMonsterLevelData(upgradeObject.name);
-                GM.SaveMonsterLevelData(upgradeObject.name, ++enhanceLevel);
+				Debug.Log (upgradeObject.name);
+                enhanceLevel = GM.LoadLevelData(upgradeObject.name);
+                GM.LevelUpData(upgradeObject.name);
             }
             else if (upgradeObject.tag.Equals("Obstacle"))
             {
-                enhanceLevel = GM.LoadTrapLevelData(GM.trapIndex(upgradeObject.name));
-                GM.SaveTrapLevelData(GM.trapIndex(upgradeObject.name));
-                Debug.Log(enhanceLevel);
+                //enhanceLevel = GM.LoadTrapLevelData(GM.trapIndex(upgradeObject.name));
+                //GM.SaveTrapLevelData(GM.trapIndex(upgradeObject.name));
+				enhanceLevel = GM.LoadLevelData(upgradeObject.name);
+				GM.LevelUpData(upgradeObject.name);
             }
 
 			Debug.Log("Enhance Level plus:" + enhanceLevel +" last gold: "+TempStaticMemory.gold);
@@ -285,20 +287,20 @@ public class MonsterEnhanceManager : MonoBehaviour
     
     void MonsterBuyProcess(GameObject go)
     {
-
-        NotCompletePanel.SetActive(false);
-        BuyProcessPanel.SetActive(false);
-        CancleButton.SetActive(true);
-
+		NotCompletePanel.SetActive(false);
+		BuyProcessPanel.SetActive(false);
+		CancleButton.SetActive(true);
+			
+   
         if (go.tag.Equals("Alias"))
         {
             unlockObjectSprite.atlas = characterAtlas;
-            unlockObjectSprite.spriteName = GM.getMonsterName(go.name, GM.LoadMonsterLevelData(go.name), true);
+            unlockObjectSprite.spriteName = GM.getMonsterName(go.name, GM.LoadLevelData(go.name), true);
         }
         else if (go.tag.Equals("Obstacle"))
         {
             unlockObjectSprite.atlas = trapAtlas;
-            unlockObjectSprite.spriteName = go.name + "_" + GM.LoadTrapLevelData(GM.trapIndex(go.name));
+			unlockObjectSprite.spriteName = go.name + "_" + GM.LoadLevelData(go.name);
         }
         unlockObjectSprite.MakePixelPerfect();
         unlockObjectSprite.transform.localPosition = unlockPos;
@@ -311,7 +313,8 @@ public class MonsterEnhanceManager : MonoBehaviour
         }
         else  if (!isBuyCharacter(go.name))
         {
-            DisplayPanel.SetActive(false);
+
+//            DisplayPanel.SetActive(false);
             BuyPanel.SetActive(true);
             NotCompletePanel.SetActive(true);
             NotCompletePanel.transform.FindChild("ContextLabel").GetComponent<UILabel>().text
@@ -332,7 +335,7 @@ public class MonsterEnhanceManager : MonoBehaviour
             UnlockButton.transform.FindChild("Label").GetComponent<UILabel>().text
                  = "해금 : " + peekPrice + "G";
             GM.setCharacterData(go.name, out hp, out atk, out range, out speed, out size);
-            //"Level : " + GM.LoadMonsterLevelData(go.name) + "\n" +
+            //"Level : " + GM.LoadLevelData(go.name) + "\n" +
            buyDescriptLabel.text =
                  "hp : " + hp.ToString("#") + "\n" +
                  "공격력 : " + atk.ToString("#") + "\n" +
@@ -353,20 +356,23 @@ public class MonsterEnhanceManager : MonoBehaviour
     private void buybuttonProcess(GameObject go)
     {
         int peekPrice = GM.getPrice(upgradeObject.name, "enhance", upgradeObject.tag);
-        int monster_level = GM.LoadMonsterLevelData(upgradeObject.name);
+        int monster_level = GM.LoadLevelData(upgradeObject.name);
         upgradeObject.transform.FindChild("EnhanceLocked").gameObject.SetActive(false);
 
         TempStaticMemory.gold -= peekPrice;
-
+		/*
         if (upgradeObject.tag.Equals("Alias"))
         {
-            GM.SaveMonsterLevelData(upgradeObject.name, GM.LoadMonsterLevelData(upgradeObject.name) + 1);
+            //GM.LevelUpData(upgradeObject.name, GM.LoadLevelData(upgradeObject.name) + 1);
+			GM.LevelUpData(upgradeObject.name);
 			//MonsterEnhance +1
         }
         else if (upgradeObject.tag.Equals("Obstacle"))
         {
-            GM.SaveTrapLevelData(GM.trapIndex(upgradeObject.name));
+			GM.LevelUpData(upgradeObject.name);
         }
+*/
+		GM.LevelUpData(upgradeObject.name);
 
         UIEventListener.Get(upgradeObject).onClick -= new UIEventListener.VoidDelegate(MonsterBuyProcess);
         UIEventListener.Get(upgradeObject).onClick += new UIEventListener.VoidDelegate(InfoDisplayProcess);

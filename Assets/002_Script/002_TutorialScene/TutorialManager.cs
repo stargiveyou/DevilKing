@@ -146,6 +146,7 @@ public class TutorialManager : MonoBehaviour
     {
         loadingSlider.value = 0;
         GDB.getUserDS().sendIntCmd("GameStart", 0);
+
         AsyncOperation async = SceneManager.LoadSceneAsync("Game");
 
         while (!async.isDone)

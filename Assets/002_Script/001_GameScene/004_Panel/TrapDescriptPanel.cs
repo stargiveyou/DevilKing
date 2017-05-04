@@ -10,6 +10,9 @@ public class TrapDescriptPanel : MonoBehaviour
     private string trapObjName;
     public GameObject EnhanceButton;
 
+	delegate void DisplayFunction(int level);
+
+
     // Use this for initialization
     void Start()
     {
@@ -22,19 +25,30 @@ public class TrapDescriptPanel : MonoBehaviour
 
     void TrapDisplaySetting(string name)
     {
+		DisplayFunction Display;
         trapObjName = name;
         switch (name)
         {
-            case "Spike":
-                SpikeDisplay(GM.LoadTrapLevelData(0));
+		case "Spike":
+			//SpikeDisplay (GM.LoadLevelData (name));
+			Display = SpikeDisplay;
                 break;
-            case "Fire":
-                FireDisplay(GM.LoadTrapLevelData(1));
+		case "Fire":
+			//FireDisplay (GM.LoadLevelData (name));
+			Display = FireDisplay;
                 break;
-            case "Stone":
-                StoneDisplay(GM.LoadTrapLevelData(2));
+		case "Stone":
+			//StoneDisplay (GM.LoadLevelData (name));
+			Display = StoneDisplay;
                 break;
+		default:
+			Display = null;
+			break;
         }
+
+		if (Display != null) {
+			Display(GM.LoadLevelData(name));
+		}
 
     }
 
@@ -126,7 +140,7 @@ public class TrapDescriptPanel : MonoBehaviour
         if (go.name.Equals("EnhanceTrap"))
         {
             int index = -1;
-            switch (trapObjName)
+          /*  switch (trapObjName)
             {
                 case "Fire":
                     index = 1;
@@ -141,11 +155,12 @@ public class TrapDescriptPanel : MonoBehaviour
                     index = -1;
                     break;
             }
-
-            if (index != -1 && GM.LoadTrapLevelData(index) <= 4)
+		*/
+			//if (index != -1 && GM.LoadLevelData(trapObjName) <= 4)
+			if( GM.LoadLevelData(trapObjName)  != -1&&GM.LoadLevelData(trapObjName) <=4 )
             {
-                GM.SaveTrapLevelData(index);
-                Debug.Log("Save Trap Data : " + "    " + trapObjName + "   " + GM.LoadTrapLevelData(index));
+				GM.LevelUpData(trapObjName);
+				Debug.Log("Save Trap Data : " + "    " + trapObjName + "   " + GM.LoadLevelData(trapObjName));
             }
             else
             {

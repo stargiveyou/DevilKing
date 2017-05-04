@@ -29,7 +29,7 @@ public class ObstacleCharacter : MonoBehaviour
 	{
 		GM = GameManager.getInstance();
 		string _name = this.gameObject.name;
-		int level = GM.LoadTrapLevelData (GM.trapIndex (_name));
+		int level = GM.LoadLevelData (_name);
 		GM.setTrapData(_name, level, out damage, out count, out installCount);
 		switch (_name)
 		{

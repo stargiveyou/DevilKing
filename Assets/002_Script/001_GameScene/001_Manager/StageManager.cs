@@ -137,6 +137,9 @@ public class StageManager : MonoBehaviour
         SaveStageNameList();
         PlayerPrefs.SetString("castleLevel", new string(stageData));
     }
+
+
+
     /// <summary>
     /// UnForce Stage , new BossMonster floor Set , old BossMonster LevelUP
     /// </summary>
@@ -155,7 +158,8 @@ public class StageManager : MonoBehaviour
             Debug.Log(this.GetType() + "// stage Level "+ level.ToString("0"));
 			for (int i = 0; i <=monsterCounter ; i++)
             {
-                GM.SaveMonsterLevelData(GM.getContext("BossMonster", i), GM.LoadMonsterLevelData(GM.getContext("BossMonster", i)) + 1);
+                //GM.LevelUpData(GM.getContext("BossMonster", i), GM.LoadLevelData(GM.getContext("BossMonster", i)) + 1);
+				GM.LevelReplaceData(GM.getContext("BossMonster", i), GM.LoadLevelData(GM.getContext("BossMonster", i)) + 1);
             }
 
             GameObject NamedMonster = Instantiate(Resources.Load("001_Prefab/001_Character/Boss/" + GM.getContext("BossMonster", level))) as GameObject;
@@ -201,7 +205,7 @@ public class StageManager : MonoBehaviour
         {
             for (int i = 0; i <= 9; i++)
             {
-                GM.SaveMonsterLevelData(GM.getContext("BossMonster", i), GM.LoadMonsterLevelData(GM.getContext("BossMonster", i)) + 1);
+				GM.LevelReplaceData(GM.getContext("BossMonster", i), GM.LoadLevelData(GM.getContext("BossMonster", i)) + 1);
             }
         }
     }

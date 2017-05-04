@@ -497,7 +497,8 @@ public class GameManager : MonoBehaviour
 	public void setCharacterData(string name, out float hp, out float atk, out int range, out float speed, out int size)
 	{
 		StatusData Data = new StatusData();
-		int level = _CSV.getMonsterLevel(name) - 1;
+		//int level = _CSV.getMonsterLevel(name) - 1;
+		int level = LoadLevelData(name)-1;
 
 		_CSV.CharacterDataValue(name, level, ref Data);
 
@@ -537,7 +538,7 @@ public class GameManager : MonoBehaviour
 	public int getCharacterSize(string name)
 	{
 		StatusData Data = new StatusData();
-		int level = _CSV.getMonsterLevel(name);
+		int level = LoadLevelData(name);
 		_CSV.CharacterDataValue(name, level, ref Data);
 
 		return Data.size;
@@ -545,27 +546,14 @@ public class GameManager : MonoBehaviour
 	public void setTrapData(string name, int level, out float atk, out int count)
 	{
 		TrapStatusData Data = new TrapStatusData();
-
 		_CSV.TrapDataValue(name, level, ref Data);
-
 		atk = Data.atk;
 		count = Data.count;
 	}
 	public int getTrapInstallCount(string name)
 	{
 		int level = 0;
-		switch (name)
-		{
-		case "Spike":
-			level = LoadTrapLevelData(0);
-			break;
-		case "Fire":
-			level = LoadTrapLevelData(1);
-			break;
-		case "Stone":
-			level = LoadTrapLevelData(2);
-			break;
-		}
+		level = LoadLevelData (name);
 
 		TrapStatusData Data = new TrapStatusData();
 		_CSV.TrapDataValue(name, level, ref Data);
@@ -583,64 +571,6 @@ public class GameManager : MonoBehaviour
 		install = Data.installCount;
 	}
 
-	public void SaveTrapLevelData(int index)
-	{
-		int levelData = PlayerPrefs.GetInt("trapLevel", 100);
-
-		if (index == 0)
-		{
-			levelData += 100;
-		}
-		else if (index == 1)
-		{
-			levelData += 10;
-		}
-		else if (index == 2)
-		{
-			levelData += 1;
-		}
-		//_Debug.Log("Save Data" + levelData);
-		PlayerPrefs.SetInt("trapLevel", levelData);
-	}
-
-	public int LoadTrapLevelData(int index)
-	{
-		int levelData = PlayerPrefs.GetInt("trapLevel", 100);
-
-		if (index == 0)
-		{
-			return levelData / 100;
-		}
-		else if (index == 1)
-		{
-			return ((levelData) % 100) / 10;
-		}
-		else if (index == 2)
-		{
-			return levelData % 10;
-		}
-
-		return levelData;
-	}
-
-	public int trapIndex(string trapName)
-	{
-		int result = 0;
-		switch (trapName)
-		{
-		case "Spike":
-			result = 0;
-			break;
-		case "Fire":
-			result = 1;
-			break;
-		case "Stone":
-			result = 2;
-			break;
-		}
-		return result;
-	}
-
 	public string getMonsterName(string monsterId, int level, bool isData)
 	{
 		if (isData)
@@ -653,16 +583,21 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void SaveMonsterLevelData(string name, int level)
+	//New Fuction
+	public void LevelUpData(string objName)
 	{
-		if (!_CSV.isLevelMax(name))
+		if (!_CSV.isLevelMax(objName))
 		{
-			_CSV.SetMonsterLevel(name, level);
+			GDB.getLevelDB.LevelUpData(objName);
 		}
 	}
-	public int LoadMonsterLevelData(string name)
+	public int LoadLevelData(string objName)
 	{
-		return _CSV.getMonsterLevel(name);
+		return GDB.getLevelDB.getLevelData(objName);
+	}
+	public void LevelReplaceData(string objName, int level)
+	{
+		GDB.getLevelDB.setLevelData (objName, level);
 	}
 
 
@@ -685,11 +620,11 @@ public class GameManager : MonoBehaviour
 		}
 		else if (itemName.Equals("Gate"))
 		{
-			return _CSV.getItemPrice("Enemy", LoadMonsterLevelData("Normal") - 1);
+			return _CSV.getItemPrice("Enemy", LoadLevelData("Normal") - 1);
 		}
 		else if (itemName.Equals("EnemyGet"))
 		{
-			return _CSV.getItemPrice("EnemyGet", LoadMonsterLevelData("Normal") - 1);
+			return _CSV.getItemPrice("EnemyGet", LoadLevelData("Normal") - 1);
 		}
 		return returnPrice;
 	}
@@ -712,26 +647,34 @@ public class GameManager : MonoBehaviour
 		////_Debug.Log(itemName + "//" + command + "//" + itemType);
 		if (command.Equals("install"))
 		{
+			/*
 			if (itemType.Equals("Alias"))
 			{
-				returnPrice = _CSV.getItemPrice(itemName + "_Install", LoadMonsterLevelData(itemName) - 1);
+				returnPrice = _CSV.getItemPrice(itemName + "_Install", LoadLevelData(itemName) - 1);
 			}
 			else if (itemType.Equals("Obstacle"))
 			{
-				returnPrice = _CSV.getItemPrice(itemName + "_Install", LoadTrapLevelData(trapIndex(itemName)) - 1);
+				returnPrice = _CSV.getItemPrice(itemName + "_Install", LoadLevelData(itemName)- 1);
 			}
+			*/
+			returnPrice = _CSV.getItemPrice(itemName + "_Install", LoadLevelData(itemName)- 1);
 		}
 		else if (command.Equals("enhance"))
 		{
+			/*
 			if (itemType.Equals("Alias"))
 			{
-				returnPrice = _CSV.getItemPrice(itemName + "_Enhance", LoadMonsterLevelData(itemName));
+				returnPrice = _CSV.getItemPrice(itemName + "_Enhance", LoadLevelData(itemName));
 			}
 			else if (itemType.Equals("Obstacle"))
 			{
-				returnPrice = _CSV.getItemPrice(itemName + "_Enhance", LoadTrapLevelData(trapIndex(itemName)));
+				returnPrice = _CSV.getItemPrice (itemName + "_Enhance", LoadLevelData (itemName));
 			}
+			*/
+			returnPrice = _CSV.getItemPrice(itemName + "_Enhance", LoadLevelData(itemName));
+
 		}
+
 
 		return returnPrice;
 	}
@@ -740,8 +683,6 @@ public class GameManager : MonoBehaviour
 	{
 		GDB.getTropyDB.sendTropyCommand (command, amount, UI.ShowTropyDisplayPopUp);
 	}
-
-
 
 
 	#endregion

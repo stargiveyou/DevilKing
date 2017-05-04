@@ -341,10 +341,6 @@ public class GameDataBase
     {
         return ds_factory.createDS("User");
     }
-	public DSInterface getLevelDS()
-	{
-		return ds_factory.createDS ("Level");
-	}
 
 
     public int LoadLevelData(string obj_name)

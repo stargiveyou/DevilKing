@@ -112,7 +112,7 @@ public class AttackerController : MonoBehaviour
 
         if (!isFever)
         {
-            int enemy_level = GameManager.getInstance().LoadMonsterLevelData("Normal");
+            int enemy_level = GameManager.getInstance().LoadLevelData("Normal");
 
             switch (enemy_level)
             {
@@ -158,7 +158,7 @@ public class AttackerController : MonoBehaviour
         if (isSpecial)
         {
             int specialNameLevel = 0;
-            switch (GM.LoadMonsterLevelData("Normal"))
+            switch (GM.LoadLevelData("Normal"))
             {
                 case 1:
                     specialNameLevel = 2;
@@ -201,7 +201,7 @@ public class AttackerController : MonoBehaviour
         AttackerCtrl.control = this.GetComponent<AttackerController>();
 
         AttackerList.Add(AttackCharacter);
-		GM.installObject (AttackCharacter.name, AttackCharacter.tag,  0,attack_Create_Unique_id,GM.LoadMonsterLevelData("Normal"));
+		GM.installObject (AttackCharacter.name, AttackCharacter.tag,  0,attack_Create_Unique_id,GM.LoadLevelData("Normal"));
 		GDB.getUserDS ().sendIntCmd ("EnemyCreate",1);
 
 

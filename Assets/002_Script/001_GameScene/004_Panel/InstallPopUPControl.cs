@@ -56,7 +56,7 @@ public class InstallPopUPControl : MonoBehaviour
                 monsterLabel = smallButton.transform.FindChild("monsterPrice").GetComponent<UILabel>();
                 monsterLabel.text = "";
                 
-                itemLevel = GM.LoadMonsterLevelData(smallButton.name);
+                itemLevel = GM.LoadLevelData(smallButton.name);
                 monsterCount = GM.getCharacterSize(smallButton.name);
                 
                 if ((itemLevel == 0) ||
@@ -87,7 +87,8 @@ public class InstallPopUPControl : MonoBehaviour
                 LockObj = smallButton.transform.FindChild("InstallLock").gameObject;
                 monsterLabel = smallButton.transform.FindChild("monsterPrice").GetComponent<UILabel>();
                 monsterLabel.text = "";
-                itemLevel = GM.LoadTrapLevelData(i - 6);
+                //itemLevel = GM.LoadTrapLevelData(i - 6);
+				itemLevel = GM.LoadLevelData(smallButton.name);
 
                 if (itemLevel == 0 || !_currentStageCtrl.isTrapInstall(smallButton.name))
                 {
@@ -141,13 +142,13 @@ public class InstallPopUPControl : MonoBehaviour
                 }
                 else
                 {
-					string current_monster_name = GM.getMonsterName(mosnter_type, GM.LoadMonsterLevelData(mosnter_type) -1, true);
+					string current_monster_name = GM.getMonsterName(mosnter_type, GM.LoadLevelData(mosnter_type) -1, true);
                     
 					GameObject CreateMonster = Instantiate(Resources.Load(aliasAddress +current_monster_name)) as GameObject;
 					CreateMonster.name =go.name;
                     PlayerCharacter CreateMonsterInfo = CreateMonster.GetComponent<PlayerCharacter>();
               
-					GM.installObject (go.name, go.tag, _currentStageCtrl.StairNumber, installPos, GM.LoadMonsterLevelData(current_monster_name));
+					GM.installObject (go.name, go.tag, _currentStageCtrl.StairNumber, installPos, GM.LoadLevelData(current_monster_name));
                     CreateMonsterInfo.StageCntl = _currentStageCtrl;
                     CreateMonster.transform.parent = _currentStageCtrl.TrsByPos(installPos);
                     CreateMonster.transform.SetAsFirstSibling();
@@ -192,7 +193,7 @@ public class InstallPopUPControl : MonoBehaviour
                     _currentStageCtrl.OccupyPos(installPos, 1);
                     _currentStageCtrl.trapInstall(go.name,true);
 
-					GM.installObject (go.name, go.tag, _currentStageCtrl.StairNumber, installPos,GM.LoadTrapLevelData(GM.trapIndex(go.name)));
+					GM.installObject (go.name, go.tag, _currentStageCtrl.StairNumber, installPos,GM.LoadLevelData(go.name));
 
                     TempStaticMemory.gold -= GM.getPrice(go.name, "install", go.tag);
                     

@@ -140,7 +140,7 @@ public class Attacker : MonoBehaviour
 #if UNITY_EDITOR
 
         strBuilder.AppendLine("[ " + this.gameObject.name + " ]");
-		strBuilder.AppendLine("Level\t:\t" + (GM.LoadMonsterLevelData(stat_name)));
+		strBuilder.AppendLine("Level\t:\t" + (GM.LoadLevelData(stat_name)));
         strBuilder.AppendLine("Attack\t:\t" + atk);
         strBuilder.AppendLine("Range\t:\t" + range);
         strBuilder.AppendLine("Speed\t:\t" + speed);
@@ -167,7 +167,7 @@ public class Attacker : MonoBehaviour
 
         initHp = hp;
         initSpeed = speed = 0.3f;
-        enemy_level = GM.LoadMonsterLevelData(stat_name);
+        enemy_level = GM.LoadLevelData(stat_name);
         Attackobj.GetComponent<Weapon>().damage = atk;
     }
 

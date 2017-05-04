@@ -204,19 +204,31 @@ public class DS_LevelClass: DSInterface
 
 	public void sendIntCmd (string objectName, int sendParam)
 	{
-		DB.setLevelData (objectName, sendParam);
+		if (objectName.Equals ("Stair")) {
+			DB.LevelUpStairData (sendParam);
+		} else {
+			DB.setLevelData (objectName, sendParam);
+		}
 	}
 	public int receiveIntCmd (string objectName)
 	{
 		return DB.getLevelData (objectName);
 	}
-
+	public int receiveIntCmd(string objectName, int stair)
+	{
+		return DB.getLevelDataStair (stair);
+	}
 	public void sendStringCmd (string command, string sendParam)
 	{
 		if (command.Equals ("Create")) {
 			DB.createLevelData (sendParam);
+		} else if (command.Equals ("LevelUp")) {
+			//sendParam = ObjectName
+			DB.LevelUpData (sendParam);
 		}
+
 	}
+
 
 	public string receiveStringCmd (string cmdParam)
 	{
@@ -230,9 +242,6 @@ public class DS_LevelClass: DSInterface
 	{
 		throw new NotImplementedException ();
 	}
-
-
-
 }
 
 

@@ -45,7 +45,7 @@ public class PlayerCharacter : MonoBehaviour
 		{
 			if (!isBossMonster)
 			{
-                //int monster_level = GM.LoadMonsterLevelData(this.gameObject.name) - 1;
+                //int monster_level = GM.LoadLevelData(this.gameObject.name) - 1;
                 int monster_level = 0;
                 string monster_name = GM.getMonsterName(this.gameObject.name, monster_level, true);
 				RebuildList("attack_" + monster_name + "_");
@@ -98,7 +98,7 @@ public class PlayerCharacter : MonoBehaviour
 			strBuilder.Remove(0, strBuilder.Length);
 
 		strBuilder.AppendLine("[ " + this.gameObject.name + " ]");
-		strBuilder.AppendLine("Level\t:\t" + GM.LoadMonsterLevelData(this.gameObject.name));
+		strBuilder.AppendLine("Level\t:\t" + GM.LoadLevelData(this.gameObject.name));
 
 		strBuilder.AppendLine("Attack\t:\t" + atk);
 		strBuilder.AppendLine("Range\t:\t" + range);

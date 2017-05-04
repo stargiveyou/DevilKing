@@ -21,6 +21,7 @@ public class TempStaticMemory {
     
     public static int gateLevel =0;
     public static int gameCount = 0;
+
     public static void GamePause()
     {
         Time.timeScale = 0.0f;

@@ -34,7 +34,7 @@ public class CastleEnhanceManager : MonoBehaviour
         GameObject EnhanceButton = null;
         UILabel ButtonDescript = null;
         UILabel goldLabel = null, descriptLabel = null;
-        int enemyLevelCount = GM.LoadMonsterLevelData("Normal");
+        int enemyLevelCount = GM.LoadLevelData("Normal");
         EnemyLevelLabel.text = "적 용사 레벨 : " + enemyLevelCount.ToString();
 
         GateLevelLabel.text = "Lv " + enemyLevelCount.ToString();
@@ -95,20 +95,31 @@ public class CastleEnhanceManager : MonoBehaviour
                 {
                     Debug.Log("Level Up Enemy Character");
                     TempStaticMemory.gold -= GM.getPrice("Gate");
-                    int monsterLev = GM.LoadMonsterLevelData("Normal");
+
+                    int monsterLev = GM.LoadLevelData("Normal");
                     
                     monsterLev++;
 
-                    GM.SaveMonsterLevelData("Normal", monsterLev);
-                    GM.SaveMonsterLevelData("Shield", monsterLev);
-                    GM.SaveMonsterLevelData("Archer", monsterLev);
+                    GM.LevelUpData("Normal");
+                    GM.LevelUpData("Shield");
+                    GM.LevelUpData("Archer");
 
                     GM.SendToUI("UpdateMaxFeverCount");
 
-                    EnemyLevelLabel.text = "적 용사 레벨 : " + (GM.LoadMonsterLevelData("Normal")).ToString();
+                    EnemyLevelLabel.text = "적 용사 레벨 : " + (GM.LoadLevelData("Normal")).ToString();
+
+
+					/*New Function
+					GM.LevelUpData ("Normal");
+					GM.LevelUpData ("Shield");
+					GM.LevelUpData ("Archer");
+
+					GateLevelLabel.text = "Lv " + (GM.LoadLevelData("Normal")).ToString();
+
+					*/
 
                     DoorGoldLabel.text = GM.getPrice("Gate").ToString();
-                    GateLevelLabel.text = "Lv " + (GM.LoadMonsterLevelData("Normal")).ToString();
+                    GateLevelLabel.text = "Lv " + (GM.LoadLevelData("Normal")).ToString();
 
                 }
                 else
@@ -126,11 +137,13 @@ public class CastleEnhanceManager : MonoBehaviour
         {
             floor = Convert.ToInt32(Go.transform.parent.name);
             int price = GM.getPrice("Castle", int.Parse(Go.transform.parent.name)-1);
+
             if (TempStaticMemory.gold >= price)
             {
            
                 char data = castleData[floor - 1];
                 GM.SendToUI("EnhanceStair", floor);
+
                 if (PlayerPrefs.GetInt("GameCount", 0) == 1)
                 {
                     TempStaticMemory.isTutoProcessOn = true;
