@@ -336,7 +336,7 @@ PlayerSettings:
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
   scriptingDefineSymbols:
-    4: EditorDebug
+    4: EditorDebug;DataReset
     7: 
   metroPackageName: NewDefence
   metroPackageVersion: 

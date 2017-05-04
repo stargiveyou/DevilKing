@@ -103,7 +103,7 @@ public class TrophyDataBase : FileDataInterface {
 
 	private List<tropy_data_struct> tropy_List;
 	public delegate void callbackDelegate(int index, string spriteName);
-	public event callbackDelegate callbackEvent;
+
 	public TrophyDataBase()
 	{
 		thisClassEnum = ClassEnumType.TropyData;
@@ -131,7 +131,6 @@ public class TrophyDataBase : FileDataInterface {
 	public string getBinData ()
 	{
 		return thisBinData;
-
 	}
 
 	public void SaveData ()
@@ -159,8 +158,6 @@ public class TrophyDataBase : FileDataInterface {
 		
 		tropy_data_struct newData = new tropy_data_struct(index,spriteName,newCmd,newAmount);
 		tropy_List.Add(newData);
-
-
 	}
 
 	public void sendTropyCommand(string command, int amount, callbackDelegate callback)
@@ -179,6 +176,24 @@ public class TrophyDataBase : FileDataInterface {
 			Debug.Log (ane.StackTrace);
 		}
 	}
+	public void sendTropyDisplay(int index, callbackDelegate callback)
+	{
+		try
+		{
+			tropy_data_struct loadData = tropy_List [index];
+			Debug.Log(tropy_List[index].TropySpriteName);
+			//if(loadData.Completed)
+			{
+				callback(loadData.TropyIndex,loadData.TropySpriteName);
+			}
+		}
+		catch (ArgumentNullException ane) {
+			Debug.Log (ane.StackTrace);
+		}
+	}
+
+
+
 
 	public bool checkTropyData(string cmd, int amount)
 	{

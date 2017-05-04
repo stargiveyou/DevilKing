@@ -67,10 +67,9 @@ public class GameManager : MonoBehaviour
 
 		GDB = GameDataBase.getDBinstance;
 
-		isTutoSystem = GDB.getUserDS().receiveIntCmd("gameCount") == 1;
-		Debug.Log ("isTuto? "+isTutoSystem);
-		// Scene Init
+		//isTutoSystem = GDB.getUserDS().receiveIntCmd("gameCount") == 1;
 
+		// Scene Init
 		if (SceneManager.GetActiveScene().name.Equals("Game"))
 		{
 			TempStaticMemory.isOpenPopUp = false;
@@ -225,7 +224,7 @@ public class GameManager : MonoBehaviour
 	void GameStartAllObject()
 	{
 		UI.SendMessage("GameStart");
-		//isTutoSystem = PlayerPrefs.GetInt("GameCount", 0) == 1;
+
 
 		if (!isTutoSystem)
 		{
@@ -321,6 +320,9 @@ public class GameManager : MonoBehaviour
 		case "DexDescript":
 			resultContext = _Json.getCollectDescript((string)param1, (int)param2);
 			break;
+		case "Trophy":
+			resultContext = _Json.getTrophyDescript ((bool)param1, (int)param2);
+			break;
 
 		}
 		return resultContext;
@@ -334,8 +336,6 @@ public class GameManager : MonoBehaviour
 
 		return returnCount;
 	}
-
-
 
 	public void PoolObject(GameObject Obj)
 	{
@@ -735,6 +735,14 @@ public class GameManager : MonoBehaviour
 
 		return returnPrice;
 	}
+
+	public void sendTrophyCondition(string command, int amount)
+	{
+		GDB.getTropyDB.sendTropyCommand (command, amount, UI.ShowTropyDisplayPopUp);
+	}
+
+
+
 
 	#endregion
 

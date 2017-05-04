@@ -24,24 +24,26 @@ public class TrophyDisplayPanelManager : MonoBehaviour {
 		Time.timeScale = 0.0f;
     }
     */
-	
 
 	public void SetTropy(int index, string spritename, string context)
 	{
-		
-		Resources.UnloadUnusedAssets();
-
 		UIAtlas selectedAtlas = tropysAtlas [(index-1) / 16];
-		trophysprite.atlas = selectedAtlas;
-		trophysprite.spriteName = spritename;
-		trophyContext.text = context;
+
 		PopUP.SetActive (true);
+		trophysprite.atlas = selectedAtlas;
+		//Trophy_Sprite_01
+		//trophysprite.spriteName = spritename;
+		trophysprite.spriteName = "Trophy_Sprite_"+index.ToString("0#");
+		trophyContext.text = context;
+
 		Time.timeScale = 0.0f;
 	}
 
+
     void ButtonProcess(GameObject go)
     {
-		Time.timeScale = 1.0f;
+
+		//Time.timeScale = 1.0f;
 		PopUP.SetActive (false);
     }
 }

@@ -47,8 +47,6 @@ public class GameDataBase
 	TrophyDataBase tropyDB = new TrophyDataBase();
 	StageDataBase stageDB = new StageDataBase();
 
-
-
     DSFactory ds_factory;
 
     /// <summary>
@@ -59,7 +57,9 @@ public class GameDataBase
 
 	public GameDataBase()
 	{
+		#if DataReset
         DataRemove();
+		#endif
         binform = new BinaryFormatter();
 		DataBaseFactory factory = new DataBaseFactory ();
         
@@ -242,8 +242,6 @@ public class GameDataBase
         Debug.Log("Editor Debug");
 #endif
 
-
-
 		dataCls.PlayerBinData = userDB.getBinData();
 		dataCls.LevelBinData = levelDB.getBinData ();
 
@@ -252,13 +250,11 @@ public class GameDataBase
         )
          */
 
-
 		for(ObjectClassEnumType type = ObjectClassEnumType.None +1; type < ObjectClassEnumType.End;type++)
 		{
 			ObjectDatas[(int)type].SaveData();
 			dataCls.SetBinInstallData(ObjectDatas[(int)type].getBinData(),type);
 		}
-
 
 		if (File.Exists(file_path))
 		{

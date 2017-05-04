@@ -56,10 +56,8 @@ public class UIManager : MonoBehaviour
         s_Manager.SendMessage("MoveStageAndFocus", value);
     }
     
-    
 	public	void ShowTropyDisplayPopUp(int index, string spriteName)
 	{
-		//string context = GM.getContext\(
 		TrophyDisplayPopUP.SetTropy(index,spriteName, " ");
 	}
 

@@ -62,7 +62,8 @@ public class LevelDataBase : FileDataInterface {
 
 	public void createLevelData(string _name)
 	{
-		if (!lvTable.Contains (_name)) {
+		if (!lvTable.Contains (_name)) 
+		{
 			lvTable.Add (_name, 0);
 		}
 	}
@@ -71,9 +72,16 @@ public class LevelDataBase : FileDataInterface {
 	{
 		lvTable [obj_name] = level;
 	}
+
 	public int getLevelData(string obj_name)
 	{
 		return (int)lvTable [obj_name];
+	}
+
+	public void LevelUpData(string obj_name)
+	{
+		int level = (int)lvTable [obj_name];
+		lvTable [obj_name] = ++level;
 	}
 
 

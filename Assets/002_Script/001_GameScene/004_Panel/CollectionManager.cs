@@ -14,9 +14,11 @@ public class CollectionManager : MonoBehaviour
 
     public GameObject[] Buttons;
 
-    //    public UIAtlas[] objectAtlas;
+	//    public UIAtlas[] objectAtlas;
 
-    private GameManager GM;
+	private GameManager GM;
+	private TrophyPanelControl Trophy;
+
 
     private enum ObjectTypeEnum
     {
@@ -31,6 +33,8 @@ public class CollectionManager : MonoBehaviour
     void Start()
     {
         GM = GameManager.getInstance();
+		Trophy = GetComponent<TrophyPanelControl> ();
+
 
         selectPanel.SetActive(false);
 
@@ -49,13 +53,7 @@ public class CollectionManager : MonoBehaviour
         ObjectSet();
 
     }
-    void CollectSelectActive()
-    {
-        Time.timeScale = 0.0f;
-        selectPanel.SetActive(true);
-        DisplayPanelActive("Monster");
-    }
-
+   
     private void DisplayPanelActive(string tapName)
     {
         for (int i = 0; i < PanelDisplayTrs.childCount; i++)
@@ -65,6 +63,10 @@ public class CollectionManager : MonoBehaviour
 
         PanelDisplayTrs.FindChild(tapName + "Panel").gameObject.SetActive(true);
     }
+
+
+
+	#region Collection Panel Part
 
     public Transform statusCollectTrs, trapstatusCollectTrs;
 
@@ -96,6 +98,14 @@ public class CollectionManager : MonoBehaviour
         trap_atkTypeLabel = trapstatusCollectTrs.FindChild("ATKMethod").GetComponent<UILabel>();
 
     }
+
+	void CollectSelectActive()
+	{
+		Time.timeScale = 0.0f;
+		selectPanel.SetActive(true);
+		DisplayPanelActive("Monster");
+	}
+
 
     public Transform MonsterCollectPanel, BossCollectPanel, TrapCollectPanel, NormalCollectPanel, NamedCollectPanel;
 
@@ -417,7 +427,8 @@ public class CollectionManager : MonoBehaviour
                 break;
         }
     }
-    void TapButtonProcess(GameObject go)
+
+	void TapButtonProcess(GameObject go)
     {
         DisplayPanelActive(go.name);
     }
@@ -507,5 +518,14 @@ public class CollectionManager : MonoBehaviour
             return returnValue;
         }
     }
+
+	#endregion
+
+
+
+
+
+
+
 }
 

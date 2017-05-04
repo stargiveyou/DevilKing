@@ -361,6 +361,7 @@ public class MonsterEnhanceManager : MonoBehaviour
         if (upgradeObject.tag.Equals("Alias"))
         {
             GM.SaveMonsterLevelData(upgradeObject.name, GM.LoadMonsterLevelData(upgradeObject.name) + 1);
+			//MonsterEnhance +1
         }
         else if (upgradeObject.tag.Equals("Obstacle"))
         {

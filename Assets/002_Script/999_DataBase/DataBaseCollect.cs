@@ -115,6 +115,13 @@ public class JsonParser
     {
         return json[languageCode]["MonsterDescript"][monsterID][index].ToString();
     }
+	public string getTrophyDescript(bool isCompleted, int tropyIndex)
+	{
+		string CompletedStr;
+		CompletedStr = isCompleted ? "Open" : "Lock";
+		return json [languageCode]["Trophy"] [CompletedStr] [tropyIndex].ToString ();
+
+	}
 
     /// <summary>
     /// Return MonsterName's Count 
