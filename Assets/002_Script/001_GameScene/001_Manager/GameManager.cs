@@ -531,8 +531,6 @@ public class GameManager : MonoBehaviour
 		range = Data.range;
 		speed = Data.speed;
 		size = Data.size;
-
-		//_Debug.Log(name + "Created : \t" + hp + "\t" + atk + "\t" + level);
 	}
 
 	public int getCharacterSize(string name)
@@ -584,9 +582,17 @@ public class GameManager : MonoBehaviour
 	}
 
 	//New Fuction
-	public void LevelUpData(string objName)
+	/// <summary>
+	/// Levels up data.
+	/// </summary>
+	/// <param name="objName">Object name.["Stair","AliasNames","EnemyNames","TrapNames"]</param>
+	/// <param name="stairLevel">(if Object Name is "Stair")Stair level.</param>
+	public void LevelUpData(string objName, int stairLevel =0)
 	{
-		if (!_CSV.isLevelMax(objName))
+		if (objName.Equals ("Stair")) {
+			GDB.getLevelDB.LevelUpStairData (stairLevel);
+		}
+		else if (!_CSV.isLevelMax(objName))
 		{
 			GDB.getLevelDB.LevelUpData(objName);
 		}
@@ -595,9 +601,19 @@ public class GameManager : MonoBehaviour
 	{
 		return GDB.getLevelDB.getLevelData(objName);
 	}
+	public int LoadLevelData(int stairLevel)
+	{
+		return GDB.getLevelDB.getLevelDataStair (stairLevel);
+	}
+
+
 	public void LevelReplaceData(string objName, int level)
 	{
 		GDB.getLevelDB.setLevelData (objName, level);
+	}
+	public void LevelReplaceData(int stair, int level)
+	{
+		GDB.getLevelDB.setLevelStairData (stair, level);	
 	}
 
 

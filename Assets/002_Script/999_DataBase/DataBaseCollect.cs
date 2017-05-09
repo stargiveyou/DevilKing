@@ -278,9 +278,7 @@ public class CSVParser
                 // 3 : spriteName
 				GDB.getTropyDB.CreateTropyData(int.Parse(fields[0]), fields[3], fields[1], int.Parse(fields[2]));
             }
-
 			Debug.Log(GDB.getTropyDB.ToString());
-
         }
         #endregion;
 

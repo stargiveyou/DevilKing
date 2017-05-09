@@ -90,8 +90,11 @@ public class StageManager : MonoBehaviour
         {
             char[] stageCurrentData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
             stageCurrentData[opendedStage] = '0';
+
             PlayerPrefs.SetInt("TopStage", opendedStage - 1);
             TempStaticMemory.openStageCount = opendedStage - 1;
+
+
             PlayerPrefs.SetString("castleLevel", new string(stageCurrentData));
             SaveStageNameList();
         }

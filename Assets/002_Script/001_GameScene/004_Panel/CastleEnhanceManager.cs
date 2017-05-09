@@ -5,6 +5,7 @@ public class CastleEnhanceManager : MonoBehaviour
 {
     
     private GameManager GM;
+	private LevelDataBase LevelDB;
     private char[] castleData;
     private int level;
     private ArrayList AbleButtonList;
@@ -28,6 +29,7 @@ public class CastleEnhanceManager : MonoBehaviour
     void initCastleButtonData()
     {
 		GM = GameManager.getInstance();
+		LevelDB = GameDataBase.getDBinstance.getLevelDB;
 
         castleData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
         int Length = castleData.Length;
@@ -40,8 +42,10 @@ public class CastleEnhanceManager : MonoBehaviour
         GateLevelLabel.text = "Lv " + enemyLevelCount.ToString();
         Transform DoorBoard = CastleGrid.transform.FindChild("Door");
         DoorGoldLabel = DoorBoard.transform.FindChild("Enhance").FindChild("CastleGoldLabel").GetComponent<UILabel>();
+
 		UIEventListener.Get(DoorBoard.transform.FindChild("Enhance").gameObject).onClick -= new UIEventListener.VoidDelegate(ButtonProcess);
         UIEventListener.Get(DoorBoard.transform.FindChild("Enhance").gameObject).onClick += new UIEventListener.VoidDelegate(ButtonProcess);
+
         DoorGoldLabel.text = GM.getPrice("Gate").ToString();
         for (int i = 0; i < Length; i++)
         {

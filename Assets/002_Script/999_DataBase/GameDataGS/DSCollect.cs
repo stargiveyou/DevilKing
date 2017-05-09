@@ -42,7 +42,7 @@ public class DSFactory
                 instance = new DS_UserClass(GDB.getUserDB);
                 break;
 		case "Level":
-				instance = new DS_LevelClass (GDB.getLevelDB);
+		//		instance = new DS_LevelClass (GDB.getLevelDB);
                 break;
             case "Stage":
                 break;
@@ -160,7 +160,7 @@ public class DS_UserClass : DSInterface
                 DB.AddGoldAmount(sendParam);
                 break;
             case "stageCount":
-                DB.StageUpdate(sendParam);
+                //DB.StageUpdate(sendParam);
                 break;
             case "GameStart":
                 DB.GameStart();
@@ -192,7 +192,7 @@ public class DS_UserClass : DSInterface
     }
 }
 
-
+/*
 public class DS_LevelClass: DSInterface
 {
 	LevelDataBase DB;
@@ -243,7 +243,7 @@ public class DS_LevelClass: DSInterface
 		throw new NotImplementedException ();
 	}
 }
-
+*/
 
 
 /*

@@ -343,33 +343,6 @@ public class GameDataBase
     }
 
 
-    public int LoadLevelData(string obj_name)
-	{
-		//  return ObjectLevelData.loadLevelData(obj_name);
-		return 0;
-	}
-
-	public void LoadMonsterInstallData(string name, int index, out int stair, out int floor)
-	{
-		stair = 0;
-		floor = 0;
-		//installData.getMonsterInstallPos(name, index, out stair, out floor);   
-	}
-
-	public int getInstalledMonsterCount( string monster_name)
-	{
-		//return installData.getMonsterPos(monster_name).Count;
-		return 0;
-	}
-
-	public string getInstallPosResult
-	{
-		get
-		{
-			// return installData.ToString();
-			return string.Empty;
-		}
-	}
 
 #region Data Save Function
 

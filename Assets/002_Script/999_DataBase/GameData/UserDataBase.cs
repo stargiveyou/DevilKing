@@ -47,6 +47,13 @@ public class UserDataBase : FileDataInterface
 			this.player_game_Count = data.player_game_Count;
 			this.player_die_Count = data.player_die_Count;
 		}
+
+		public override string ToString ()
+		{
+			return string.Format ("[Player Struct \n Name : {0}, Current Gold : {1}, Current Stage :{2}]",this.player_name,this.current_player_gold,this.top_stageCount);
+		}
+
+
 	}
 
 	private player_user_data_struct data_struct;
@@ -125,11 +132,21 @@ public class UserDataBase : FileDataInterface
     {
         data_struct.total_player_gold += gold;
     }
-    public void StageUpdate(int stage)
+    
+	public void StageUpdate(int stage)
     {
         data_struct.top_stageCount = stage;
     }
 
+	public void StageUpdate(bool isUp)
+	{
+		if (isUp) {
+			++data_struct.top_stageCount;
+		} else {
+			int currentStage = data_struct.top_stageCount;
+			data_struct.top_stageCount = Mathf.Max (1, --currentStage);
+		}
+	}
 
 	public void UpdateTime(float time)
 	{

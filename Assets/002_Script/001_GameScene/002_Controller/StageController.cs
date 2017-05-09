@@ -65,7 +65,6 @@ public class StageController : MonoBehaviour
         stageName.text = "폐허";
         //stageLevel
 
-
         UIEventListener.Get(ForceButton).onClick -= new UIEventListener.VoidDelegate(ButtonProcess);
         UIEventListener.Get(ForceButton).onClick += new UIEventListener.VoidDelegate(ButtonProcess);
         
@@ -289,7 +288,6 @@ public class StageController : MonoBehaviour
 
 
 #endregion
-
 
 
     void ExitGateChange()

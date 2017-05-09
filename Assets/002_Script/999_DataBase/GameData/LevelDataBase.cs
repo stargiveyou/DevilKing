@@ -89,7 +89,11 @@ public class LevelDataBase : FileDataInterface {
 	{
 		lvTable [obj_name] = level;
 	}
-
+	public void setLevelStairData(int stair, int level)
+	{
+		_castleLevData [stair] = level;
+		lvTable ["Stage"] = _castleLevData;
+	}
 	public int getLevelData(string obj_name)
 	{
 		if (lvTable.ContainsKey (obj_name))
@@ -116,6 +120,7 @@ public class LevelDataBase : FileDataInterface {
 			lvTable.Add ("Stage", _castleLevData);
 		}
 	}
+
 
 	public int getLevelDataStair(int stair)
 	{
