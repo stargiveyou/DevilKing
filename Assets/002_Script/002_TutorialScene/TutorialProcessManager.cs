@@ -19,13 +19,36 @@ public class TutorialProcessManager : MonoBehaviour
 
     int tuto_process = 0;
 
+
+	void OnEnable()
+	{
+
+		//string player_sprite_type = PlayerPrefs.GetString("PlayerSprite", "King");
+		string player_sprite_type = GameDataBase.getDBinstance.getUserDB.PlayerSpriteName;
+
+		if (player_sprite_type.Equals("King"))
+		{
+			kira_Player_Sprite.transform.localPosition = Vector2.zero;
+		}
+		else if (player_sprite_type.Equals("Queen"))
+		{
+			kira_Player_Sprite.transform.localPosition = new Vector2(34, -5f);
+		}
+
+		player_animation.namePrefix = "attack_" + player_sprite_type + "_0";
+		player_animation.Reset();
+		player_animation.transform.localScale = new Vector3(2.3f, 2.3f, 2.3f);
+		player_animation.enabled = false;
+
+		kira_Player_Sprite.spriteName = "emotion_" + player_sprite_type + "_kira";
+		kira_Player_Sprite.MakePixelPerfect();
+	}
+
+
     // Use this for initialization
     void Start()
     {
-
-        string player_sprite_type = PlayerPrefs.GetString("PlayerSprite", "King");
-
-        tuto_goldLabel.text = "00";
+		tuto_goldLabel.text = "00";
 
         own_bubble_Trs = own_bubble_Sprite.transform;
 
@@ -33,24 +56,6 @@ public class TutorialProcessManager : MonoBehaviour
 
         UIEventListener.Get(nextButton).onClick -= new UIEventListener.VoidDelegate(ButtonProcess);
         UIEventListener.Get(nextButton).onClick += new UIEventListener.VoidDelegate(ButtonProcess);
-
-
-        kira_Player_Sprite.spriteName = "emotion_" + player_sprite_type + "_kira";
-        kira_Player_Sprite.MakePixelPerfect();
-
-        if (player_sprite_type.Equals("King"))
-        {
-            kira_Player_Sprite.transform.localPosition = Vector2.zero;
-        }
-        else if (player_sprite_type.Equals("Queen"))
-        {
-            kira_Player_Sprite.transform.localPosition = new Vector2(34, -5f);
-        }
-
-        player_animation.namePrefix = "attack_" + player_sprite_type + "_0";
-        player_animation.Reset();
-        player_animation.transform.localScale = new Vector3(2.3f, 2.3f, 2.3f);
-        player_animation.enabled = false;
 
     }
 

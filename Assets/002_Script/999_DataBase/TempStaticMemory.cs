@@ -10,7 +10,8 @@ public class TempStaticMemory {
     public static int gold = 0;
     public static int enemykill;
     public static int openStageCount = 0;
-    public static string initStageLevel = "1000000000";
+    
+	public static string initStageLevel = "1000000000";
     public static int playCount = 0;
 
     public static string AliasData = "111_10000";

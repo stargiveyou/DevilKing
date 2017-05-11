@@ -60,27 +60,26 @@ public class GameManager : MonoBehaviour
         Screen.SetResolution(width, height, true);
         */
 
-		PlayerPrefs.DeleteAll ();
-
 		_CSV = new CSVParser();
 		_Json = new JsonParser();
 
 		GDB = GameDataBase.getDBinstance;
 
-		//isTutoSystem = GDB.getUserDS().receiveIntCmd("gameCount") == 1;
-
+		//isTutoSystem = GDB.getUserDB.getPlayerIntData("gameCount") == 1;
+		//isTutoSystem = getUserIntData("gameCount") == 1;
 		// Scene Init
 		if (SceneManager.GetActiveScene().name.Equals("Game"))
 		{
 			TempStaticMemory.isOpenPopUp = false;
-			TempStaticMemory.playCount = PlayerPrefs.GetInt("GameCount", 0);
+			//TempStaticMemory.playCount = PlayerPrefs.GetInt("GameCount", 0);
+
+			TempStaticMemory.playCount = getUserIntData("gameCount");
 
 			if (TempStaticMemory.playCount == 0)
 			{
 				//SendToUI("ShowTrophyDisplayPopUp", 0);
 			}
 			GameObject scripts = transform.FindChild ("ScriptCollect").gameObject;
-
 
 			Attack_Control = scripts.GetComponent<AttackerController>();
 			Player_Control = scripts.GetComponent<PlayerController>();
@@ -100,17 +99,17 @@ public class GameManager : MonoBehaviour
 			//Player Data Load
 
 			//Player Name ,Player Sprite Name
-			Defender.GetComponent<PlayerCharacter>().SetPlayerInfo(GDB.getUserDS().receiveStringCmd("playerName"), GDB.getUserDS().receiveStringCmd("spriteName"));
+			Defender.GetComponent<PlayerCharacter> ().SetPlayerInfo (getUserStringData("PlayerName"), getUserStringData("PlayerSpriteName"));
+
 			//Player Gold Data
 			if (isTutoSystem)
 			{
 				TempStaticMemory.gold += 300;
-                GDB.getUserDS().sendIntCmd("totalGold", 300);
-
+				GDB.getUserDB.GoldUpdate (300);
 			}
 			else
 			{
-				TempStaticMemory.gold = GDB.getUserDS().receiveIntCmd("currentGold");
+				TempStaticMemory.gold = getUserIntData ("CurrentGold");
 			}
 
 			Attack_Control.LoadEnemyObject ();
@@ -207,9 +206,11 @@ public class GameManager : MonoBehaviour
 
 		PlayerPrefs.SetInt("gold", TempStaticMemory.gold);
 
-        //GDB.getUserDS().sendIntCmd("currentGold", 5000);
-        GDB.getUserDS().sendIntCmd("GoldUpdate", TempStaticMemory.gold);
-        GDB.getUserDS().sendIntCmd("totalGold", 5000);
+//		GDB.getUserDB.GoldUpdate(TempStaticMemory.gold);
+
+		setUserData ("GoldUpdate", TempStaticMemory.gold);
+
+		GDB.getUserDB.AddGoldAmount(5000);
         
         PlayerPrefs.SetInt("EnemyKillCount", TempStaticMemory.enemykill);
         GDB.SaveFile();
@@ -241,7 +242,6 @@ public class GameManager : MonoBehaviour
 	void GameEndAllObject()
 	{
 		PopUpOpen("GameLoseEnd");
-		//UI.SendMessage("GameEnd");
 		Time.timeScale = 0.0f;
 	}
 
@@ -454,6 +454,17 @@ public class GameManager : MonoBehaviour
 		int respawnLevel = level;
 		StageController stageByLevel = null;
 
+
+			for (; respawnLevel < getUserIntData ("stageCount"); respawnLevel++)
+				{
+					stageByLevel = stageManager.FindRespawnByLevel(respawnLevel);
+					if (stageByLevel.respawnAble)
+					{
+						break;
+					}
+				}
+		
+		/*
 		for (; respawnLevel < TempStaticMemory.openStageCount; respawnLevel++)
 		{
 			stageByLevel = stageManager.FindRespawnByLevel(respawnLevel);
@@ -462,7 +473,7 @@ public class GameManager : MonoBehaviour
 				break;
 			}
 		}
-
+		*/
 		stageByLevel.addStageList(attack);
 		attack.transform.parent = stageByLevel.StartTrs;
 	}
@@ -581,6 +592,9 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+
+
+	#region Level Data Bridge Part
 	//New Fuction
 	/// <summary>
 	/// Levels up data.
@@ -616,6 +630,122 @@ public class GameManager : MonoBehaviour
 		GDB.getLevelDB.setLevelStairData (stair, level);	
 	}
 
+	#endregion
+
+	#region User Data Bridge Part
+
+	/// <summary>
+	/// Sets the user data.
+	/// </summary>
+	/// <param name="cmd">Cmd.["GoldUpdate", "TotalGold","GameStart","GameEnd","StageUpgrade","UpdateTime","TotalTime","EnemyCreate"] </param>
+	/// <param name="value">Value. (Type :["int","int","null","null","null","float","float","null"]</param>
+
+	public void setUserData(string cmd, object value = null)
+	{
+		#if EditorDebug
+		Debug.Log (this.GetType ().ToString () + " // setUserData , Command : " + cmd);
+		#endif
+
+		switch (cmd) {
+		case "GoldUpdate":
+			GDB.getUserDB.GoldUpdate ((int)value);
+			break;
+		case "TotalGold":
+			GDB.getUserDB.GoldUpdate ((int)value);
+			break;
+		case "GameStart":
+			GDB.getUserDB.GameStart ();
+			break;
+		case "GameEnd":
+			GDB.getUserDB.PlayerDie ();
+			GDB.getUserDB.StageUpdate (false);
+			break;
+		case "StageUpgrade":
+			GDB.getUserDB.StageUpdate (true);
+			break;
+		case "StageUpdate":
+			GDB.getUserDB.StageUpdate ((int)value);
+			break;
+		case "UpdateTime":
+			GDB.getUserDB.UpdateTime ((float)value);
+			break;
+		case "TotalTime":
+			GDB.getUserDB.AddTimeAmount ((float)value);
+			break;
+		case "EnemyCreate":
+			GDB.getUserDB.RespawnEnemy ();
+			break;
+		}
+	}
+
+	public int getUserIntData(string cmd)
+	{
+		int returnValue =0;
+		#if EditorDebug
+		Debug.Log(this.GetType().ToString()+"// getUserData Int, Command : "+cmd);
+		#endif
+		switch (cmd) {
+		case "CurrentGold":
+			returnValue = GDB.getUserDB.getCurrentGold;
+			break;
+		case "TotalGold":
+			returnValue = GDB.getUserDB.getTotalGold;
+			break;
+		case "gameCount":
+			returnValue = GDB.getUserDB.getGameCount;
+			break;
+		case "dieCount":
+			returnValue =GDB.getUserDB.getDieCount;
+			break;
+		case "stageCount":
+			returnValue = GDB.getUserDB.getTopStageCount;
+			break;
+		case "enemyUniqueID":
+			returnValue = GDB.getUserDB.getEnemyID;
+			break;
+		case "enemyKillCount":
+			returnValue = GDB.getUserDB.getEnemyKillCount;
+			break;
+		}
+		return returnValue;
+
+	}
+	public float getUserFloatData(string cmd)
+	{
+		float returnValue =0.0f;
+		#if EditorDebug
+		Debug.Log(this.GetType().ToString()+"// getUserData Float, Command : "+cmd);
+		#endif
+
+		switch (cmd) {
+		case "Time":
+			returnValue = GDB.getUserDB.getTotalTime;
+			break;
+		}
+		return returnValue;
+	}
+	public string getUserStringData(string cmd)
+	{
+		string returnValue = string.Empty;
+
+		#if EditorDebug
+		Debug.Log(this.GetType().ToString()+"// getUserData String, Command : "+cmd);
+		#endif
+
+		switch (cmd) {
+		case "PlayerName":
+			returnValue = GDB.getUserDB.PlayerName;
+			break;
+		case "PlayerSpriteName":
+			returnValue = GDB.getUserDB.PlayerSpriteName;
+			break;
+		}
+
+		return returnValue;
+
+	}
+
+	#endregion
 
 	public bool isMaxLevelCharacter(string _name)
 	{

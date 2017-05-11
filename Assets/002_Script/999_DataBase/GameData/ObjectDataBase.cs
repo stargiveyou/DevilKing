@@ -562,9 +562,10 @@ public class EnemyObjectData : ObjectDataBase
             enemy_data_dic.Add(_name,enemy_list);
         }
 
+		#if EditorDebug
 		Debug.Log("Saved " + _name + " / " + enemy_struct.ToString() + "/ List Count" + enemy_list.Count 
 			+ "/ Dictionary Count" + enemy_data_dic.Count +"\n//Unique ID : " +unique_id);
-       
+		#endif
     }
 
     public override bool UnInstallMonster(int unique_id, int floor, string _name)
@@ -594,7 +595,12 @@ public class EnemyObjectData : ObjectDataBase
 
     public override void UpdateMonster(string obj_name, params object[] parameter)
     {
+
+		#if EditorDebug
         Debug.Log(obj_name +"// Updated");
+		#endif
+
+
         //unique_id = [0];
         //stair = [1]
         //pos_x = [2]

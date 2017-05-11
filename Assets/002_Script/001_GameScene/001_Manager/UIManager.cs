@@ -82,7 +82,6 @@ public class UIManager : MonoBehaviour
     IEnumerator GoldLabelUpdate()
     {
         int decimalIndex = 0;
-
         int currentGold = TempStaticMemory.gold;
 
         while (currentGold != 0)

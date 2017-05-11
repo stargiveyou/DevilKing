@@ -23,7 +23,6 @@ public class AttackerController : MonoBehaviour
     {
 		GDB = GameDataBase.getDBinstance;
         GM = GameManager.getInstance();
-
         AttackerList = new ArrayList();
 
     }
@@ -44,7 +43,8 @@ public class AttackerController : MonoBehaviour
 
 	public void LoadEnemyObject(string obj_name = null)
 	{
-		attack_Create_Unique_id = GDB.getUserDS ().receiveIntCmd ("EnemyUniqID");
+		
+		attack_Create_Unique_id = GM.getUserIntData("enemyUniqueID");
 		Attacker _attackerCtrl;
 		for (int  i = 0; i < Attackers_name.Length; i++) {
 			GDB.getEnemyObjectDB.LoadData (Attackers_name [i], delegate(int stair, int floor, float hp, int level) {
@@ -89,21 +89,20 @@ public class AttackerController : MonoBehaviour
 
 					_attackerCtrl= AttackNamedCharacter.GetComponent<Attacker>();
                     _attackerCtrl.setUniqueID = stair / 100;
-                    _attackerCtrl.bossmonsterLabelSet(GM.getContext("Name","BossMonster", Special_Attackers_Name[i]));
+                    //_attackerCtrl.bossmonsterLabelSet(GM.getContext("Name","BossMonster", Special_Attackers_Name[i]));
+					_attackerCtrl.bossmonsterLabelSet(GM.getContext("Name","BossMonster",i));
 					_attackerCtrl.control = this.GetComponent<AttackerController>();
 					AttackerList.Add(AttackNamedCharacter);
 					GM.getStageController(stair%100).addStageList(AttackNamedCharacter);
 
 					AttackNamedCharacter.transform.parent = GM.getStageController(stair%100).StartTrs;
-                    Debug.Log("Floor : " + floor);
+
 					_attackerCtrl.CharacterSetting(level);
 					_attackerCtrl.CharacterPositionSet(floor);
 					_attackerCtrl.UpdateCharacterHP((int)hp);
 				}
 			});
 		}
-			
-	
 	}
 
     IEnumerator StartRespawn()
@@ -202,8 +201,7 @@ public class AttackerController : MonoBehaviour
 
         AttackerList.Add(AttackCharacter);
 		GM.installObject (AttackCharacter.name, AttackCharacter.tag,  0,attack_Create_Unique_id,GM.LoadLevelData("Normal"));
-		GDB.getUserDS ().sendIntCmd ("EnemyCreate",1);
-
+		GM.setUserData ("EnemyCreate");
 
 		AttackerCtrl.CharacterSetting();
         AttackerCtrl.CharacterPositionSet(0);
@@ -290,7 +288,6 @@ public class AttackerController : MonoBehaviour
         }
         return NamedMonsterAtlas[index];
     }
-
 
     void FixedUpdate()
     {

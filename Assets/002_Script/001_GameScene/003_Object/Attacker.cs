@@ -530,7 +530,9 @@ public class Attacker : MonoBehaviour
 			GM.unInstallObject (this.gameObject.name, this.gameObject.tag, unique_id, currentStair);
 
             TempStaticMemory.gold += getGoldAmount;
-            GameDataBase.getDBinstance.getUserDS().sendIntCmd("totalGold", getGoldAmount);
+            
+			GM.setUserData ("TotalGold", getGoldAmount);
+
             TempStaticMemory.enemykill++;
             if (TempStaticMemory.enemykill == feverNeedCount)
             {

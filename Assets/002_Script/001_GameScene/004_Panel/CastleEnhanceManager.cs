@@ -6,7 +6,9 @@ public class CastleEnhanceManager : MonoBehaviour
     
     private GameManager GM;
 	private LevelDataBase LevelDB;
-    private char[] castleData;
+
+
+    //private char[] castleData;
     private int level;
     private ArrayList AbleButtonList;
     private UILabel DoorGoldLabel;
@@ -31,8 +33,7 @@ public class CastleEnhanceManager : MonoBehaviour
 		GM = GameManager.getInstance();
 		LevelDB = GameDataBase.getDBinstance.getLevelDB;
 
-        castleData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
-        int Length = castleData.Length;
+
         GameObject EnhanceButton = null;
         UILabel ButtonDescript = null;
         UILabel goldLabel = null, descriptLabel = null;
@@ -47,10 +48,10 @@ public class CastleEnhanceManager : MonoBehaviour
         UIEventListener.Get(DoorBoard.transform.FindChild("Enhance").gameObject).onClick += new UIEventListener.VoidDelegate(ButtonProcess);
 
         DoorGoldLabel.text = GM.getPrice("Gate").ToString();
-        for (int i = 0; i < Length; i++)
+        
+		for (int i = 0; i < 10; i++)
         {
             Transform castleBoard = CastleGrid.transform.FindChild((i + 1).ToString());
-            char data = castleData[i];
             descriptLabel = castleBoard.transform.FindChild("StageContext").GetComponent<UILabel>();
 
             EnhanceButton = castleBoard.transform.FindChild("Enhance").gameObject;
@@ -58,26 +59,24 @@ public class CastleEnhanceManager : MonoBehaviour
             
             castleBoard.transform.FindChild("Locked").gameObject.SetActive(false);           
             ButtonDescript = EnhanceButton.transform.FindChild("Descript").GetComponent<UILabel>();
-            if (data == '3')
-            {
-                EnhanceButton.SetActive(false);
-            }
-            else
-            {
-                EnhanceButton.SetActive(true);
-                
+
+			int data = GM.LoadLevelData (i);
+			if (data == 3) {
+				EnhanceButton.SetActive(false);
+			} else {
+				EnhanceButton.SetActive(true);
+
 				goldLabel.text = GM.getPrice("Castle", i).ToString();
 				UIEventListener.Get(EnhanceButton).onClick -= new UIEventListener.VoidDelegate(ButtonProcess);
-                UIEventListener.Get(EnhanceButton).onClick += new UIEventListener.VoidDelegate(ButtonProcess);
+				UIEventListener.Get(EnhanceButton).onClick += new UIEventListener.VoidDelegate(ButtonProcess);
 
-                AbleButtonList.Add(EnhanceButton);
-                ButtonDescript.text = "강화";
-            }
-            if (data == '0')
-            {
-                castleBoard.transform.FindChild("Locked").gameObject.SetActive(true);
+				AbleButtonList.Add(EnhanceButton);
+				ButtonDescript.text = "강화";
+			}
+			if (data == 0) {
+				castleBoard.transform.FindChild("Locked").gameObject.SetActive(true);
+			}
 
-            }
             descriptLabel.text = GM.getContext("Context", "StageEnhance") + "  [  " + GM.getContext("Stage", i) + "  ]\n"
                 + (i + 1).ToString() + GM.getContext("Context", "StageUnLock");
 			
@@ -112,7 +111,6 @@ public class CastleEnhanceManager : MonoBehaviour
 
                     EnemyLevelLabel.text = "적 용사 레벨 : " + (GM.LoadLevelData("Normal")).ToString();
 
-
 					/*New Function
 					GM.LevelUpData ("Normal");
 					GM.LevelUpData ("Shield");
@@ -144,31 +142,26 @@ public class CastleEnhanceManager : MonoBehaviour
 
             if (TempStaticMemory.gold >= price)
             {
-           
-                char data = castleData[floor - 1];
-                GM.SendToUI("EnhanceStair", floor);
+				int data = GM.LoadLevelData (floor - 1);
+				GM.SendToUI ("EnhanceStair", floor);
+				if (GM.getUserIntData ("gameCount") == 1) {
+					TempStaticMemory.isTutoProcessOn = true;
+					if (data == 1) {
+						GM.PopUpTuto ();
+					}
+				}
+				if (data == 2) {
+					UIEventListener.Get(Go).onClick -= new UIEventListener.VoidDelegate(ButtonProcess);
+					//Create Stairs
+					GM.SendToUI("CreateStair");
 
-                if (PlayerPrefs.GetInt("GameCount", 0) == 1)
-                {
-                    TempStaticMemory.isTutoProcessOn = true;
-                    if(data=='1')
-                    {
-                        GM.PopUpTuto();
-                    }
-                }
-                if (data == '2')
-                {
-                    UIEventListener.Get(Go).onClick -= new UIEventListener.VoidDelegate(ButtonProcess);
-                    //Create Stairs
-                    GM.SendToUI("CreateStair");
+					Go.SetActive(false);
+					AbleButtonList.Remove(Go);
+					if (floor <= 10)
+						NextStageEnhanceAppear(floor);
+				}
 
-                    Go.SetActive(false);
-                    AbleButtonList.Remove(Go);
-                    if (floor <= 10)
-                        NextStageEnhanceAppear(floor);
-                }
-
-                castleData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
+				GameDataBase.getDBinstance.SaveFile ();
                 TempStaticMemory.gold -= price;
             }
             else

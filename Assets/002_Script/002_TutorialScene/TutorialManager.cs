@@ -86,7 +86,6 @@ public class TutorialManager : MonoBehaviour
         {
             case "King":
                 //  PlayerPrefs.SetString("PlayerSprite", "King");
-
                 player_spriteName = "King";
                 KingAnimation.enabled = true;
                 contextLabel.text = parser.getContext("King") + parser.getContext("Select");
@@ -95,7 +94,6 @@ public class TutorialManager : MonoBehaviour
                 enterButton.SetActive(true);
                 break;
             case "Queen":
-
                 player_spriteName = "Queen";
                 QueenAnimation.enabled = true;
                 contextLabel.text = parser.getContext("Queen") + parser.getContext("Select");
@@ -137,15 +135,16 @@ public class TutorialManager : MonoBehaviour
         CameraTrs.position = loadPos;
         LoadingPanel.SetActive(true);
 
-        //Current File
-        TempStaticMemory.gold = GDB.getUserDS().receiveIntCmd("currentGold");
+        //Current File        
+		TempStaticMemory.gold = GDB.getUserDB.getCurrentGold;
 
         StartCoroutine("MoveGameScene");
     }
     IEnumerator MoveGameScene()
     {
         loadingSlider.value = 0;
-        GDB.getUserDS().sendIntCmd("GameStart", 0);
+        
+		GDB.getUserDB.GameStart ();
 
         AsyncOperation async = SceneManager.LoadSceneAsync("Game");
 

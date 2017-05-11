@@ -407,7 +407,8 @@ public class MonsterEnhanceManager : MonoBehaviour
 
     bool isBuyCharacter(string itemName)
     {
-        int topStage = PlayerPrefs.GetInt("TopStage", 1);
+        //int topStage = PlayerPrefs.GetInt("TopStage", 1);
+		int topStage = GM.getUserIntData ("stageCount");
 
         if ((topStage > 1 && itemName.Equals("SkeletonMage")) ||
             (topStage > 2 && itemName.Equals("Golem")) ||

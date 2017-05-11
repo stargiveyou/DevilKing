@@ -16,37 +16,35 @@ public class StageManager : MonoBehaviour
 
     private int displayStage = 0;
     private int opendedStage = 0;
-    // private ArrayList Stages;
+    // private	 ArrayList Stages;
 
     private List<StageController> stageCtrlList;
     private List<string> StageNameList;
 
     public UIAtlas FinalMap1, FinalMap2;
 
-    private void Awake()
-    {
-        stageCtrlList = new List<StageController>();
-
-        StageController stageCtrl = null;
-        StageGrid = transform.FindChild("GRID").GetComponent<UIGrid>();
-
-        int length = StageGrid.transform.childCount;
-        int stairLevel = PlayerPrefs.GetInt("TopStage", 1);
-        for (int i = 0; i < length; i++)
-        {
-            GameObject _Stage = StageGrid.transform.GetChild(i).gameObject;
-            _Stage.name = "Stage_" + i;
-            stageCtrl = _Stage.GetComponent<StageController>();
-            stageCtrl.StairNumber = i;
-            stageCtrl.SendMessage("TrapCountDisplay", stairLevel, SendMessageOptions.DontRequireReceiver);
-            stageCtrlList.Add(stageCtrl);
-        }
-
-    }
     void Start()
     {
         GM = GameManager.getInstance();
 
+		stageCtrlList = new List<StageController>();
+
+		StageController stageCtrl = null;
+		StageGrid = transform.FindChild("GRID").GetComponent<UIGrid>();
+
+		int length = StageGrid.transform.childCount;
+		//int stairLevel = PlayerPrefs.GetInt("TopStage", 1);
+		int stairLevel = GM.getUserIntData ("stageCount");
+		Debug.Log ("Stair Level level : " + stairLevel);
+		for (int i = 0; i < length; i++)
+		{
+			GameObject _Stage = StageGrid.transform.GetChild(i).gameObject;
+			_Stage.name = "Stage_" + i;
+			stageCtrl = _Stage.GetComponent<StageController>();
+			stageCtrl.StairNumber = i;
+			stageCtrl.SendMessage("TrapCountDisplay", stairLevel, SendMessageOptions.DontRequireReceiver);
+			stageCtrlList.Add(stageCtrl);
+		}
         AllStageTrapCountSet();
     }
 
@@ -60,10 +58,13 @@ public class StageManager : MonoBehaviour
     {
         CreateBossMonsterByLevel(opendedStage);
         //Save
+        /*
         char[] stageCurrentData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
         stageCurrentData[opendedStage] = '3';
+		*/
+		GM.LevelReplaceData (opendedStage, 3);
 
-        if (opendedStage < stageCurrentData.Length - 1)
+		if (opendedStage < 9)
         {
             GameObject Upstair = stageCtrlList[++opendedStage].gameObject;
 
@@ -72,15 +73,20 @@ public class StageManager : MonoBehaviour
             int Random_normal_num = UnityEngine.Random.Range(1, 3);
             StageBackImg.spriteName = "Normal_" + Random_normal_num.ToString("#");
             StageNameList.Add(StageBackImg.spriteName);
-
+			/*
             PlayerPrefs.SetInt("TopStage", opendedStage + 1);
             TempStaticMemory.openStageCount = opendedStage + 1;
-            stageCurrentData[opendedStage] = '2';
+			stageCurrentData[opendedStage] = '2';
+			PlayerPrefs.SetString("castleLevel", new string(stageCurrentData));
+			*/
+
+			GM.setUserData("StageUpgrade",true);
+			TempStaticMemory.openStageCount = GM.getUserIntData ("stageCount");	
+
+			Debug.Log ("Load Leve : " + GM.getUserIntData ("stageCount"));
+			GM.LevelReplaceData (opendedStage, 2);
             stageCtrlList[opendedStage].ForceunLock();
-
             ObjectUpdate(opendedStage + 1);
-
-            PlayerPrefs.SetString("castleLevel", new string(stageCurrentData));
             SaveStageNameList();
         }
     }
@@ -88,14 +94,17 @@ public class StageManager : MonoBehaviour
     {
         if (opendedStage > 0)
         {
+			/*
             char[] stageCurrentData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
             stageCurrentData[opendedStage] = '0';
-
+			PlayerPrefs.SetString("castleLevel", new string(stageCurrentData));
             PlayerPrefs.SetInt("TopStage", opendedStage - 1);
+			*/
+			GM.setUserData ("StageUpgrade", false);
+			GM.LevelReplaceData (opendedStage, 0);
+
             TempStaticMemory.openStageCount = opendedStage - 1;
 
-
-            PlayerPrefs.SetString("castleLevel", new string(stageCurrentData));
             SaveStageNameList();
         }
     }
@@ -109,10 +118,14 @@ public class StageManager : MonoBehaviour
 
     void EnhanceStageLevel(int stage)
     {
-		char[] stageData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
-        UISprite StageBackImg = stageCtrlList[stage - 1].transform.FindChild("Sprite").GetComponent<UISprite>();
-        char stageCurrentData = stageData[stage - 1];
-        Debug.Log(stage + " is Enhance and data" + stageCurrentData);
+		int currentStage = stage - 1;
+		UISprite StageBackImg = stageCtrlList[currentStage].transform.FindChild("Sprite").GetComponent<UISprite>();
+        
+		/*
+		 char[] stageData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
+		 char stageCurrentData = stageData[stage - 1];
+		 Debug.Log(stage + " is Enhance and data" + stageCurrentData);
+		 
         if (stageCurrentData == '1')
         {
             //Normal
@@ -137,8 +150,32 @@ public class StageManager : MonoBehaviour
             StageNameList[stage - 1] = "Stage" + stage.ToString("#");
             stageData[stage - 1] = '3';
         }
+		PlayerPrefs.SetString("castleLevel", new string(stageData));
+		*/
+		int loadedLevel = GM.LoadLevelData (currentStage);
+		if (loadedLevel == 1) {
+			
+			int Random_normal_num = UnityEngine.Random.Range(1, 3);
+			StageBackImg.spriteName = "Normal_" + Random_normal_num.ToString("#");
+			StageNameList[currentStage] = "Normal_" + Random_normal_num.ToString("#");
+			stageCtrlList[currentStage].SendMessage("SetName", "폐허");
+
+		} else if (loadedLevel == 2) {
+
+			if (stage <= 8)
+			{
+				StageBackImg.atlas = FinalMap1;
+			}
+			else
+			{
+				StageBackImg.atlas = FinalMap2;
+			}
+			stageCtrlList[currentStage].SendMessage("SetName", GM.getContext("Stage", currentStage));
+			StageBackImg.spriteName = "Stage" + stage.ToString("#");
+			StageNameList[currentStage] = "Stage" + stage.ToString("#");
+		}
+		GM.LevelUpData ("Stair", currentStage);
         SaveStageNameList();
-        PlayerPrefs.SetString("castleLevel", new string(stageData));
     }
 
 
@@ -161,7 +198,6 @@ public class StageManager : MonoBehaviour
             Debug.Log(this.GetType() + "// stage Level "+ level.ToString("0"));
 			for (int i = 0; i <=monsterCounter ; i++)
             {
-                //GM.LevelUpData(GM.getContext("BossMonster", i), GM.LoadLevelData(GM.getContext("BossMonster", i)) + 1);
 				GM.LevelReplaceData(GM.getContext("BossMonster", i), GM.LoadLevelData(GM.getContext("BossMonster", i)) + 1);
             }
 
@@ -183,11 +219,11 @@ public class StageManager : MonoBehaviour
                     moveObjectTrs.parent = stageCtrlList[level + 1].Bottom.transform.GetChild(i);
                     moveObjectTrs.SetAsFirstSibling();
                     objectControl = moveObjectTrs.GetComponent<PlayerCharacter>();
+
 					if (objectControl != null) {
 						objectControl.StageCntl = stageCtrlList[level + 1];
 						objectControl.SendMessage("CharacterStatus", moveObjectTrs.name, SendMessageOptions.DontRequireReceiver);
 					}
-                    
                     if (moveObjectTrs != null)
                     {
                         Debug.Log("Move");
@@ -231,7 +267,6 @@ public class StageManager : MonoBehaviour
         NamedMonster.transform.parent = stageCtrlList[level].MonsterPos;
         NamedMonster.transform.SetAsFirstSibling();
         
-      
         int characterSize = GM.getCharacterSize(NamedMonster.name);
         stageCtrlList[level].setStageBossmonster();
         GM.SendMessage("SetHeroTrs", stageCtrlList[level + 1].EndPos);
@@ -262,12 +297,13 @@ public class StageManager : MonoBehaviour
             stageCtrlList[0].SendMessage("SetName", "Prologue");
         }
 
-        if (string.IsNullOrEmpty(StageData))
+		if (string.IsNullOrEmpty(StageData))
         {
             Debug.Log("First Data");
-            TempStaticMemory.openStageCount = 1;
+            //TempStaticMemory.openStageCount = 1;
+			//PlayerPrefs.SetInt("TopStage", 1);
+
             StageNameList = new List<string>();
-            PlayerPrefs.SetInt("TopStage", 1);
             for (int i = 0; i < 10; i++)
             {
                 UISprite StageBackImg = stageCtrlList[i].transform.FindChild("Sprite").GetComponent<UISprite>();
@@ -279,14 +315,13 @@ public class StageManager : MonoBehaviour
         }
         else
         {
-
-            char[] stageCurrentData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
             LoadStageNameList();
-            TempStaticMemory.openStageCount = PlayerPrefs.GetInt("TopStage", 1);
-            opendedStage = PlayerPrefs.GetInt("TopStage", 1) - 1;
+			TempStaticMemory.openStageCount = GM.getUserIntData("stageCount");
+			opendedStage = TempStaticMemory.openStageCount - 1;
+
             //Load
             for (int i = 0; i < opendedStage; i++) LoadBossMonsterByLevel(i);
-
+			/*
             for (int i = 0; i < 10; i++)
             {
                 UISprite StageBackImg = stageCtrlList[i].transform.FindChild("Sprite").GetComponent<UISprite>();
@@ -309,8 +344,33 @@ public class StageManager : MonoBehaviour
                 }
                 StageBackImg.spriteName = StageNameList[i];
             }
+            */
+
+			for (int i = 0; i < 10; i++) 
+			{
+				UISprite StageBackImg = stageCtrlList[i].transform.FindChild("Sprite").GetComponent<UISprite>();
+				Debug.Log ("Stair : " + i.ToString () + " //  Level Data : " + GM.LoadLevelData (i));
+				if (GM.LoadLevelData (i) > 0) {
+					stageCtrlList [i].ForceunLock ();
+				}
+				if (GM.LoadLevelData (i) == 3)
+				{
+					if (i < 8)
+					{
+						StageBackImg.atlas = FinalMap1;
+					}
+					else
+					{
+						StageBackImg.atlas = FinalMap2;
+					}
+					stageCtrlList[i].SendMessage("SetName", GM.getContext("Stage", i));
+				}
+				StageBackImg.spriteName = StageNameList[i];
+			}
+
+
         }
-        Transform Trs = stageCtrlList[opendedStage].EndPos;
+		Transform Trs = stageCtrlList[opendedStage].EndPos;
         GM.SendMessage("SetHeroTrs", Trs);
     }
 
@@ -333,11 +393,10 @@ public class StageManager : MonoBehaviour
 
     void GameEndReceiveSignal()
     {
-        char[] stageCurrentData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
-        LoadStageNameList();
-        stageCurrentData[TempStaticMemory.openStageCount - 1] = '0';
-        TempStaticMemory.openStageCount--;
-        PlayerPrefs.SetInt("TopStage", TempStaticMemory.openStageCount);
+
+		LoadStageNameList();
+		//Player Die?
+		RemoveDownStair ();
 
     }
 

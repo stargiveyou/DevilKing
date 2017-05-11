@@ -78,7 +78,7 @@ public class CollectionManager : MonoBehaviour
 
     public UISprite objectDisplaySprite;
     public UILabel DialogLabel;
-    void StatusObjCaching()
+     void StatusObjCaching()
     {
         monsterNameLabel = infoBGPanel.transform.FindChild("Name").GetComponent<UILabel>();
         monsterLevelLabel = infoBGPanel.transform.FindChild("Level").GetComponent<UILabel>();
@@ -152,9 +152,7 @@ public class CollectionManager : MonoBehaviour
             }
 
             objectSprite.transform.localScale *= factor;
-
-            objectLabel.text = GM.getMonsterName(splitTrsName[0], int.Parse(splitTrsName[1]), false);
-
+			objectLabel.text = GM.getMonsterName(splitTrsName[0], int.Parse(splitTrsName[1]), true);
 
             UIEventListener.Get(ObjTrs.gameObject).onClick -= new UIEventListener.VoidDelegate(MonsterButtonProcess);
             UIEventListener.Get(ObjTrs.gameObject).onClick += new UIEventListener.VoidDelegate(MonsterButtonProcess);

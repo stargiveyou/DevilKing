@@ -47,7 +47,7 @@ public class GameDataBase
 	TrophyDataBase tropyDB = new TrophyDataBase();
 	StageDataBase stageDB = new StageDataBase();
 
-    DSFactory ds_factory;
+    //DSFactory ds_factory;
 
     /// <summary>
     /// The object datas.
@@ -80,8 +80,6 @@ public class GameDataBase
 		}
 
 		factory = null;
-        ds_factory = new DSFactory(this);
-
     }
 
 	public void CreatePlayerData(string player_Name, string player_sprite_name)
@@ -148,7 +146,9 @@ public class GameDataBase
 		}
 
 		if (ObjectDatas [(int)sendClassType].UnInstallMonster (stair, floor, objectName)) {
+			#if EditorDebug
 			Debug.Log ("Success Good");
+			#endif
 		} else {
 			throw  new System.NotImplementedException();
 		}
@@ -232,14 +232,15 @@ public class GameDataBase
 
 	public void SaveFile()
 	{
-        Debug.Log("Save File");
+        
 		//Class Data Save
 		userDB.SaveData();
 		levelDB.SaveData ();
 
 #if !EditorDebug
         tropyDB.SaveData ();
-        Debug.Log("Editor Debug");
+		#else
+		Debug.Log("Editor Debug");
 #endif
 
 		dataCls.PlayerBinData = userDB.getBinData();
@@ -310,8 +311,6 @@ public class GameDataBase
 
             tropyDB.Initialize (dataCls.TropyBinData);
             
-			//ObjectLevelData.LoadData(dataCls.LevelBinData);
-
 			fileStream.Close();
 
 			return true;
@@ -336,12 +335,12 @@ public class GameDataBase
 		}
 	}
 
-
+	/*
     public DSInterface getUserDS()
     {
         return ds_factory.createDS("User");
     }
-
+	*/
 
 
 #region Data Save Function

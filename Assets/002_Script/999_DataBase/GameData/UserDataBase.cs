@@ -25,7 +25,7 @@ public class UserDataBase : FileDataInterface
 		public int top_stageCount;
 		public int player_game_Count;
 		public int player_die_Count;
-
+		public int enemy_kill_Count;
 		public float total_time;
 
 		public int aliasEnemyCreateCount;
@@ -46,14 +46,13 @@ public class UserDataBase : FileDataInterface
 			this.total_time = data.total_time;
 			this.player_game_Count = data.player_game_Count;
 			this.player_die_Count = data.player_die_Count;
+			this.enemy_kill_Count = data.enemy_kill_Count;
 		}
 
 		public override string ToString ()
 		{
 			return string.Format ("[Player Struct \n Name : {0}, Current Gold : {1}, Current Stage :{2}]",this.player_name,this.current_player_gold,this.top_stageCount);
 		}
-
-
 	}
 
 	private player_user_data_struct data_struct;
@@ -62,6 +61,10 @@ public class UserDataBase : FileDataInterface
 	private BinaryFormatter bin;
 	private string thisBinData;
 	private ClassEnumType thisClassEnum;
+
+	private const int maxStairCount = 10;
+
+
 
 	public UserDataBase()
 	{
@@ -91,6 +94,7 @@ public class UserDataBase : FileDataInterface
 		data_struct.player_sprite_name = playerSpriteName;
 		data_struct.top_stageCount = 1;
 		data_struct.total_player_gold = data_struct.current_player_gold = 0;
+		data_struct.enemy_kill_Count = 0;
 		data_struct.player_game_Count = 0;
 		data_struct.player_die_Count = 0;
 		data_struct.total_time = 0.0f;
@@ -161,13 +165,25 @@ public class UserDataBase : FileDataInterface
 	{
 		data_struct.aliasEnemyCreateCount++;
 	}
+	public void EnemyKill()
+	{
+		data_struct.enemy_kill_Count++;
+	}
 
+
+    #endregion
+
+
+	#region Get Function
 
 
 	public string PlayerName
 	{
 		set{
 			data_struct.player_name = value;
+		}
+		get {
+			return data_struct.player_name;
 		}
 	}
 
@@ -176,12 +192,112 @@ public class UserDataBase : FileDataInterface
 		set {
 			data_struct.player_sprite_name = value;
 		}
+		get {
+			return data_struct.player_sprite_name;
+		}
+	}
+
+	public int getCurrentGold{
+		get {
+			return data_struct.current_player_gold;
+		}
+	}
+
+	public int getTotalGold{
+		get
+		{
+			return data_struct.total_player_gold;
+		}
+	}
+
+	public int getGameCount{
+		get {
+			return data_struct.player_game_Count;
+		}
+	}
+
+	public int getDieCount{
+		get
+		{
+			return data_struct.player_die_Count;
+		}
+	}
+
+	public int getTopStageCount
+	{
+		get {
+			return data_struct.top_stageCount;
+		}
+	}
+	public int getEnemyID{
+		get {
+			return data_struct.aliasEnemyCreateCount;
+		}
+	}
+	public int getEnemyKillCount
+	{
+		get {
+			return data_struct.enemy_kill_Count;
+		}
+	}
+	public int getMaxStairLength
+	{
+		get
+		{
+			return 0;
+		}
+	}
+
+	public float getTotalTime{
+		get
+		{
+			return data_struct.total_time;
+		}
+	}
+
+	/*
+	public int getPlayerIntData(string cmd)
+	{
+		int returnValue = 0;
+		switch (cmd) {
+		case "CurrentGold":
+			returnValue = data_struct.current_player_gold;
+			break;
+		case "TotalGold":
+			returnValue = data_struct.total_player_gold;
+			break;
+		case "gameCount":
+			returnValue = data_struct.player_game_Count;
+			break;
+		case "dieCount":
+			returnValue =data_struct.player_die_Count;
+			break;
+		case "stageCount":
+			returnValue = data_struct.top_stageCount;
+			break;
+		case "enemyUniqueID":
+			returnValue = data_struct.aliasEnemyCreateCount;
+			break;
+		}
+		return returnValue;
+	}
+	*/
+
+
+	public float getPlayerFloatData(string cmd)
+	{
+		float returnValue = 0;
+		switch (cmd) {
+		case "TotalTime":
+			returnValue = data_struct.total_time;
+			break;
+		}
+
+		return returnValue;
 	}
 
 
-
-
-    #endregion
+	#endregion
 
 
     public void SaveData ()
