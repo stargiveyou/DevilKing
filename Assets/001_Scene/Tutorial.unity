@@ -2176,8 +2176,6 @@ MonoBehaviour:
   player_animation: {fileID: 1852015808}
   kira_Player_Sprite: {fileID: 83488440}
   nextButton: {fileID: 1782441180}
-  skipButton: {fileID: 2080399565}
-  skipPanel: {fileID: 0}
   tuto_goldLabel: {fileID: 732893000}
 --- !u!95 &779830593
 Animator:

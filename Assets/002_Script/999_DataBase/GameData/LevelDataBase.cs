@@ -137,10 +137,12 @@ public class LevelDataBase : FileDataInterface {
 	}
 	public int getLevelData(string obj_name)
 	{
-		if (lvTable.ContainsKey (obj_name))
+		if (lvTable.ContainsKey (obj_name)) {
 			return (int)lvTable [obj_name];
-		else
+		} else {
+			Debug.Log ("NotFoud : " + obj_name);
 			return -1;
+		}
 	}
 
 	public void LevelUpData(string obj_name)
@@ -149,6 +151,7 @@ public class LevelDataBase : FileDataInterface {
 		Debug.Log("Level up : "+ obj_name + "prev Level : "+ level);
 		lvTable [obj_name] = ++level;
 		Debug.Log("Level up : "+ obj_name + "current Level : "+ level);
+
 	}
 
 	public void LevelUpStairData(int stair)

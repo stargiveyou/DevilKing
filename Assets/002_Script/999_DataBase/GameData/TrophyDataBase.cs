@@ -192,9 +192,6 @@ public class TrophyDataBase : FileDataInterface {
 		}
 	}
 
-
-
-
 	public bool checkTropyData(string cmd, int amount)
 	{
 		int listIndex;
@@ -222,12 +219,10 @@ public class TrophyDataBase : FileDataInterface {
 	{
 		throw new Exception ();
 	}
-	public string getTrophySpriteName()
+	public string getTrophySpriteName(int index)
 	{
-		throw new Exception();
+		return tropy_List [index].TropySpriteName;
 	}
-
-
 	private int getListIndex(string cmd, int amount)
 	{
 		int returnValue = -1;

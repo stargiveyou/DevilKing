@@ -56,9 +56,11 @@ public abstract class ObjectDataBase : FileDataInterface
 
     public abstract void SaveData();
     public abstract void LoadData(string obj_name, delegateLoadObject callback);
+	public abstract void ResetData();
 	public abstract void InstallMonster(int stair, int floor,int level, string _name);
     public abstract bool UnInstallMonster(int stair, int floor, string _name);
     public abstract void UpdateMonster(string obj_name, params object[] parameter);
+
 
     /// <summary>
     /// Gets the bin data.
@@ -225,6 +227,12 @@ public class AliasObjectData : ObjectDataBase
 		}
 
     }
+
+	public override void ResetData ()
+	{
+		alias_data_dic.Clear ();
+		data_bin_string = null;
+	}
 
 	public override void InstallMonster(int stair, int floor, int level ,string _name)
     {
@@ -535,6 +543,12 @@ public class EnemyObjectData : ObjectDataBase
         }
 
     }
+	public override void ResetData ()
+	{
+		enemy_data_dic.Clear ();
+		data_bin_string = null;
+	}
+
 
 	public override void InstallMonster(int stair, int unique_id,  int level,string _name)
     {
@@ -773,6 +787,11 @@ public class TrapObjectData : ObjectDataBase
 			Debug.Log("Data Dictionary Not Loaded");
 		}
     }
+	public override void ResetData ()
+	{
+		trap_data_dic.Clear ();
+		data_bin_string = null;
+	}
 
 	public override void InstallMonster(int stair, int floor, int level,string _name)
     {

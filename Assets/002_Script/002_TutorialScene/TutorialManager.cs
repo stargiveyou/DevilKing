@@ -102,12 +102,10 @@ public class TutorialManager : MonoBehaviour
                 enterButton.SetActive(true);
                 break;
 		case "EnterButton":
-
 			GDB.CreatePlayerData (inputObject.value, player_spriteName);
 			CameraTrs.position = tutoPos;
 			tutorialPanel.SetActive (true);
 
-			GDB.SaveFile ();
         break;
             case "TouchBtn":
                 // /* File Data PART
@@ -132,12 +130,11 @@ public class TutorialManager : MonoBehaviour
     }
     void MoveLoadingScene()
     {
+		GDB.SaveFile ();
         CameraTrs.position = loadPos;
         LoadingPanel.SetActive(true);
-
         //Current File        
 		TempStaticMemory.gold = GDB.getUserDB.getCurrentGold;
-
         StartCoroutine("MoveGameScene");
     }
     IEnumerator MoveGameScene()

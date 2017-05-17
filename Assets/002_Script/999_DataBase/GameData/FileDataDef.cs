@@ -63,6 +63,7 @@ public interface FileDataInterface
 	string getBinData();   
 	void SaveData();
 
+
 	/*
 
     void setIntData(string cmdArg, int value);

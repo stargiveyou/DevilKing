@@ -272,7 +272,6 @@ public class MonsterEnhanceManager : MonoBehaviour
 
 			Debug.Log("Enhance Level plus:" + enhanceLevel +" last gold: "+TempStaticMemory.gold);
 
-           
             InfoDisplay(upgradeObject.tag, upgradeObject.name);
         }
         else
@@ -321,6 +320,7 @@ public class MonsterEnhanceManager : MonoBehaviour
                = GM.getContext("Context", "NotComplete");
             NotCompletePanel.transform.FindChild("NeedConditionLabel").GetComponent<UILabel>().text
               = GM.getContext("LockCondition", go.name);
+
             UIEventListener.Get(CancleButton).onClick += new UIEventListener.VoidDelegate(process =>
             {
                 OnDisableUnLockPanel();

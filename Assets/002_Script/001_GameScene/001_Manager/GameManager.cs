@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 			Player_Control = scripts.GetComponent<PlayerController>();
 			Obstacle_Control = scripts.GetComponent<ObstacleController> ();
 		}
+
 	}
 
 	void Start()
@@ -610,6 +611,8 @@ public class GameManager : MonoBehaviour
 		{
 			GDB.getLevelDB.LevelUpData(objName);
 		}
+		GDB.SaveFile ();
+
 	}
 	public int LoadLevelData(string objName)
 	{
