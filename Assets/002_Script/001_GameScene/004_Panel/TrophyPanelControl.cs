@@ -9,10 +9,13 @@ public class TrophyPanelControl : MonoBehaviour {
 
 	private TrophyDataBase TrophyDB;
 	private UIGrid TrophyGrid;
+	GameManager GM ;
 
 
-	// Use this for initialization
-	void Start () {
+	void Awake()
+	{
+		GM = GameManager.getInstance ();
+
 		TrophyDB = GameDataBase.getDBinstance.getTropyDB;
 		TrophyGrid = TrophyGridTrs.GetComponent<UIGrid> ();
 
@@ -20,9 +23,17 @@ public class TrophyPanelControl : MonoBehaviour {
 
 	}
 
+	void OnEnable()
+	{
+		UpdateTrophyBoard ();
+	}
+	// Use this for initialization
+	void Start () {
+		
+	}
+
 	void InitializeTrophyBoard()
 	{
-		GameManager GM = GameManager.getInstance ();
 		int totalTrophyCount = TrophyDB.currentTropyListCount;
 		UISprite thumnailSprite;
 		UILabel contextLabel;
@@ -34,13 +45,16 @@ public class TrophyPanelControl : MonoBehaviour {
 			thumnailSprite = CreateTrophyItem.transform.FindChild ("ThumNail").GetComponent<UISprite> ();
 			contextLabel = CreateTrophyItem.transform.FindChild ("Context").GetComponent<UILabel> ();
 
-			//Button.oncli
+			UIEventListener.Get (CreateTrophyItem).onClick -= new UIEventListener.VoidDelegate (DisplayTrophyProcess);
 			UIEventListener.Get (CreateTrophyItem).onClick += new UIEventListener.VoidDelegate (DisplayTrophyProcess);
 
 			thumnailSprite.spriteName = TrophyDB.getTrophySpriteName (i);
 			contextLabel.text = GM.getContext ("Trophy", isCompletedTropy, i);
+			CreateTrophyItem.transform.FindChild ("lockSprite").gameObject.SetActive (!isCompletedTropy);
 
-					CreateTrophyItem.transform.parent = TrophyGridTrs;
+
+
+			CreateTrophyItem.transform.parent = TrophyGridTrs;
 			ResetTransform (CreateTrophyItem.transform);
 			CreateTrophyItem.transform.SetAsLastSibling ();
 		}
@@ -48,11 +62,27 @@ public class TrophyPanelControl : MonoBehaviour {
 		TrophyGrid.Reposition ();
 	}
 
+	void UpdateTrophyBoard()
+	{
+		UISprite thumnailSprite;
+		UILabel contextLabel;
+		bool isCompletedTropy;
+		int length = TrophyGridTrs.childCount;
+		for (int i = 0; i < length; i++) {
+			Transform TrophyItem = TrophyGridTrs.GetChild (i);
+			contextLabel = TrophyItem.FindChild ("Context").GetComponent<UILabel> ();
+			isCompletedTropy = TrophyDB.checkTropyData (i);
+			TrophyItem.transform.FindChild ("lockSprite").gameObject.SetActive (!isCompletedTropy);
+			contextLabel.text = GM.getContext ("Trophy", isCompletedTropy, i);
+		}
+		TrophyGridTrs.GetChild (0).GetComponent<UICenterOnClick> ().CenterOn ();
+	}
 
 	void DisplayTrophyProcess(GameObject obj)
 	{
 		int index = int.Parse (obj.name);
 		TrophyDB.sendTropyDisplay (index, DisplayTrophyCallback);
+		obj.GetComponent<UICenterOnClick> ().CenterOn ();
 	}
 
 	void DisplayTrophyCallback(int index, string spriteName)

@@ -50,7 +50,6 @@ public class TrophyDataBase : FileDataInterface {
 
 		}
 
-
 		public void SendProgress(int amount)
 		{
 			if (this.amount >= amount) {
@@ -92,7 +91,6 @@ public class TrophyDataBase : FileDataInterface {
 		{
 			return this.condition.Equals (condition) && (this.amount == amount);
 		}
-
 	};
 
 	private string thisBinData;
@@ -145,7 +143,7 @@ public class TrophyDataBase : FileDataInterface {
 			Debug.Log(e.StackTrace);
 		}
 		finally{
-			#if UNITY_EDITOR
+			#if EditorDebug
 			Debug.Log("Save Data Binary File");
 			#endif
 		}
@@ -157,32 +155,47 @@ public class TrophyDataBase : FileDataInterface {
 			tropy_List = new List<tropy_data_struct> ();
 		
 		tropy_data_struct newData = new tropy_data_struct(index,spriteName,newCmd,newAmount);
+		#if EditorDebug
+		Debug.Log("Create Tropy Data " + spriteName +" // "+ newCmd +" // "+ newAmount.ToString());
+		#endif
 		tropy_List.Add(newData);
+
 	}
 
 	public void sendTropyCommand(string command, int amount, callbackDelegate callback)
 	{
 		try
 		{
-		tropy_data_struct loadData = tropy_List [getListIndex (command, amount)];
+			tropy_data_struct loadData = tropy_List [getListIndex (command, amount)];
 			loadData.SendProgress(amount);
+
 			if(loadData.Completed)
 			{
 				callback(loadData.TropyIndex,loadData.TropySpriteName);
 			}
+			if(tropy_List[16].Completed && tropy_List[19].Completed && tropy_List[25].Completed && tropy_List[31].Completed)
+			{
+				callback(tropy_List[38].TropyIndex,tropy_List[38].TropySpriteName);
+			}
 			tropy_List[getListIndex(command,amount)] = loadData;
+
 		}
-		catch (ArgumentNullException ane) {
-			Debug.Log (ane.StackTrace);
+		catch (Exception exc) {
+			
+			#if EditorDebug
+				Debug.Log (exc.StackTrace);
+				Debug.Log (exc.Message);
+			#endif
 		}
 	}
+
 	public void sendTropyDisplay(int index, callbackDelegate callback)
 	{
 		try
 		{
 			tropy_data_struct loadData = tropy_List [index];
 			Debug.Log(tropy_List[index].TropySpriteName);
-			//if(loadData.Completed)
+			if(loadData.Completed)
 			{
 				callback(loadData.TropyIndex,loadData.TropySpriteName);
 			}
@@ -235,6 +248,7 @@ public class TrophyDataBase : FileDataInterface {
 				break;
 			}
 		}
+	
 		return returnValue;
 
 	}

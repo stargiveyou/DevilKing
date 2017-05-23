@@ -291,8 +291,9 @@ public class AttackerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isFever)
-            TempStaticMemory.enemykill = 0;
+		if (isFever) {
+			TempStaticMemory.enemykill = 0;
+		}
 
     }
 

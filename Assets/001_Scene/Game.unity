@@ -6409,7 +6409,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 251757931}
   - 114: {fileID: 251757932}
-  - 114: {fileID: 251757933}
   m_Layer: 5
   m_Name: CollectionPanel
   m_TagString: Untagged
@@ -6468,20 +6467,6 @@ MonoBehaviour:
   TrapCollectPanel: {fileID: 136888921}
   NormalCollectPanel: {fileID: 1224146520}
   NamedCollectPanel: {fileID: 1254703134}
---- !u!114 &251757933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 251757930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8139eb24191404cfa92bee90f69189d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TrophyGridTrs: {fileID: 1330904221}
-  TrophyDisplay: {fileID: 600861231}
-  TrophyItemObject: {fileID: 160884, guid: bf0826c6b47754f19b10ecb819f90c0c, type: 2}
 --- !u!1 &253533678
 GameObject:
   m_ObjectHideFlags: 0
@@ -8322,7 +8307,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3022
+  startingRenderQueue: 3028
   mAlpha: 1
   mClipping: 3
   mClipRange: {x: 0, y: -163, z: 1602, w: 754}
@@ -9338,7 +9323,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3020
+  startingRenderQueue: 3028
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -12760,7 +12745,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3022
+  startingRenderQueue: 3036
   mAlpha: 1
   mClipping: 3
   mClipRange: {x: 0, y: -163, z: 1602, w: 754}
@@ -21609,7 +21594,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3000
+  startingRenderQueue: 3008
   mAlpha: 1
   mClipping: 4
   mClipRange: {x: 2, y: 83.3, z: 1616, w: 1200}
@@ -24705,7 +24690,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3009
+  startingRenderQueue: 3017
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -26316,7 +26301,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 999945331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52, y: -84, z: 0}
+  m_LocalPosition: {x: 0, y: -84, z: 0}
   m_LocalScale: {x: 2.6498842, y: 1.8619754, z: 1.194651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -31841,6 +31826,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1217296178}
+  - 114: {fileID: 1217296179}
   m_Layer: 5
   m_Name: TrophyPanel
   m_TagString: Untagged
@@ -31864,6 +31850,20 @@ Transform:
   - {fileID: 1640641768}
   m_Father: {fileID: 251757931}
   m_RootOrder: 0
+--- !u!114 &1217296179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1217296177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8139eb24191404cfa92bee90f69189d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrophyGridTrs: {fileID: 1330904221}
+  TrophyDisplay: {fileID: 600861231}
+  TrophyItemObject: {fileID: 160884, guid: bf0826c6b47754f19b10ecb819f90c0c, type: 2}
 --- !u!1 &1218477223
 GameObject:
   m_ObjectHideFlags: 0
@@ -41297,7 +41297,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1583437778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52, y: -84, z: 0}
+  m_LocalPosition: {x: 0, y: -84, z: 0}
   m_LocalScale: {x: 2.6498842, y: 1.8619754, z: 1.194651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -43115,7 +43115,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1670772229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52, y: -84, z: 0}
+  m_LocalPosition: {x: 0, y: -84, z: 0}
   m_LocalScale: {x: 2.6498842, y: 1.8619754, z: 1.194651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -48762,7 +48762,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1967225637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52, y: -101.689995, z: 0}
+  m_LocalPosition: {x: -52, y: -86.49, z: 0}
   m_LocalScale: {x: 2.6498842, y: 1.8619754, z: 1.194651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -48778,7 +48778,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 700, y: 374, z: 0}
+  m_Size: {x: 662, y: 374, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1967225640
 MonoBehaviour:
@@ -48809,13 +48809,13 @@ MonoBehaviour:
     absolute: 0
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 656
+  mWidth: 662
   mHeight: 374
   mDepth: 13
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.7540107
+  aspectRatio: 1.7700535
   mAtlas: {fileID: 11430886, guid: 136e455b706d54644bc3bdb061a09f4e, type: 2}
   mSpriteName: collection_back
   mType: 0
@@ -50015,7 +50015,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2042972240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52, y: -84, z: 0}
+  m_LocalPosition: {x: 0, y: -84, z: 0}
   m_LocalScale: {x: 2.6498842, y: 1.8619754, z: 1.194651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

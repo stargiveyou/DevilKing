@@ -199,7 +199,6 @@ public class MonsterEnhanceManager : MonoBehaviour
 			clickedSprite.atlas = trapAtlas;
 			nextLevelSprite.atlas = trapAtlas;
 
-
             GM.setTrapData(objName, trap_level, out atk, out count, out installCount);
             
             clickedSprite.spriteName = objName + "_" + (trap_level-1).ToString("0");
@@ -261,6 +260,12 @@ public class MonsterEnhanceManager : MonoBehaviour
 				Debug.Log (upgradeObject.name);
                 enhanceLevel = GM.LoadLevelData(upgradeObject.name);
                 GM.LevelUpData(upgradeObject.name);
+				GM.LevelUpData ("Monster");
+
+
+				GM.sendTrophyCondition (upgradeObject.name, enhanceLevel + 1);
+				GM.sendTrophyCondition ("MonsterEnhance", GM.LoadLevelData ("Monster"));
+
             }
             else if (upgradeObject.tag.Equals("Obstacle"))
             {
@@ -268,6 +273,10 @@ public class MonsterEnhanceManager : MonoBehaviour
                 //GM.SaveTrapLevelData(GM.trapIndex(upgradeObject.name));
 				enhanceLevel = GM.LoadLevelData(upgradeObject.name);
 				GM.LevelUpData(upgradeObject.name);
+				GM.LevelUpData ("Trap");
+
+				GM.sendTrophyCondition (upgradeObject.name, enhanceLevel+1);
+				GM.sendTrophyCondition ("TrapEnhance", GM.LoadLevelData ("Trap"));
             }
 
 			Debug.Log("Enhance Level plus:" + enhanceLevel +" last gold: "+TempStaticMemory.gold);

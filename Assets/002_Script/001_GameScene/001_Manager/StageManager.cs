@@ -73,6 +73,7 @@ public class StageManager : MonoBehaviour
             int Random_normal_num = UnityEngine.Random.Range(1, 3);
             StageBackImg.spriteName = "Normal_" + Random_normal_num.ToString("#");
             StageNameList.Add(StageBackImg.spriteName);
+
 			/*
             PlayerPrefs.SetInt("TopStage", opendedStage + 1);
             TempStaticMemory.openStageCount = opendedStage + 1;

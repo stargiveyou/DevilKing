@@ -89,7 +89,6 @@ public class CastleEnhanceManager : MonoBehaviour
         int floor = 0;
         if (ButtonParentName.Equals("Door"))
         {
-
             Debug.Log(GM.getPrice("Gate") + "Gate Gold");
             if (!GM.isMaxLevelCharacter("Normal"))
             {
@@ -108,6 +107,8 @@ public class CastleEnhanceManager : MonoBehaviour
                     GM.LevelUpData("Archer");
 
                     GM.SendToUI("UpdateMaxFeverCount");
+
+					GM.sendTrophyCondition ("EnemyLevel", monsterLev);
 
                     EnemyLevelLabel.text = "적 용사 레벨 : " + (GM.LoadLevelData("Normal")).ToString();
 
@@ -157,12 +158,17 @@ public class CastleEnhanceManager : MonoBehaviour
 
 					Go.SetActive(false);
 					AbleButtonList.Remove(Go);
-					if (floor <= 10)
-						NextStageEnhanceAppear(floor);
+					if (floor <= 10) {
+						NextStageEnhanceAppear (floor);
+						GM.sendTrophyCondition ("Stage", floor);
+					} else {
+						GM.sendTrophyCondition ("Comeplete", 0);
+					}
 				}
 
 				GameDataBase.getDBinstance.SaveFile ();
                 TempStaticMemory.gold -= price;
+
             }
             else
             {

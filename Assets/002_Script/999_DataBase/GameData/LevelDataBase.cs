@@ -71,6 +71,9 @@ public class LevelDataBase : FileDataInterface {
 
 
 			lvTable.Add ("Stage", _castleLevData);
+			lvTable.Add ("Monster", 0);
+			lvTable.Add ("Trap", 0);
+
 
 			isLevelDataCreated = true;
 

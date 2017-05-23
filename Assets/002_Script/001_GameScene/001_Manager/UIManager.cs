@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
         GM = GameManager.getInstance();
         //Move To GameStart()
         
-        //TempStaticMemory.enemykill = PlayerPrefs.GetInt("EnemyKillCount", 0);
+        TempStaticMemory.enemykill = PlayerPrefs.GetInt("EnemyKillCount", 0);
 
         feverGageSprite = FeverPanel.FindChild("feverGage").GetComponent<UISprite>();
         feverLabel = FeverPanel.FindChild("feverLabel").GetComponent<UILabel>();
@@ -98,7 +98,8 @@ public class UIManager : MonoBehaviour
     
     IEnumerator UpdateFeverGageCoroutine()
     {
-        feverGageSprite.fillAmount = (float)TempStaticMemory.enemykill / maxFeverCount;
+		
+		feverGageSprite.fillAmount = (float)GM.getUserIntData("enemyKillCount") / maxFeverCount;
         yield return new WaitForFixedUpdate();
         StartCoroutine("UpdateFeverGageCoroutine");
     }

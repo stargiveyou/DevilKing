@@ -209,11 +209,12 @@ public class GameManager : MonoBehaviour
 
 //		GDB.getUserDB.GoldUpdate(TempStaticMemory.gold);
 
+		PlayerPrefs.SetInt("EnemyKillCount", TempStaticMemory.enemykill);
+
 		setUserData ("GoldUpdate", TempStaticMemory.gold);
 
 		GDB.getUserDB.AddGoldAmount(5000);
         
-        PlayerPrefs.SetInt("EnemyKillCount", TempStaticMemory.enemykill);
         GDB.SaveFile();
         yield return new WaitForSeconds(1.5f);
         
@@ -655,6 +656,7 @@ public class GameManager : MonoBehaviour
 			break;
 		case "TotalGold":
 			GDB.getUserDB.GoldUpdate ((int)value);
+			sendTrophyCondition ("Gold", getUserIntData ("TotalGold"));
 			break;
 		case "GameStart":
 			GDB.getUserDB.GameStart ();
@@ -662,6 +664,7 @@ public class GameManager : MonoBehaviour
 		case "GameEnd":
 			GDB.getUserDB.PlayerDie ();
 			GDB.getUserDB.StageUpdate (false);
+			sendTrophyCondition ("DieCount", getUserIntData ("dieCount"));
 			break;
 		case "StageUpgrade":
 			GDB.getUserDB.StageUpdate (true);
@@ -677,6 +680,9 @@ public class GameManager : MonoBehaviour
 			break;
 		case "EnemyCreate":
 			GDB.getUserDB.RespawnEnemy ();
+			break;
+		case "EnemyKill":
+			GDB.getUserDB.EnemyKill ();
 			break;
 		}
 	}
@@ -830,6 +836,9 @@ public class GameManager : MonoBehaviour
 
 	public void sendTrophyCondition(string command, int amount)
 	{
+		#if EditorDebug
+		Debug.Log(string.Format("Command : {0}, Amount : {1}",command, amount));
+		#endif
 		GDB.getTropyDB.sendTropyCommand (command, amount, UI.ShowTropyDisplayPopUp);
 	}
 

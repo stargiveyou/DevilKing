@@ -525,19 +525,24 @@ public class Attacker : MonoBehaviour
                     break;
 
             }
+
 			StopCoroutine ("EnemySaveCoroutine");
 
 			GM.unInstallObject (this.gameObject.name, this.gameObject.tag, unique_id, currentStair);
 
             TempStaticMemory.gold += getGoldAmount;
-            
 			GM.setUserData ("TotalGold", getGoldAmount);
 
             TempStaticMemory.enemykill++;
-            if (TempStaticMemory.enemykill == feverNeedCount)
+
+			GM.setUserData("EnemyKill");
+			GM.sendTrophyCondition ("EnemyKill", GM.getUserIntData ("enemyKillCount"));
+
+			if (TempStaticMemory.enemykill== feverNeedCount)
             {
                 Controller.SendMessage("FeverMode", enemy_level);
             }
+
             Controller.DeleteListByObject(this.gameObject);
 
             gameObject.SetActive(false);

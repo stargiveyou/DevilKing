@@ -17,7 +17,7 @@ public class CollectionManager : MonoBehaviour
 	//    public UIAtlas[] objectAtlas;
 
 	private GameManager GM;
-	private TrophyPanelControl Trophy;
+///	private TrophyPanelControl Trophy;
 
 
     private enum ObjectTypeEnum
@@ -33,7 +33,7 @@ public class CollectionManager : MonoBehaviour
     void Start()
     {
         GM = GameManager.getInstance();
-		Trophy = GetComponent<TrophyPanelControl> ();
+		//Trophy =trophyPanel.GetComponent<TrophyPanelControl> ();
 
 
         selectPanel.SetActive(false);
@@ -62,6 +62,7 @@ public class CollectionManager : MonoBehaviour
         }
 
         PanelDisplayTrs.FindChild(tapName + "Panel").gameObject.SetActive(true);
+
     }
 
 
