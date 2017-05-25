@@ -249,6 +249,9 @@ public class MonsterEnhanceManager : MonoBehaviour
 
     void UpgradeProcess(GameObject go)
     {
+		#if EditorDebug
+		Debug.Log (this.GetType().ToString() +" // UpgradeProcess, UpgradeName : "+ upgradeObject.name +"// go Name : " +go.name); 
+		#endif
         int price = GM.getPrice(upgradeObject.name, "enhance", upgradeObject.tag);
         
         if (price <= TempStaticMemory.gold)
@@ -261,7 +264,6 @@ public class MonsterEnhanceManager : MonoBehaviour
                 enhanceLevel = GM.LoadLevelData(upgradeObject.name);
                 GM.LevelUpData(upgradeObject.name);
 				GM.LevelUpData ("Monster");
-
 
 				GM.sendTrophyCondition (upgradeObject.name, enhanceLevel + 1);
 				GM.sendTrophyCondition ("MonsterEnhance", GM.LoadLevelData ("Monster"));
@@ -388,7 +390,7 @@ public class MonsterEnhanceManager : MonoBehaviour
 
         OnDisableUnLockPanel();
         InfoDisplay(upgradeObject.tag, upgradeObject.name);
-        upgradeObject = null;
+        //upgradeObject = null;
     }
     
     private void size_pos_reset(Transform trs)

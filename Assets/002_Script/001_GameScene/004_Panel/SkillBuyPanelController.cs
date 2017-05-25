@@ -60,9 +60,7 @@ public class SkillBuyPanelController : MonoBehaviour {
     
     private void UnLockButtonProcess(GameObject go)
     {
-
-        int currentLevel = PlayerPrefs.GetInt("SkillLock", 000);
-        int price = GM.getPrice("Skill");
+		int price = GM.getPrice("Skill");
 
         switch (ready_unlock_skillIndex)
         {
@@ -70,7 +68,7 @@ public class SkillBuyPanelController : MonoBehaviour {
              
                     if (TempStaticMemory.gold >= price)
                     {
-                        currentLevel += 1;
+				GameDataBase.getDBinstance.getUserDB.PlayerSkillBuy ('d');
                         TempStaticMemory.gold -= price;
                         btnController.SendMessage("SkillUnLock", 1, SendMessageOptions.DontRequireReceiver);
                     }
@@ -84,7 +82,7 @@ public class SkillBuyPanelController : MonoBehaviour {
              
                     if (TempStaticMemory.gold >= price)
                     {
-                        currentLevel += 10;
+				GameDataBase.getDBinstance.getUserDB.PlayerSkillBuy ('D');
                         TempStaticMemory.gold -= price;
                         btnController.SendMessage("SkillUnLock", 2, SendMessageOptions.DontRequireReceiver);
                     }
@@ -98,7 +96,7 @@ public class SkillBuyPanelController : MonoBehaviour {
                 
                     if (TempStaticMemory.gold >= price)
                     {
-                        currentLevel += 100;
+					GameDataBase.getDBinstance.getUserDB.PlayerSkillBuy ('l');
                         AllPopupDisable();
                         TempStaticMemory.gold -= price;
                         
@@ -113,8 +111,7 @@ public class SkillBuyPanelController : MonoBehaviour {
         }
         AllPopupDisable();
         TempStaticMemory.GameResume();
-        PlayerPrefs.GetInt("SkillLock", currentLevel);
-
+        
         ready_unlock_skillIndex = -1;
         UIEventListener.Get(buyButton).onClick -= new UIEventListener.VoidDelegate(UnLockButtonProcess);
 

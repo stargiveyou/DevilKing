@@ -456,7 +456,6 @@ public class GameManager : MonoBehaviour
 		int respawnLevel = level;
 		StageController stageByLevel = null;
 
-
 			for (; respawnLevel < getUserIntData ("stageCount"); respawnLevel++)
 				{
 					stageByLevel = stageManager.FindRespawnByLevel(respawnLevel);
@@ -487,6 +486,12 @@ public class GameManager : MonoBehaviour
 		stageByLevel = stageManager.FindRespawnByLevel(level);
 		stageByLevel.addStageList(attack);
 		attack.transform.parent = stageByLevel.StartTrs;
+	}
+	public void RemoveAttackerByLevel(GameObject attack, int level)
+	{
+		StageController stageByLevel = null;
+		stageByLevel = stageManager.FindRespawnByLevel (level);
+		stageByLevel.removeStageList (attack);
 	}
 
 	public GameObject GetObjectByName(string OBJName)
@@ -608,7 +613,7 @@ public class GameManager : MonoBehaviour
 		if (objName.Equals ("Stair")) {
 			GDB.getLevelDB.LevelUpStairData (stairLevel);
 		}
-		else if (!_CSV.isLevelMax(objName))
+		else if (objName.Equals("Monster")|| objName.Equals("Trap") || !_CSV.isLevelMax(objName))
 		{
 			GDB.getLevelDB.LevelUpData(objName);
 		}

@@ -30,6 +30,11 @@ public class UserDataBase : FileDataInterface
 
 		public int aliasEnemyCreateCount;
 
+		public bool DeathSkillOpen;
+		public bool LegendSkillOpen;
+		public bool DarkSkillOpen;
+
+
 
 		public bool isNoneData()
 		{
@@ -47,6 +52,9 @@ public class UserDataBase : FileDataInterface
 			this.player_game_Count = data.player_game_Count;
 			this.player_die_Count = data.player_die_Count;
 			this.enemy_kill_Count = data.enemy_kill_Count;
+			this.DeathSkillOpen = DeathSkillOpen;
+			this.LegendSkillOpen = LegendSkillOpen;
+			this.DarkSkillOpen = DarkSkillOpen;
 		}
 
 		public override string ToString ()
@@ -98,6 +106,7 @@ public class UserDataBase : FileDataInterface
 		data_struct.player_game_Count = 0;
 		data_struct.player_die_Count = 0;
 		data_struct.total_time = 0.0f;
+		data_struct.LegendSkillOpen = data_struct.DarkSkillOpen = data_struct.DeathSkillOpen = false;
 
 		Debug.Log(this.GetType() + "// Created user PlayerName : " + playerName + "_ PlayerSpriteName : " + playerSpriteName);
 
@@ -141,6 +150,21 @@ public class UserDataBase : FileDataInterface
     {
         data_struct.top_stageCount = stage;
     }
+
+	public void PlayerSkillBuy(char s_name)
+	{
+		switch (s_name) {
+		case 'l':
+			data_struct.LegendSkillOpen = true;
+			break;
+		case 'd':data_struct.DarkSkillOpen = true;
+			break;
+		case 'D':
+			data_struct.DeathSkillOpen = true;
+			break;
+
+		}
+	}
 
 	public void StageUpdate(bool isUp)
 	{
@@ -296,7 +320,22 @@ public class UserDataBase : FileDataInterface
 		return returnValue;
 	}
 
-
+	public bool isSkillOpen(char s_name)
+	{
+		bool returnValue = false;
+		switch (s_name) {
+		case 'l':
+			returnValue =  data_struct.LegendSkillOpen;
+			break;
+		case 'd':
+			returnValue = data_struct.DarkSkillOpen;
+			break;
+		case 'D':
+			returnValue = data_struct.DeathSkillOpen;
+			break;
+		}
+		return returnValue;
+	}
 	#endregion
 
 

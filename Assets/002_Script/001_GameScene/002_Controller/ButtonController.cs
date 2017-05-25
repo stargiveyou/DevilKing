@@ -88,15 +88,22 @@ public class ButtonController : MonoBehaviour
 
     void SKillLockProcess()
     {
-        int skillLockLevel = PlayerPrefs.GetInt("SkillLock", 000);
-
+        
+		UserDataBase UDB = GameDataBase.getDBinstance.getUserDB;
         GameObject dark_lock_button = transform.FindChild("Dark").FindChild("Locked").gameObject;
         GameObject death_lock_button = transform.FindChild("Death").FindChild("Locked").gameObject;
         GameObject legend_lock_button = transform.FindChild("Legend").FindChild("Locked").gameObject;
-
+		/*
+		int skillLockLevel = PlayerPrefs.GetInt("SkillLock", 000);
         dark_lock_button.SetActive((skillLockLevel % 10 == 0));
         death_lock_button.SetActive((skillLockLevel / 10) % 10 == 0);
         legend_lock_button.SetActive(skillLockLevel / 100 == 0);    
+        */
+
+		dark_lock_button.SetActive (!UDB.isSkillOpen ('d'));
+		death_lock_button.SetActive (!UDB.isSkillOpen ('D'));
+		legend_lock_button.SetActive (!UDB.isSkillOpen ('l'));
+
     }
     
     void SkillButtonProcess(GameObject go)

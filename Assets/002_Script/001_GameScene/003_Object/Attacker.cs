@@ -73,7 +73,7 @@ public class Attacker : MonoBehaviour
     }
 
     private Vector3 swordAttackPos = new Vector3(-50f, 0, 0);
-    private Vector3 swordAttackSize = new Vector3(230f, 50, 100);
+    private Vector3 swordAttackSize = new Vector3(265f, 50, 100);
 
     private Vector3 archeryAttackPos = new Vector3(-185, 0, 0);
     private Vector3 archeryAttackSize = new Vector3(600, 100, 100);
@@ -121,9 +121,6 @@ public class Attacker : MonoBehaviour
 
         AttackSprite.spriteName = gameObject.name;
         
-
-
-
         /*
         if (gameObject.tag.Equals("SuperEnemy"))
         {
@@ -402,7 +399,7 @@ public class Attacker : MonoBehaviour
         if (isAttackable)
         {
             isAttackable = false;
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(0.5f);
             yield return StartCoroutine("StartSpriteAnimation");
             yield return new WaitForSeconds(1.0f);
             isAttackable = true;
@@ -413,6 +410,7 @@ public class Attacker : MonoBehaviour
     IEnumerator StartSpriteAnimation()
     {
         int mIndex = 0;
+		float attackFrame = 1/30;
         if (attackSpriteNameLists.Count == 0)
         {
             if (moveSpriteNameLists.Count == 0)
@@ -428,7 +426,7 @@ public class Attacker : MonoBehaviour
 
         for (mIndex = 0; mIndex < attackSpriteNameLists.Count; mIndex++)
         {
-            yield return new WaitForEndOfFrame();
+			yield return new WaitForFixedUpdate ();
             thisSprite.spriteName = attackSpriteNameLists[mIndex];
             thisSprite.MakePixelPerfect();
             if (mIndex == attackSpriteNameLists.Count / 2)
@@ -542,13 +540,14 @@ public class Attacker : MonoBehaviour
             {
                 Controller.SendMessage("FeverMode", enemy_level);
             }
-
+			GM.RemoveAttackerByLevel (this.gameObject, currentStair);
             Controller.DeleteListByObject(this.gameObject);
 
-            gameObject.SetActive(false);
-            hpBar.value = 1.0f;
-            initHp = hp = 3;
+			gameObject.SetActive(false);
+			hpBar.value = 1.0f;
+			initHp = hp = 3;
 
+			Destroy (this.gameObject);
         }
         else if (hp >= initHp)
         {

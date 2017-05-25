@@ -45,8 +45,7 @@ public class PlayerCharacter : MonoBehaviour
 		{
 			if (!isBossMonster)
 			{
-                //int monster_level = GM.LoadLevelData(this.gameObject.name) - 1;
-                int monster_level = 0;
+                int monster_level = GM.LoadLevelData(this.gameObject.name) - 1;
                 string monster_name = GM.getMonsterName(this.gameObject.name, monster_level, true);
 				RebuildList("attack_" + monster_name + "_");
 			}
@@ -138,6 +137,7 @@ public class PlayerCharacter : MonoBehaviour
 			else
 			{
 				characterName.text = this.gameObject.name;
+				Debug.Log ("character name : " + characterName + "/" + AliasPos);
 				StageCntl.OccupyPos(AliasPos-1, c_size);
 			}
 		}  
