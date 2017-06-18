@@ -137,8 +137,8 @@ public class PlayerCharacter : MonoBehaviour
 			else
 			{
 				characterName.text = this.gameObject.name;
-				Debug.Log ("character name : " + characterName + "/" + AliasPos);
-				StageCntl.OccupyPos(AliasPos-1, c_size);
+				StageCntl.OccupyPos(AliasPos, c_size);
+
 			}
 		}  
 	}

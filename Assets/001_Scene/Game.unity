@@ -30357,6 +30357,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11404146, guid: 6943845030aa22d4697539fa8f578b24, type: 2}
+      propertyPath: mSpriteName
+      value: SwordKnight_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404146, guid: 6943845030aa22d4697539fa8f578b24, type: 2}
+      propertyPath: mWidth
+      value: 284
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404146, guid: 6943845030aa22d4697539fa8f578b24, type: 2}
+      propertyPath: aspectRatio
+      value: 1.0364964
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404146, guid: 6943845030aa22d4697539fa8f578b24, type: 2}
+      propertyPath: mHeight
+      value: 274
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6943845030aa22d4697539fa8f578b24, type: 2}
   m_IsPrefabParent: 0

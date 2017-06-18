@@ -133,8 +133,8 @@ public class AttackerController : MonoBehaviour
                     break;
             }
         }
-        //yield return new WaitForSeconds(e_respawn_time);
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(e_respawn_time);
+        
         StartCoroutine("StartRespawn");
     }
     
@@ -146,6 +146,7 @@ public class AttackerController : MonoBehaviour
 
         int rand_Enemy = Random.Range(0, Attackers_name.Length);
 		string create_enemy_sprite_name = Attackers_name[rand_Enemy];
+		//string create_enemy_sprite_name = "SwordKnight";
        
         GameObject AttackCharacter = Instantiate(Empty_Attacker) as GameObject;
         Attacker AttackerCtrl = AttackCharacter.GetComponent<Attacker>();

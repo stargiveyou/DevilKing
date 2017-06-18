@@ -35,12 +35,16 @@ public class StageManager : MonoBehaviour
 		int length = StageGrid.transform.childCount;
 		//int stairLevel = PlayerPrefs.GetInt("TopStage", 1);
 		int stairLevel = GM.getUserIntData ("stageCount");
+
+		//opendedStage = GM.getUserIntData ("stageCount");
+
 		Debug.Log ("Stair Level level : " + stairLevel);
 		for (int i = 0; i < length; i++)
 		{
 			GameObject _Stage = StageGrid.transform.GetChild(i).gameObject;
 			_Stage.name = "Stage_" + i;
 			stageCtrl = _Stage.GetComponent<StageController>();
+			Debug.Log (stageCtrl.name + "//" + stageCtrl.Bottom.transform.localPosition);
 			stageCtrl.StairNumber = i;
 			stageCtrl.SendMessage("TrapCountDisplay", stairLevel, SendMessageOptions.DontRequireReceiver);
 			stageCtrlList.Add(stageCtrl);
@@ -56,12 +60,8 @@ public class StageManager : MonoBehaviour
 
     void CreateUpStair()
     {
+		
         CreateBossMonsterByLevel(opendedStage);
-        //Save
-        /*
-        char[] stageCurrentData = PlayerPrefs.GetString("castleLevel", TempStaticMemory.initStageLevel).ToCharArray();
-        stageCurrentData[opendedStage] = '3';
-		*/
 		GM.LevelReplaceData (opendedStage, 3);
 
 		if (opendedStage < 9)
@@ -206,29 +206,39 @@ public class StageManager : MonoBehaviour
             NamedMonster.name = GM.getContext("BossMonster", level);
 
             NamedMonster.transform.parent = stageCtrlList[level].MonsterPos;
-            NamedMonster.transform.SetAsFirstSibling();
+			NamedMonster.transform.SetAsFirstSibling();
             
             stageCtrlList[level].setStageBossmonster();
             int characterSize = GM.getCharacterSize(NamedMonster.name);
-
-            for (int i = 9; i >= 10 - characterSize; i--)
+            for (int i = 10; i >= 10 - characterSize; i--)
             {
+
                 if (stageCtrlList[level].isOccupyPos(i))
                 {
-                    stageCtrlList[level].NonOccupyPos(i, characterSize);
+					//stageCtrlList[level].NonOccupyPos(i, characterSize);
                     moveObjectTrs = stageCtrlList[level].Bottom.transform.GetChild(i).GetChild(0);
-                    moveObjectTrs.parent = stageCtrlList[level + 1].Bottom.transform.GetChild(i);
-                    moveObjectTrs.SetAsFirstSibling();
-                    objectControl = moveObjectTrs.GetComponent<PlayerCharacter>();
+					objectControl = moveObjectTrs.GetComponent<PlayerCharacter>();
 
-					if (objectControl != null) {
-						objectControl.StageCntl = stageCtrlList[level + 1];
-						objectControl.SendMessage("CharacterStatus", moveObjectTrs.name, SendMessageOptions.DontRequireReceiver);
+					if (objectControl != null &&objectControl.isBossMonster) {
+						moveObjectTrs = stageCtrlList [level].Bottom.transform.GetChild (i).GetChild (1);
+						objectControl = moveObjectTrs.GetComponent<PlayerCharacter> ();
 					}
-                    if (moveObjectTrs != null)
-                    {
-                        Debug.Log("Move");
-                    }
+					if (moveObjectTrs != null)
+					{						
+						Debug.Log("Move  " + moveObjectTrs.name);
+					}
+
+					if (objectControl != null ) {
+
+
+						Debug.Log ("Occupy && Move");
+
+						moveObjectTrs.parent = stageCtrlList[level + 1].Bottom.transform.GetChild(i);
+						moveObjectTrs.SetAsFirstSibling();
+						objectControl.StageCntl = stageCtrlList[level + 1];
+						//objectControl.SendMessage("CharacterStatus", moveObjectTrs.name, SendMessageOptions.DontRequireReceiver);
+						objectControl.CharacterStatus();
+					}
                 }
             }
 

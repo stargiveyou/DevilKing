@@ -72,7 +72,7 @@ public class Attacker : MonoBehaviour
 		StartCoroutine ("EnemySaveCoroutine");
     }
 
-    private Vector3 swordAttackPos = new Vector3(-50f, 0, 0);
+    private Vector3 swordAttackPos = new Vector3(-80f, 0, 0);
     private Vector3 swordAttackSize = new Vector3(265f, 50, 100);
 
     private Vector3 archeryAttackPos = new Vector3(-185, 0, 0);
@@ -350,11 +350,10 @@ public class Attacker : MonoBehaviour
 
 		if(hit_tag.Equals("Enemy") || hit_tag.Equals("SuperEnemy"))
 		{
-		//	StopCoroutine("MoveSpriteAnimation");
 			Attacker otherAttacker = hit.transform.parent.GetComponent<Attacker> ();
-			//Debug.Log ("??"+otherAttacker.name + "/"+stat_name.ToString()+"/"+otherAttacker.getStatName);
+
 			if (stat_name.Equals("Archer") && !otherAttacker.getStatName.Equals ("Archer") && !isEnemyFace) {
-//				Debug.Log ("Must Be Stop");
+
 				isEnemyFace = true;
 				StopCoroutine("MoveSpriteAnimation");
 				StartCoroutine("AttackProcess");
@@ -431,9 +430,9 @@ public class Attacker : MonoBehaviour
             thisSprite.MakePixelPerfect();
             if (mIndex == attackSpriteNameLists.Count / 2)
             {
+				Debug.Log ("Attack Active");
                 Attackobj.SetActive(true);
-
-                yield return new WaitForEndOfFrame();
+				yield return new WaitForFixedUpdate ();
                 Attackobj.SetActive(false);
             }
         }

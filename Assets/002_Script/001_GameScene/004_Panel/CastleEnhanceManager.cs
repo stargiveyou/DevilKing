@@ -165,10 +165,8 @@ public class CastleEnhanceManager : MonoBehaviour
 						GM.sendTrophyCondition ("Comeplete", 0);
 					}
 				}
-
 				GameDataBase.getDBinstance.SaveFile ();
                 TempStaticMemory.gold -= price;
-
             }
             else
             {
