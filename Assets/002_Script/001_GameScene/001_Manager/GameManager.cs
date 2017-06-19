@@ -203,8 +203,7 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator AutoSave()
 	{
-		TempStaticMemory.gold += 5000;
-
+		//TempStaticMemory.gold += 5000;
 		PlayerPrefs.SetInt("gold", TempStaticMemory.gold);
 
 //		GDB.getUserDB.GoldUpdate(TempStaticMemory.gold);

@@ -348,12 +348,14 @@ public class UserDataBase : FileDataInterface
 		}
 		catch(Exception e)
 		{
+            #if EditorDebug
 			Debug.Log(e.StackTrace);
+            #endif
 		}
 		finally{
-			#if UNITY_EDITOR
+            #if EditorDebug
 			Debug.Log("Save Data Binary File");
-			#endif
+            #endif
 		}
 	}
 
