@@ -3,6 +3,9 @@
 (0.0.3 : LevelData Version)
 Unity 5.3.5f1
 
+0.1.0 : 0.0.2 TrophyData  0.0.3 Level Data Merge
+        디버깅 시작 -> SwordKnight 공격 이미지 
+
 0.0.3.1 : LevelDataBase의 Castle(=Stair)레벨 데이터 저장 및 로드
            PlayerPrefs로 저장데이터에서 파일데이터로 변경 완료
            초기화 시 게임 테스트 (완)
